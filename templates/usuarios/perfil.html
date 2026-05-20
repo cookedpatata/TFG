@@ -1,0 +1,383 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/perfil.css' %}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ===================================== -->
+<!-- NAVBAR -->
+<!-- ===================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-trophy"></i>
+
+        <span>HippoTrack</span>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="{% url 'index' %}">
+                Carreras
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Caballos
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Jinetes
+            </a>
+        </li>
+
+        <li>
+
+            <a href="{% url 'perfil' %}">
+
+                <i class="fa-regular fa-user"></i>
+
+                Perfil
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'logout' %}">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Salir
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- ===================================== -->
+<!-- CONTENIDO -->
+<!-- ===================================== -->
+
+<div class="contenedor">
+
+    <!-- ================================= -->
+    <!-- TITULO -->
+    <!-- ================================= -->
+
+    <div class="titulo">
+
+        <i class="fa-solid fa-user"></i>
+
+        <h1>
+
+            Perfil de {{ request.user.username }}
+
+        </h1>
+
+    </div>
+
+    <!-- ================================= -->
+    <!-- ESTADISTICAS -->
+    <!-- ================================= -->
+
+    <div class="estadisticas">
+
+        <!-- SALDO -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <div>
+
+                <p>Saldo Actual</p>
+
+                <h2>
+
+                    {{ perfil_usuario.saldo }} €
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <!-- TOTAL APOSTADO -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon azul">
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+            </div>
+
+            <div>
+
+                <p>Total Apostado</p>
+
+                <h2 class="azul-texto">
+
+                    {{ total_apostado }} €
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <!-- APUESTAS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon verde">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <div>
+
+                <p>Total Apuestas</p>
+
+                <h2 class="verde-texto">
+
+                    {{ apuestas|length }}
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <!-- VICTORIAS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon rojo">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+            <div>
+
+                <p>Apuestas Ganadas</p>
+
+                <h2 class="rojo-texto">
+
+                    {{ victorias }}
+
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================================= -->
+    <!-- PERFIL -->
+    <!-- ================================= -->
+
+    <div class="panel perfil-panel">
+
+        <h2>
+
+            Información Personal
+
+        </h2>
+
+        <div class="datos-perfil">
+
+            <div class="dato">
+
+                <span>Usuario</span>
+
+                <strong>
+
+                    {{ request.user.username }}
+
+                </strong>
+
+            </div>
+
+            <div class="dato">
+
+                <span>Correo</span>
+
+                <strong>
+
+                    {{ request.user.email }}
+
+                </strong>
+
+            </div>
+
+            <div class="dato">
+
+                <span>Apellidos</span>
+
+                <strong>
+
+                    {{ perfil_usuario.apellidos }}
+
+                </strong>
+
+            </div>
+
+            <div class="dato">
+
+                <span>DNI</span>
+
+                <strong>
+
+                    {{ perfil_usuario.dni }}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================================= -->
+    <!-- HISTORIAL -->
+    <!-- ================================= -->
+
+    <div class="panel">
+
+        <div class="titulo-apuestas">
+
+            <i class="fa-solid fa-money-check-dollar"></i>
+
+            <h2>
+
+                Historial de Apuestas
+
+            </h2>
+
+        </div>
+
+        <div class="lista-apuestas">
+
+            {% for apuesta in apuestas %}
+
+            <div class="card-apuesta">
+
+                <!-- IZQUIERDA -->
+
+                <div class="apuesta-info">
+
+                    <div class="estado-icono">
+
+                        <i class="fa-solid fa-horse"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+
+                            {{ apuesta.participante.carrera.nombre }}
+
+                        </h2>
+
+                        <p>
+
+                            <strong>Caballo:</strong>
+
+                            {{ apuesta.participante.caballo.nombre }}
+
+                        </p>
+
+                        <p>
+
+                            <strong>Tipo:</strong>
+
+                            {{ apuesta.tipo_apuesta.nombre }}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- DERECHA -->
+
+                <div class="apuesta-dinero">
+
+                    <div>
+
+                        <p>Cantidad</p>
+
+                        <h3>
+
+                            {{ apuesta.cantidad }} €
+
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="card-apuesta">
+
+                <h2>
+
+                    No hay apuestas registradas
+
+                </h2>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

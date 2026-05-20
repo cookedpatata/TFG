@@ -1,0 +1,372 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HippoTrack</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/index.css' %}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-trophy"></i>
+
+        <span>HippoTrack</span>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#">
+                Carreras
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Caballos
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Jinetes
+            </a>
+        </li>
+
+        {% if request.user.is_authenticated %}
+
+        <li>
+
+            <a href="{% url 'perfil' %}">
+
+                <i class="fa-regular fa-user"></i>
+
+                Perfil
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'logout' %}">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Salir
+
+            </a>
+
+        </li>
+
+        {% else %}
+
+        <li>
+
+            <a href="{% url 'login' %}">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                Login
+
+            </a>
+
+        </li>
+
+        {% endif %}
+
+    </ul>
+
+</nav>
+
+<div class="contenedor">
+
+    <section class="izquierda">
+
+        <div class="panel">
+
+            <h1>
+
+                <i class="fa-regular fa-calendar"></i>
+
+                Próximas Carreras
+
+            </h1>
+
+            <div class="lista-carreras">
+
+                {% for carrera in carreras %}
+
+                <div class="card-carrera">
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <h2>
+
+                                {{ carrera.nombre }}
+
+                            </h2>
+
+                            <div class="info">
+
+                                <span>
+
+                                    <i class="fa-regular fa-calendar"></i>
+
+                                    {{ carrera.fecha }}
+
+                                </span>
+
+                                <span>
+
+                                    <i class="fa-regular fa-clock"></i>
+
+                                    {{ carrera.hora }}
+
+                                </span>
+
+                            </div>
+
+                            <div class="info">
+
+                                <span>
+
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    {{ carrera.id_hipodromo.nombre }}
+
+                                </span>
+
+                            </div>
+
+                            <div class="info-secundaria">
+
+                                <span>
+
+                                    {{ carrera.categoria }}
+
+                                </span>
+
+                                <span>
+
+                                    {{ carrera.tipo }}
+
+                                </span>
+
+                                <span>
+
+                                    {{ carrera.distancia }}m
+
+                                </span>
+
+                                <span>
+
+                                    {{ carrera.num_participantes }}
+                                    participantes
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <a href="{% url 'detalle_carrera' carrera.id_carrera %}"
+                       class="btn-apostar">
+
+                        Apostar
+
+                    </a>
+
+                </div>
+
+                {% empty %}
+
+                <div class="card-carrera">
+
+                    <h2>No hay carreras disponibles</h2>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <aside class="derecha">
+
+        <div class="ranking-card">
+
+            <h2>
+
+                <i class="fa-solid fa-crown"></i>
+
+                Top Usuarios
+
+            </h2>
+
+            {% for usuario in top_usuarios %}
+
+            <div class="ranking-item">
+
+                <div class="usuario-info">
+
+                    <div class="avatar">
+
+                        {{ usuario.iniciales }}
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+
+                            {{ usuario.nombre }}
+
+                        </h3>
+
+                        <p>
+
+                            {{ usuario.victorias }}
+                            apuestas
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="cantidad">
+
+                    {{ usuario.ganancias }} €
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="ranking-card">
+
+            <h2>
+
+                <i class="fa-solid fa-horse"></i>
+
+                Top Caballos
+
+            </h2>
+
+            {% for caballo in top_caballos %}
+
+            <div class="ranking-simple">
+
+                <div>
+
+                    <h3>
+
+                        #{{ forloop.counter }}
+
+                        {{ caballo.nombre }}
+
+                    </h3>
+
+                    <p>
+
+                        {{ caballo.victorias }}/{{ caballo.carreras }}
+                        victorias
+
+                    </p>
+
+                </div>
+
+                <span>
+
+                    {{ caballo.porcentaje }}%
+
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="ranking-card">
+
+            <h2>
+
+                <i class="fa-solid fa-medal"></i>
+
+                Top Jinetes
+
+            </h2>
+
+            {% for jinete in top_jinetes %}
+
+            <div class="ranking-simple">
+
+                <div>
+
+                    <h3>
+
+                        #{{ forloop.counter }}
+
+                        {{ jinete.nombre }}
+
+                    </h3>
+
+                    <p>
+
+                        {{ jinete.victorias }}
+                        victorias
+
+                    </p>
+
+                </div>
+
+                <span>
+
+                    {{ jinete.efectividad }}%
+
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </aside>
+
+</div>
+
+</body>
+
+</html>

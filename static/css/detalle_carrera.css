@@ -1,0 +1,180 @@
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#f3f4f6;
+
+    color:#111827;
+}
+
+.container{
+
+    width:95%;
+
+    margin:40px auto;
+}
+
+.header,
+.participantes,
+.stat-box{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.header{
+
+    margin-bottom:30px;
+}
+
+.header h1{
+
+    font-size:50px;
+
+    margin-bottom:30px;
+
+    color:#047857;
+}
+
+.datos{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+}
+
+.datos p{
+
+    background:#f9fafb;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    border:1px solid #e5e7eb;
+}
+
+.stats{
+
+    margin-bottom:30px;
+}
+
+.stat-box{
+
+    display:inline-block;
+}
+
+.stat-box h3{
+
+    margin-bottom:10px;
+
+    color:#6b7280;
+}
+
+.stat-box span{
+
+    font-size:40px;
+
+    color:#059669;
+
+    font-weight:bold;
+}
+
+.participantes table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+.participantes th{
+
+    background:#047857;
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+}
+
+.participantes td{
+
+    padding:18px;
+
+    border-bottom:1px solid #e5e7eb;
+}
+
+.participantes tr:hover{
+
+    background:#f9fafb;
+}
+
+input,
+select{
+
+    height:45px;
+
+    border-radius:10px;
+
+    border:1px solid #d1d5db;
+
+    padding:0 15px;
+
+    margin-right:10px;
+}
+
+button{
+
+    height:45px;
+
+    border:none;
+
+    background:#047857;
+
+    color:white;
+
+    padding:0 20px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    background:#065f46;
+}
+
+@media(max-width:900px){
+
+    .datos{
+
+        grid-template-columns:1fr;
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+    }
+}

@@ -1,0 +1,55 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Panel Carreras</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/admin_carreras.css' %}">
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <h1>Panel de Carreras</h1>
+
+    <div class="grid">
+
+        {% for carrera in carreras %}
+
+        <div class="card">
+
+            <h2>{{ carrera.nombre }}</h2>
+
+            <p>{{ carrera.fecha }} - {{ carrera.hora }}</p>
+
+            <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+
+            <a href="{% url 'finalizar_carrera' carrera.id_carrera %}">
+                Finalizar Carrera
+            </a>
+
+            <a href="{% url 'resultado_aleatorio' carrera.id_carrera %}">
+                Resultado Aleatorio
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

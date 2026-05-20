@@ -1,0 +1,3857 @@
+{
+    "hipodromos": [
+        {
+            "nombre": "Hipódromo de San Sebastián",
+            "direccion": "San Sebastián"
+        },
+        {
+            "nombre": "Hipódromo de la Zarzuela",
+            "direccion": "Madrid"
+        }
+    ],
+    "pistas": [],
+    "estado_pista": [],
+    "carreras": [
+        {
+            "id_carrera": 1,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/16-04/_IqQzNPbID9iDeySwjJMhudBPsbZjR25yK1Du_LQTM0ESAXrCnFJdqXRgxTsqDErw0FpmgXNKbyk",
+            "nombre": "Andatza Taberna",
+            "fecha": "16-04",
+            "hora": "11:05",
+            "distancia": "1400m",
+            "tipo": "Condición",
+            "categoria": "D",
+            "orden": 1,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 2,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/16-04/_IqQzNPbID9iDeySwjJMhudBPsbZjR25yfaJnFSKLkJk71NGQkriIAEkQb5rcf9NaqWd3HW1Pd8c",
+            "nombre": "Aitonak Okindegia",
+            "fecha": "16-04",
+            "hora": "11:35",
+            "distancia": "1600m",
+            "tipo": "Condición",
+            "categoria": "D",
+            "orden": 2,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 3,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/16-04/_IqQzNPbID9iDeySwjJMhudBPsbZjR25ynnYMO6x-sdQMc1ut2S3BlDRI1b1FU1t-LwarlI6nAIw",
+            "nombre": "Ventanas Alcar",
+            "fecha": "16-04",
+            "hora": "12:07",
+            "distancia": "1400m",
+            "tipo": "Venta",
+            "categoria": "D",
+            "orden": 3,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 4,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/16-04/_IqQzNPbID9iDeySwjJMhudBPsbZjR25yqYhmy0lpURfdvW8Sq1KkyX4NjLN9CIjQa-Ik2KIMD_0",
+            "nombre": "Bar Patricio",
+            "fecha": "16-04",
+            "hora": "12:39",
+            "distancia": "2200m",
+            "tipo": "Handicap Dividido",
+            "categoria": "D",
+            "orden": 4,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 5,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/16-04/_IqQzNPbID9iDeySwjJMhudBPsbZjR25y_rJqD7NQQgLc0VRfylTS3pHjiyUBo6X3Gcoxl3cmFqQ",
+            "nombre": "Clínica Dental Aldaz - Aldaz Hortz Klinika",
+            "fecha": "16-04",
+            "hora": "13:11",
+            "distancia": "2200m",
+            "tipo": "Handicap Dividido",
+            "categoria": "D",
+            "orden": 5,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 6,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/22-04/_IqQzNPbID9iDeySwjJMhudgIzR2XaLwJVZbmyykW5fTIFcZG3oDyYXHPUhmM6wrDaGgmzDKDics",
+            "nombre": "Arkupe Taberna",
+            "fecha": "22-04",
+            "hora": "10:55",
+            "distancia": "2200m",
+            "tipo": "Condición",
+            "categoria": "D",
+            "orden": 6,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 7,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/22-04/_IqQzNPbID9iDeySwjJMhudgIzR2XaLwJXcniKYqgEWID4qoLWhtAvdk2zOf7DWGIbdXuq0892cY",
+            "nombre": "Namie Sushi",
+            "fecha": "22-04",
+            "hora": "11:25",
+            "distancia": "2000m",
+            "tipo": "",
+            "categoria": "D",
+            "orden": 7,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 8,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/22-04/_IqQzNPbID9iDeySwjJMhudgIzR2XaLwJr8r5xSHZVwVohrFu2HJpBxKt9m5X_AOTgljhHtXSESg",
+            "nombre": "Electricidad Arregui",
+            "fecha": "22-04",
+            "hora": "12:00",
+            "distancia": "1600m",
+            "tipo": "Handicap Dividido",
+            "categoria": "D",
+            "orden": 8,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 9,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/22-04/_IqQzNPbID9iDeySwjJMhudgIzR2XaLwJ0RZk9s_UephbcDg8zCwthcgp_GmkbjneLSuMs1uhDyU",
+            "nombre": "Ormazabal Loradenda",
+            "fecha": "22-04",
+            "hora": "12:35",
+            "distancia": "1600m",
+            "tipo": "Handicap Dividido",
+            "categoria": "D",
+            "orden": 9,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 10,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/22-04/_IqQzNPbID9iDeySwjJMhudgIzR2XaLwJlSN364ArGVFL2Tu2z25gKphTAQJ-HkjIQrSFd1q869k",
+            "nombre": "Lasarte-Oria Orain - Isaac Farré Fotógrafo",
+            "fecha": "22-04",
+            "hora": "13:10",
+            "distancia": "1600m",
+            "tipo": "Handicap Dividido",
+            "categoria": "D",
+            "orden": 10,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 11,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/29-04/_IqQzNPbID9iDeySwjJMhuYiylhnXY7FH7VhCpQMysvxbJlBt6Y5RXqXyEPHIuMPr2ygtgpwbyQM",
+            "nombre": "Arima Gastrotaberna",
+            "fecha": "29-04",
+            "hora": "11:05",
+            "distancia": "1600m",
+            "tipo": "",
+            "categoria": "D",
+            "orden": 11,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 12,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/29-04/_IqQzNPbID9iDeySwjJMhuYiylhnXY7FHTu2TmuDLkwywvMgWAGrAvdPgDxi0yVB6mgdsJ1nYXfE",
+            "nombre": "Restaurente Herriko Etxea",
+            "fecha": "29-04",
+            "hora": "11:35",
+            "distancia": "1200m",
+            "tipo": "Handicap",
+            "categoria": "D",
+            "orden": 12,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 13,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/29-04/_IqQzNPbID9iDeySwjJMhuYiylhnXY7FHn1U_rJeRwxnxsDWA-AuvMhkiBA7hz02nV6gSOpwjMaI",
+            "nombre": "Café Bar Buenetxea",
+            "fecha": "29-04",
+            "hora": "12:07",
+            "distancia": "2200m",
+            "tipo": "Condición",
+            "categoria": "D",
+            "orden": 13,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 14,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/29-04/_IqQzNPbID9iDeySwjJMhuYiylhnXY7FHEYYVJ7jNb11QeydfpILKIaxO0LYYAtO95xKHmf0lWFI",
+            "nombre": "Monkey Park",
+            "fecha": "29-04",
+            "hora": "12:39",
+            "distancia": "2000m",
+            "tipo": "Handicap Dividido",
+            "categoria": "D",
+            "orden": 14,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 15,
+            "enlace": "https://www.hipodromoa.com/temporada/reunion/29-04/_IqQzNPbID9iDeySwjJMhuYiylhnXY7FHLYyEDIvUOyqPG3HPp51ywk_uUh1mJ7Ug0dWLXYAvqf0",
+            "nombre": "Administración de Fincas Milla",
+            "fecha": "29-04",
+            "hora": "13:11",
+            "distancia": "2000m",
+            "tipo": "Handicap Dividido",
+            "categoria": "D",
+            "orden": 15,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 16,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52400/20260402",
+            "nombre": "PREMIO RAFAEL MARTÍNEZ",
+            "fecha": "2026-04-02",
+            "hora": "12:00",
+            "distancia": "1.500",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 16,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 17,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52404/20260402",
+            "nombre": "PREMIO CRÍA NACIONAL - PUNTERO",
+            "fecha": "2026-04-02",
+            "hora": "12:35",
+            "distancia": "2.000",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 17,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 18,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52401/20260402",
+            "nombre": "PREMIO FAMILIA BARDERAS",
+            "fecha": "2026-04-02",
+            "hora": "13:10",
+            "distancia": "1.200",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 18,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 19,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52402/20260402",
+            "nombre": "PREMIO TRIBUNA NORTE",
+            "fecha": "2026-04-02",
+            "hora": "13:45",
+            "distancia": "1.600",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 19,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 20,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52403/20260402",
+            "nombre": "PREMIO ATLÁNTIDA",
+            "fecha": "2026-04-02",
+            "hora": "14:20",
+            "distancia": "1.400",
+            "tipo": "L",
+            "categoria": "B",
+            "orden": 20,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 21,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52409/20260405",
+            "nombre": "PREMIO TURANDOT II",
+            "fecha": "2026-04-05",
+            "hora": "12:00",
+            "distancia": "1.600",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 21,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 22,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52405/20260405",
+            "nombre": "PREMIO JESÚS MÉNDEZ",
+            "fecha": "2026-04-05",
+            "hora": "12:35",
+            "distancia": "2.100",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 22,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 23,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52406/20260405",
+            "nombre": "PREMIO INDIAN PRINCE",
+            "fecha": "2026-04-05",
+            "hora": "13:10",
+            "distancia": "2.800",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 23,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 24,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52408/20260405",
+            "nombre": "PREMIO HERMANOS BITTINI",
+            "fecha": "2026-04-05",
+            "hora": "13:45",
+            "distancia": "2.200",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 24,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 25,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52407/20260405",
+            "nombre": "PREMIO TORRE ARIAS",
+            "fecha": "2026-04-05",
+            "hora": "14:20",
+            "distancia": "1.400",
+            "tipo": "L",
+            "categoria": "B",
+            "orden": 25,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 26,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52413/20260412",
+            "nombre": "PREMIO LAS RIENDAS",
+            "fecha": "2026-04-12",
+            "hora": "12:00",
+            "distancia": "2.200",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 26,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 27,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52412/20260412",
+            "nombre": "PREMIO TRIBUNA SUR",
+            "fecha": "2026-04-12",
+            "hora": "12:35",
+            "distancia": "1.800",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 27,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 28,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52411/20260412",
+            "nombre": "PREMIO HERRADURA",
+            "fecha": "2026-04-12",
+            "hora": "13:10",
+            "distancia": "1.600",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 28,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 29,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52410/20260412",
+            "nombre": "PREMIO CURVA DE EL PARDO",
+            "fecha": "2026-04-12",
+            "hora": "13:45",
+            "distancia": "2.200",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 29,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 30,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52414/20260412",
+            "nombre": "GRAN PREMIO DUQUE DA ALBURQUERQUE",
+            "fecha": "2026-04-12",
+            "hora": "14:20",
+            "distancia": "2.000",
+            "tipo": "L",
+            "categoria": "A",
+            "orden": 30,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 31,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52417/20260419",
+            "nombre": "PREMIO ERCOLINI",
+            "fecha": "2026-04-19",
+            "hora": "12:00",
+            "distancia": "2.000",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 31,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 32,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52418/20260419",
+            "nombre": "PREMIO ANDRÉS COVARRUBIAS",
+            "fecha": "2026-04-19",
+            "hora": "12:35",
+            "distancia": "1.400",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 32,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 33,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52416/20260419",
+            "nombre": "PREMIO LUIS MANSO ROCCA",
+            "fecha": "2026-04-19",
+            "hora": "13:10",
+            "distancia": "1.500",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 33,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 34,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52415/20260419",
+            "nombre": "PREMIO AGUSTÍN BARBÓN",
+            "fecha": "2026-04-19",
+            "hora": "13:45",
+            "distancia": "1.500",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 34,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 35,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52419/20260419",
+            "nombre": "PREMIO ARKAITZ",
+            "fecha": "2026-04-19",
+            "hora": "14:20",
+            "distancia": "1.800",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 35,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 36,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52420/20260426",
+            "nombre": "PREMIO REALEZA",
+            "fecha": "2026-04-26",
+            "hora": "12:00",
+            "distancia": "1.000",
+            "tipo": "L",
+            "categoria": "C",
+            "orden": 36,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 37,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52422/20260426",
+            "nombre": "PREMIO REVISTA CORTA CABEZA",
+            "fecha": "2026-04-26",
+            "hora": "12:35",
+            "distancia": "2.200",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 37,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 38,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52423/20260426",
+            "nombre": "PREMIO HIPÓDROMO DEL RETIRO",
+            "fecha": "2026-04-26",
+            "hora": "13:10",
+            "distancia": "1.400",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 38,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 39,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52421/20260426",
+            "nombre": "PREMIO OCTAVIANO Y GONZALO GRIÑÁN",
+            "fecha": "2026-04-26",
+            "hora": "13:45",
+            "distancia": "2.200",
+            "tipo": "L",
+            "categoria": "D",
+            "orden": 39,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        },
+        {
+            "id_carrera": 40,
+            "enlace": "https://www.hipodromodelazarzuela.es/carreras/carrera/52424/20260426",
+            "nombre": "GRAN PREMIO VALDERAS",
+            "fecha": "2026-04-26",
+            "hora": "14:20",
+            "distancia": "1.600",
+            "tipo": "L",
+            "categoria": "A",
+            "orden": 40,
+            "estado": "Finalizada",
+            "hipodromo": "Hipódromo de la Zarzuela",
+            "pista": "",
+            "estado_pista": ""
+        }
+    ],
+    "entrenadores": [
+        {
+            "nombre": "A. Soto",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "O. Anaya",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "A. Sánchez M.",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "G. Arizkorreta",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "H. Pereira",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "D. López F.",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J.C. Rosell",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R. Maroto",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "M. Alonso R.",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "B. Valenti",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J.C. Cerqueira",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "D. Duarte",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "E. Puente",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "M. Pérez",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R. Avial S.",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "M. Delgado",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "V.H. Romea",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R. Costa",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R. Martín A.",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "I. Elarre",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "P. Alves",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "A. Imaz B.",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "Ch. Delcher",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "C. Buesa",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "D. Farlete",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R. Avial",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "D. Díez",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "F. Rodríguez",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J. López",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "A. Abreu",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "T. Martins",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J.P. Espinosa",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "M.A. Goicoechea",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "B. Rama",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "A. Tsereteli",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J. Calderón",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "M. Pulido",
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J. Jiménez",
+            "nacionalidad": ""
+        }
+    ],
+    "jinetes": [
+        {
+            "nombre": "I. Melgarejo",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R. Sousa",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R. Dubord",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "V. Janacek",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J. Gelabert",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "C. Pérez",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "D. Sikorová",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "B. Fayos",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "Sr. Sarabia, D. A.",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "A. Gutiérrez Val",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "N.M. Lopes",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "V. Alonso V.",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J. Zambudio",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "N. de Julián",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "E.A. Rodríguez",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "M. Foulon",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "D. Rodríguez",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "J. Gómez",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "R.N. Valle",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "A. Baeza",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "V.M. Valenzuela",
+            "peso": null,
+            "nacionalidad": ""
+        },
+        {
+            "nombre": "M. Lauron",
+            "peso": null,
+            "nacionalidad": ""
+        }
+    ],
+    "propietarios": [
+        {
+            "nombre": "C. Ezenel",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Díaz Sarmiento",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "Cuadra C y M",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "Yeguada Rocío",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Espectáculo",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Calejaña",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. San José",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Palco 7",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Río Cubas",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. GaloperX",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Ten Fe",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Mediterraneo",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Los Niños",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Mare Nostrum",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Reza Pazooki",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Zezinho",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Paulo Alves Junior",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. El Sable",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Los Meleneros",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Nossa Senhora do Vale",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Rober",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Enrique Fernández de Vega",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Olympus",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Costa La Vall",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Ponme Otra",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. La Bardena",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. A Granxa",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Rapier",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Nature Horse",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Bernie",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "Yeguada Naia Racing",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Mangueta",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Arco",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Liam Norris",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Isla de Fuerteventura",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Alvaro Mateos",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Bolak",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Galatea Racing",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Alegre",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Bravo Tango Zulu",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Arima",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Alex y Sofía",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Guimbra Horse Racing",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Bernardo",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. William Armitage",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Martul",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Forrajes y Cereales D. Diez",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "Cuadra A F F SL",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Los Piratas",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Alvela",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Caño Quebrado",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Piguinha",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Villar de la Yegua",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Endika Arcentales",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Stand Carmo",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "Yeguada Escalona",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Cometa",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Maljeva",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Lagunilla",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Los Muchachos",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Leonesa",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Pata Negra Racing",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "Yeguada Militar",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Kilometro 0",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Soñador",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Tiago Martins",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Zul",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Rebus",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Prodesol",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Lokotrans",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Troya",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Canarias",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Nanina",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Valdeosera",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. MP Racing",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Manuela",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Mafius",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Ciudad de Telde",
+            "nacionalidad": "",
+            "equipamiento": ""
+        },
+        {
+            "nombre": "C. Luisfer",
+            "nacionalidad": "",
+            "equipamiento": ""
+        }
+    ],
+    "caballos": [
+        {
+            "nombre": "Eclair Lane",
+            "nacionalidad": "IRE",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "C. Ezenel",
+            "entrenador": "A. Soto"
+        },
+        {
+            "nombre": "Stepinmydirection",
+            "nacionalidad": "IRE",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "C. Díaz Sarmiento",
+            "entrenador": "O. Anaya"
+        },
+        {
+            "nombre": "Voltereta",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "3",
+            "propietario": "Cuadra C y M",
+            "entrenador": "A. Sánchez M."
+        },
+        {
+            "nombre": "Contesa",
+            "nacionalidad": "IRE",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "Yeguada Rocío",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Sashay Away",
+            "nacionalidad": "GB",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "C. Espectáculo",
+            "entrenador": "H. Pereira"
+        },
+        {
+            "nombre": "Unfollow",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "C. Calejaña",
+            "entrenador": "D. López F."
+        },
+        {
+            "nombre": "Rastrellare",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. San José",
+            "entrenador": "J.C. Rosell"
+        },
+        {
+            "nombre": "Grand Son Of Calyx",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Palco 7",
+            "entrenador": "R. Maroto"
+        },
+        {
+            "nombre": "Wellington Premier",
+            "nacionalidad": "FR",
+            "sexo": "M",
+            "edad": "4",
+            "propietario": "C. Río Cubas",
+            "entrenador": "M. Alonso R."
+        },
+        {
+            "nombre": "Alaskan Gold",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. GaloperX",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Faith Rose",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Ten Fe",
+            "entrenador": "B. Valenti"
+        },
+        {
+            "nombre": "Naxos",
+            "nacionalidad": "GB",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Mediterraneo",
+            "entrenador": "O. Anaya"
+        },
+        {
+            "nombre": "Bulnes",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "Yeguada Rocío",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Frankini",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. Los Niños",
+            "entrenador": "J.C. Cerqueira"
+        },
+        {
+            "nombre": "Bravo",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "7",
+            "propietario": "C. Mare Nostrum",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Ifach",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Río Cubas",
+            "entrenador": "O. Anaya"
+        },
+        {
+            "nombre": "Tammani",
+            "nacionalidad": "GB",
+            "sexo": "C",
+            "edad": "9",
+            "propietario": "C. Reza Pazooki",
+            "entrenador": "O. Anaya"
+        },
+        {
+            "nombre": "Haussmannien",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Zezinho",
+            "entrenador": "J.C. Cerqueira"
+        },
+        {
+            "nombre": "Juste Bere",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "7",
+            "propietario": "C. Paulo Alves Junior",
+            "entrenador": "D. Duarte"
+        },
+        {
+            "nombre": "Octavio",
+            "nacionalidad": "GB",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. El Sable",
+            "entrenador": "E. Puente"
+        },
+        {
+            "nombre": "Raiku",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "8",
+            "propietario": "C. Los Meleneros",
+            "entrenador": "M. Pérez"
+        },
+        {
+            "nombre": "Dance Ahead",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Nossa Senhora do Vale",
+            "entrenador": "H. Pereira"
+        },
+        {
+            "nombre": "Boeza",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Rober",
+            "entrenador": "R. Avial S."
+        },
+        {
+            "nombre": "Lisboa",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Enrique Fernández de Vega",
+            "entrenador": "M. Delgado"
+        },
+        {
+            "nombre": "Sweet Wish",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "6",
+            "propietario": "C. Olympus",
+            "entrenador": "V.H. Romea"
+        },
+        {
+            "nombre": "One More Night",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "7",
+            "propietario": "C. Costa La Vall",
+            "entrenador": "R. Costa"
+        },
+        {
+            "nombre": "Chiquitin",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Ponme Otra",
+            "entrenador": "R. Martín A."
+        },
+        {
+            "nombre": "Zorba",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. La Bardena",
+            "entrenador": "I. Elarre"
+        },
+        {
+            "nombre": "Son Of Reality",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. A Granxa",
+            "entrenador": "H. Pereira"
+        },
+        {
+            "nombre": "Seven Angels",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "5",
+            "propietario": "C. Rapier",
+            "entrenador": "B. Valenti"
+        },
+        {
+            "nombre": "Shangar",
+            "nacionalidad": "IRE",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Nature Horse",
+            "entrenador": "P. Alves"
+        },
+        {
+            "nombre": "Eve of Destruction",
+            "nacionalidad": "GB",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. Bernie",
+            "entrenador": "J.C. Cerqueira"
+        },
+        {
+            "nombre": "Tony Montana",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "Yeguada Naia Racing",
+            "entrenador": "A. Imaz B."
+        },
+        {
+            "nombre": "Walkczak",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "7",
+            "propietario": "C. Mangueta",
+            "entrenador": "M. Delgado"
+        },
+        {
+            "nombre": "Heliopolis",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "7",
+            "propietario": "C. Arco",
+            "entrenador": "A. Soto"
+        },
+        {
+            "nombre": "Sanber",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Costa La Vall",
+            "entrenador": "R. Costa"
+        },
+        {
+            "nombre": "Gaucin",
+            "nacionalidad": "FR",
+            "sexo": "M",
+            "edad": "4",
+            "propietario": "C. Mediterraneo",
+            "entrenador": "A. Soto"
+        },
+        {
+            "nombre": "Stellaris",
+            "nacionalidad": "GB",
+            "sexo": "H",
+            "edad": "6",
+            "propietario": "C. Liam Norris",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "The Whipmaster",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "8",
+            "propietario": "C. Isla de Fuerteventura",
+            "entrenador": "O. Anaya"
+        },
+        {
+            "nombre": "Lose Your Wad",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Alvaro Mateos",
+            "entrenador": "Ch. Delcher"
+        },
+        {
+            "nombre": "Don Bosco",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Bolak",
+            "entrenador": "C. Buesa"
+        },
+        {
+            "nombre": "Chiquinino",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Galatea Racing",
+            "entrenador": "J.C. Cerqueira"
+        },
+        {
+            "nombre": "Hebe",
+            "nacionalidad": "ESP",
+            "sexo": "H",
+            "edad": "6",
+            "propietario": "C. Alegre",
+            "entrenador": "D. Farlete"
+        },
+        {
+            "nombre": "Pinarellu",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. Bravo Tango Zulu",
+            "entrenador": "C. Buesa"
+        },
+        {
+            "nombre": "Party Zone",
+            "nacionalidad": "ESP",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Arima",
+            "entrenador": "I. Elarre"
+        },
+        {
+            "nombre": "Philau",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "8",
+            "propietario": "C. Alex y Sofía",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Roncal",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "Yeguada Rocío",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Flight Leader",
+            "nacionalidad": "GB",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Río Cubas",
+            "entrenador": "O. Anaya"
+        },
+        {
+            "nombre": "Mayiski",
+            "nacionalidad": "FR",
+            "sexo": "M",
+            "edad": "4",
+            "propietario": "C. Guimbra Horse Racing",
+            "entrenador": "H. Pereira"
+        },
+        {
+            "nombre": "Darkava",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Bernardo",
+            "entrenador": "R. Avial"
+        },
+        {
+            "nombre": "Armero",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "3",
+            "propietario": "Yeguada Rocío",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Alma de Fuego",
+            "nacionalidad": "FR",
+            "sexo": "M",
+            "edad": "3",
+            "propietario": "C. William Armitage",
+            "entrenador": "B. Valenti"
+        },
+        {
+            "nombre": "Enbakirun",
+            "nacionalidad": "FR",
+            "sexo": "M",
+            "edad": "3",
+            "propietario": "C. Martul",
+            "entrenador": "M. Alonso R."
+        },
+        {
+            "nombre": "Born To Bright",
+            "nacionalidad": "GB",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "C. Nossa Senhora do Vale",
+            "entrenador": "H. Pereira"
+        },
+        {
+            "nombre": "Vincelle",
+            "nacionalidad": "GB",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "C. Forrajes y Cereales D. Diez",
+            "entrenador": "D. Díez"
+        },
+        {
+            "nombre": "Lady Cocody",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "Cuadra A F F SL",
+            "entrenador": "F. Rodríguez"
+        },
+        {
+            "nombre": "Gast a Gast",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Los Piratas",
+            "entrenador": "M. Pérez"
+        },
+        {
+            "nombre": "Nordeste",
+            "nacionalidad": "FR",
+            "sexo": "M",
+            "edad": "9",
+            "propietario": "C. Alvela",
+            "entrenador": "I. Elarre"
+        },
+        {
+            "nombre": "Haya Taal",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Caño Quebrado",
+            "entrenador": "J. López"
+        },
+        {
+            "nombre": "Muguetajarra",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "9",
+            "propietario": "C. Piguinha",
+            "entrenador": "H. Pereira"
+        },
+        {
+            "nombre": "Nurture",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "5",
+            "propietario": "C. Villar de la Yegua",
+            "entrenador": "M. Pérez"
+        },
+        {
+            "nombre": "Katalina",
+            "nacionalidad": "ESP",
+            "sexo": "H",
+            "edad": "6",
+            "propietario": "C. Endika Arcentales",
+            "entrenador": "E. Puente"
+        },
+        {
+            "nombre": "Maimouna",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "6",
+            "propietario": "C. Los Meleneros",
+            "entrenador": "M. Pérez"
+        },
+        {
+            "nombre": "Queli",
+            "nacionalidad": "POR",
+            "sexo": "H",
+            "edad": "6",
+            "propietario": "C. Stand Carmo",
+            "entrenador": "A. Abreu"
+        },
+        {
+            "nombre": "Padme",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "5",
+            "propietario": "Yeguada Escalona",
+            "entrenador": "M. Alonso R."
+        },
+        {
+            "nombre": "Pinsapo",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Cometa",
+            "entrenador": "J.C. Rosell"
+        },
+        {
+            "nombre": "Big Bad Wolf",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Galatea Racing",
+            "entrenador": "J.C. Cerqueira"
+        },
+        {
+            "nombre": "Penrhead",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "6",
+            "propietario": "C. Martul",
+            "entrenador": "M. Alonso R."
+        },
+        {
+            "nombre": "Dimanche Soir",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Maljeva",
+            "entrenador": "M. Alonso R."
+        },
+        {
+            "nombre": "Port Galland",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Lagunilla",
+            "entrenador": "A. Sánchez M."
+        },
+        {
+            "nombre": "Shutterwood",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Los Meleneros",
+            "entrenador": "M. Pérez"
+        },
+        {
+            "nombre": "Smoky Mountain",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Los Muchachos",
+            "entrenador": "O. Anaya"
+        },
+        {
+            "nombre": "Beria",
+            "nacionalidad": "GB",
+            "sexo": "H",
+            "edad": "5",
+            "propietario": "C. Calejaña",
+            "entrenador": "D. López F."
+        },
+        {
+            "nombre": "Bailen",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Leonesa",
+            "entrenador": "T. Martins"
+        },
+        {
+            "nombre": "Amparito",
+            "nacionalidad": "IRE",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Pata Negra Racing",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Zapater",
+            "nacionalidad": "ESP",
+            "sexo": "M",
+            "edad": "4",
+            "propietario": "Yeguada Militar",
+            "entrenador": "J.P. Espinosa"
+        },
+        {
+            "nombre": "Almansa",
+            "nacionalidad": "ESP",
+            "sexo": "H",
+            "edad": "5",
+            "propietario": "C. Kilometro 0",
+            "entrenador": "R. Martín A."
+        },
+        {
+            "nombre": "Zacarias",
+            "nacionalidad": "ESP",
+            "sexo": "M",
+            "edad": "4",
+            "propietario": "Yeguada Militar",
+            "entrenador": "J.P. Espinosa"
+        },
+        {
+            "nombre": "Wood Land",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "3",
+            "propietario": "C. Isla de Fuerteventura",
+            "entrenador": "M.A. Goicoechea"
+        },
+        {
+            "nombre": "Never Ever",
+            "nacionalidad": "IRE",
+            "sexo": "M",
+            "edad": "3",
+            "propietario": "C. Soñador",
+            "entrenador": "B. Rama"
+        },
+        {
+            "nombre": "Aravaca",
+            "nacionalidad": "IRE",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "C. Tiago Martins",
+            "entrenador": "T. Martins"
+        },
+        {
+            "nombre": "Laguna",
+            "nacionalidad": "ESP",
+            "sexo": "H",
+            "edad": "3",
+            "propietario": "Yeguada Rocío",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Annie's Song",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Zul",
+            "entrenador": "C. Buesa"
+        },
+        {
+            "nombre": "Romeo",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "6",
+            "propietario": "C. Rebus",
+            "entrenador": "A. Tsereteli"
+        },
+        {
+            "nombre": "Villaires",
+            "nacionalidad": "ESP",
+            "sexo": "M",
+            "edad": "6",
+            "propietario": "C. Prodesol",
+            "entrenador": "E. Puente"
+        },
+        {
+            "nombre": "San Sebastian",
+            "nacionalidad": "FR",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Lokotrans",
+            "entrenador": "G. Arizkorreta"
+        },
+        {
+            "nombre": "Miss Elorz",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Leonesa",
+            "entrenador": "T. Martins"
+        },
+        {
+            "nombre": "Sanlak",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. San José",
+            "entrenador": "A. Soto"
+        },
+        {
+            "nombre": "Java Raja",
+            "nacionalidad": "IRE",
+            "sexo": "M",
+            "edad": "5",
+            "propietario": "C. Enrique Fernández de Vega",
+            "entrenador": "M. Delgado"
+        },
+        {
+            "nombre": "Bluespur",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Troya",
+            "entrenador": "M. Delgado"
+        },
+        {
+            "nombre": "Khandela",
+            "nacionalidad": "ESP",
+            "sexo": "H",
+            "edad": "4",
+            "propietario": "C. Bolak",
+            "entrenador": "C. Buesa"
+        },
+        {
+            "nombre": "Archie's Dream",
+            "nacionalidad": "GB",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. Canarias",
+            "entrenador": "B. Rama"
+        },
+        {
+            "nombre": "Alwin Bram",
+            "nacionalidad": "GER",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Nanina",
+            "entrenador": "J. Calderón"
+        },
+        {
+            "nombre": "Istanbul",
+            "nacionalidad": "ESP",
+            "sexo": "M",
+            "edad": "4",
+            "propietario": "C. Valdeosera",
+            "entrenador": "A. Tsereteli"
+        },
+        {
+            "nombre": "Placid'oo",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "4",
+            "propietario": "C. MP Racing",
+            "entrenador": "M. Pulido"
+        },
+        {
+            "nombre": "Save Your Breath",
+            "nacionalidad": "GB",
+            "sexo": "H",
+            "edad": "7",
+            "propietario": "C. Manuela",
+            "entrenador": "J. Calderón"
+        },
+        {
+            "nombre": "Smooth Transition",
+            "nacionalidad": "IRE",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Soñador",
+            "entrenador": "B. Rama"
+        },
+        {
+            "nombre": "Sofunny",
+            "nacionalidad": "IRE",
+            "sexo": "H",
+            "edad": "7",
+            "propietario": "C. Mafius",
+            "entrenador": "J.C. Rosell"
+        },
+        {
+            "nombre": "Yira",
+            "nacionalidad": "FR",
+            "sexo": "H",
+            "edad": "5",
+            "propietario": "C. Ciudad de Telde",
+            "entrenador": "J. Jiménez"
+        },
+        {
+            "nombre": "Lehen",
+            "nacionalidad": "ESP",
+            "sexo": "C",
+            "edad": "5",
+            "propietario": "C. Luisfer",
+            "entrenador": "E. Puente"
+        }
+    ],
+    "participantes": [
+        {
+            "id_participante": 1,
+            "numero_salida": 1,
+            "caballo": "Eclair Lane",
+            "jinete": "I. Melgarejo",
+            "carrera": 1,
+            "retirado": false
+        },
+        {
+            "id_participante": 2,
+            "numero_salida": 2,
+            "caballo": "Stepinmydirection",
+            "jinete": "R. Sousa",
+            "carrera": 1,
+            "retirado": false
+        },
+        {
+            "id_participante": 3,
+            "numero_salida": 3,
+            "caballo": "Voltereta",
+            "jinete": "R. Dubord",
+            "carrera": 1,
+            "retirado": false
+        },
+        {
+            "id_participante": 4,
+            "numero_salida": 4,
+            "caballo": "Contesa",
+            "jinete": "V. Janacek",
+            "carrera": 1,
+            "retirado": false
+        },
+        {
+            "id_participante": 5,
+            "numero_salida": 5,
+            "caballo": "Sashay Away",
+            "jinete": "J. Gelabert",
+            "carrera": 1,
+            "retirado": false
+        },
+        {
+            "id_participante": 6,
+            "numero_salida": 6,
+            "caballo": "Unfollow",
+            "jinete": "C. Pérez",
+            "carrera": 1,
+            "retirado": false
+        },
+        {
+            "id_participante": 7,
+            "numero_salida": 1,
+            "caballo": "Rastrellare",
+            "jinete": "D. Sikorová",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 8,
+            "numero_salida": 2,
+            "caballo": "Grand Son Of Calyx",
+            "jinete": "B. Fayos",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 9,
+            "numero_salida": 3,
+            "caballo": "Wellington Premier",
+            "jinete": "Sr. Sarabia, D. A.",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 10,
+            "numero_salida": 4,
+            "caballo": "Alaskan Gold",
+            "jinete": "A. Gutiérrez Val",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 11,
+            "numero_salida": 5,
+            "caballo": "Faith Rose",
+            "jinete": "R. Sousa",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 12,
+            "numero_salida": 6,
+            "caballo": "Naxos",
+            "jinete": "J. Gelabert",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 13,
+            "numero_salida": 7,
+            "caballo": "Bulnes",
+            "jinete": "V. Janacek",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 14,
+            "numero_salida": 8,
+            "caballo": "Frankini",
+            "jinete": "I. Melgarejo",
+            "carrera": 2,
+            "retirado": false
+        },
+        {
+            "id_participante": 15,
+            "numero_salida": 1,
+            "caballo": "Bravo",
+            "jinete": "V. Janacek",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 16,
+            "numero_salida": 2,
+            "caballo": "Ifach",
+            "jinete": "Sr. Sarabia, D. A.",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 17,
+            "numero_salida": 3,
+            "caballo": "Tammani",
+            "jinete": "R. Sousa",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 18,
+            "numero_salida": 4,
+            "caballo": "Haussmannien",
+            "jinete": "I. Melgarejo",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 19,
+            "numero_salida": 5,
+            "caballo": "Juste Bere",
+            "jinete": "N.M. Lopes",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 20,
+            "numero_salida": 6,
+            "caballo": "Octavio",
+            "jinete": "C. Pérez",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 21,
+            "numero_salida": 7,
+            "caballo": "Raiku",
+            "jinete": "V. Alonso V.",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 22,
+            "numero_salida": 8,
+            "caballo": "Dance Ahead",
+            "jinete": "J. Gelabert",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 23,
+            "numero_salida": 9,
+            "caballo": "Boeza",
+            "jinete": "J. Zambudio",
+            "carrera": 3,
+            "retirado": false
+        },
+        {
+            "id_participante": 24,
+            "numero_salida": 1,
+            "caballo": "Lisboa",
+            "jinete": "N. de Julián",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 25,
+            "numero_salida": 2,
+            "caballo": "Sweet Wish",
+            "jinete": "E.A. Rodríguez",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 26,
+            "numero_salida": 3,
+            "caballo": "One More Night",
+            "jinete": "A. Gutiérrez Val",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 27,
+            "numero_salida": 4,
+            "caballo": "Chiquitin",
+            "jinete": "J. Gelabert",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 28,
+            "numero_salida": 5,
+            "caballo": "Zorba",
+            "jinete": "R. Dubord",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 29,
+            "numero_salida": 6,
+            "caballo": "Son Of Reality",
+            "jinete": "R. Sousa",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 30,
+            "numero_salida": 7,
+            "caballo": "Seven Angels",
+            "jinete": "V. Janacek",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 31,
+            "numero_salida": 8,
+            "caballo": "Shangar",
+            "jinete": "N.M. Lopes",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 32,
+            "numero_salida": 9,
+            "caballo": "Eve of Destruction",
+            "jinete": "C. Pérez",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 33,
+            "numero_salida": 10,
+            "caballo": "Tony Montana",
+            "jinete": "M. Foulon",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 34,
+            "numero_salida": 11,
+            "caballo": "Walkczak",
+            "jinete": "D. Rodríguez",
+            "carrera": 4,
+            "retirado": false
+        },
+        {
+            "id_participante": 35,
+            "numero_salida": 1,
+            "caballo": "Heliopolis",
+            "jinete": "I. Melgarejo",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 36,
+            "numero_salida": 2,
+            "caballo": "Sanber",
+            "jinete": "A. Gutiérrez Val",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 37,
+            "numero_salida": 3,
+            "caballo": "Gaucin",
+            "jinete": "J. Gelabert",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 38,
+            "numero_salida": 4,
+            "caballo": "Stellaris",
+            "jinete": "V. Janacek",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 39,
+            "numero_salida": 5,
+            "caballo": "The Whipmaster",
+            "jinete": "R. Sousa",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 40,
+            "numero_salida": 6,
+            "caballo": "Lose Your Wad",
+            "jinete": "V. Alonso V.",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 41,
+            "numero_salida": 7,
+            "caballo": "Don Bosco",
+            "jinete": "J. Zambudio",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 42,
+            "numero_salida": 8,
+            "caballo": "Chiquinino",
+            "jinete": "J. Gómez",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 43,
+            "numero_salida": 9,
+            "caballo": "Hebe",
+            "jinete": "N. de Julián",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 44,
+            "numero_salida": 10,
+            "caballo": "Pinarellu",
+            "jinete": "D. Sikorová",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 45,
+            "numero_salida": 11,
+            "caballo": "Party Zone",
+            "jinete": "R. Dubord",
+            "carrera": 5,
+            "retirado": false
+        },
+        {
+            "id_participante": 46,
+            "numero_salida": 1,
+            "caballo": "Philau",
+            "jinete": "R.N. Valle",
+            "carrera": 6,
+            "retirado": false
+        },
+        {
+            "id_participante": 47,
+            "numero_salida": 2,
+            "caballo": "Roncal",
+            "jinete": "V. Janacek",
+            "carrera": 6,
+            "retirado": false
+        },
+        {
+            "id_participante": 48,
+            "numero_salida": 3,
+            "caballo": "Flight Leader",
+            "jinete": "Sr. Sarabia, D. A.",
+            "carrera": 6,
+            "retirado": false
+        },
+        {
+            "id_participante": 49,
+            "numero_salida": 4,
+            "caballo": "Mayiski",
+            "jinete": "B. Fayos",
+            "carrera": 6,
+            "retirado": false
+        },
+        {
+            "id_participante": 50,
+            "numero_salida": 5,
+            "caballo": "Darkava",
+            "jinete": "R. Sousa",
+            "carrera": 6,
+            "retirado": false
+        },
+        {
+            "id_participante": 51,
+            "numero_salida": 6,
+            "caballo": "Boeza",
+            "jinete": "J. Zambudio",
+            "carrera": 6,
+            "retirado": false
+        },
+        {
+            "id_participante": 52,
+            "numero_salida": 1,
+            "caballo": "Armero",
+            "jinete": "V. Janacek",
+            "carrera": 7,
+            "retirado": false
+        },
+        {
+            "id_participante": 53,
+            "numero_salida": 2,
+            "caballo": "Alma de Fuego",
+            "jinete": "B. Fayos",
+            "carrera": 7,
+            "retirado": false
+        },
+        {
+            "id_participante": 54,
+            "numero_salida": 3,
+            "caballo": "Enbakirun",
+            "jinete": "R. Sousa",
+            "carrera": 7,
+            "retirado": false
+        },
+        {
+            "id_participante": 55,
+            "numero_salida": 4,
+            "caballo": "Born To Bright",
+            "jinete": "R. Dubord",
+            "carrera": 7,
+            "retirado": false
+        },
+        {
+            "id_participante": 56,
+            "numero_salida": 6,
+            "caballo": "Sashay Away",
+            "jinete": "J. Gelabert",
+            "carrera": 7,
+            "retirado": false
+        },
+        {
+            "id_participante": 57,
+            "numero_salida": 7,
+            "caballo": "Vincelle",
+            "jinete": "C. Pérez",
+            "carrera": 7,
+            "retirado": false
+        },
+        {
+            "id_participante": 58,
+            "numero_salida": 1,
+            "caballo": "Lady Cocody",
+            "jinete": "R.N. Valle",
+            "carrera": 8,
+            "retirado": false
+        },
+        {
+            "id_participante": 59,
+            "numero_salida": 2,
+            "caballo": "Gast a Gast",
+            "jinete": "A. Baeza",
+            "carrera": 8,
+            "retirado": false
+        },
+        {
+            "id_participante": 60,
+            "numero_salida": 3,
+            "caballo": "Raiku",
+            "jinete": "V. Alonso V.",
+            "carrera": 8,
+            "retirado": false
+        },
+        {
+            "id_participante": 61,
+            "numero_salida": 4,
+            "caballo": "Nordeste",
+            "jinete": "R. Dubord",
+            "carrera": 8,
+            "retirado": false
+        },
+        {
+            "id_participante": 62,
+            "numero_salida": 5,
+            "caballo": "Haya Taal",
+            "jinete": "V. Janacek",
+            "carrera": 8,
+            "retirado": false
+        },
+        {
+            "id_participante": 63,
+            "numero_salida": 7,
+            "caballo": "Dance Ahead",
+            "jinete": "J. Gelabert",
+            "carrera": 8,
+            "retirado": false
+        },
+        {
+            "id_participante": 64,
+            "numero_salida": 8,
+            "caballo": "Muguetajarra",
+            "jinete": "R. Sousa",
+            "carrera": 8,
+            "retirado": false
+        },
+        {
+            "id_participante": 65,
+            "numero_salida": 1,
+            "caballo": "Nurture",
+            "jinete": "R. Dubord",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 66,
+            "numero_salida": 2,
+            "caballo": "Katalina",
+            "jinete": "J. Gómez",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 67,
+            "numero_salida": 3,
+            "caballo": "Maimouna",
+            "jinete": "V. Alonso V.",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 68,
+            "numero_salida": 4,
+            "caballo": "Queli",
+            "jinete": "R. Sousa",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 69,
+            "numero_salida": 5,
+            "caballo": "Padme",
+            "jinete": "J. Zambudio",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 70,
+            "numero_salida": 6,
+            "caballo": "Pinsapo",
+            "jinete": "D. Sikorová",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 71,
+            "numero_salida": 7,
+            "caballo": "Big Bad Wolf",
+            "jinete": "J. Gelabert",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 72,
+            "numero_salida": 8,
+            "caballo": "Penrhead",
+            "jinete": "V. Janacek",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 73,
+            "numero_salida": 9,
+            "caballo": "Dimanche Soir",
+            "jinete": "N. de Julián",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 74,
+            "numero_salida": 11,
+            "caballo": "Port Galland",
+            "jinete": "R.N. Valle",
+            "carrera": 9,
+            "retirado": false
+        },
+        {
+            "id_participante": 75,
+            "numero_salida": 1,
+            "caballo": "Shutterwood",
+            "jinete": "V. Alonso V.",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 76,
+            "numero_salida": 2,
+            "caballo": "Smoky Mountain",
+            "jinete": "R. Sousa",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 77,
+            "numero_salida": 3,
+            "caballo": "Beria",
+            "jinete": "C. Pérez",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 78,
+            "numero_salida": 4,
+            "caballo": "Bailen",
+            "jinete": "J. Gelabert",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 79,
+            "numero_salida": 5,
+            "caballo": "Amparito",
+            "jinete": "V. Janacek",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 80,
+            "numero_salida": 6,
+            "caballo": "Zapater",
+            "jinete": "R.N. Valle",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 81,
+            "numero_salida": 7,
+            "caballo": "Almansa",
+            "jinete": "J. Zambudio",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 82,
+            "numero_salida": 8,
+            "caballo": "Zacarias",
+            "jinete": "J. Gómez",
+            "carrera": 10,
+            "retirado": false
+        },
+        {
+            "id_participante": 83,
+            "numero_salida": 1,
+            "caballo": "Wood Land",
+            "jinete": "R.N. Valle",
+            "carrera": 11,
+            "retirado": false
+        },
+        {
+            "id_participante": 84,
+            "numero_salida": 2,
+            "caballo": "Never Ever",
+            "jinete": "B. Fayos",
+            "carrera": 11,
+            "retirado": false
+        },
+        {
+            "id_participante": 85,
+            "numero_salida": 3,
+            "caballo": "Aravaca",
+            "jinete": "R. Sousa",
+            "carrera": 11,
+            "retirado": false
+        },
+        {
+            "id_participante": 86,
+            "numero_salida": 4,
+            "caballo": "Born To Bright",
+            "jinete": "R. Dubord",
+            "carrera": 11,
+            "retirado": false
+        },
+        {
+            "id_participante": 87,
+            "numero_salida": 5,
+            "caballo": "Laguna",
+            "jinete": "V. Janacek",
+            "carrera": 11,
+            "retirado": false
+        },
+        {
+            "id_participante": 88,
+            "numero_salida": 6,
+            "caballo": "Unfollow",
+            "jinete": "C. Pérez",
+            "carrera": 11,
+            "retirado": false
+        },
+        {
+            "id_participante": 89,
+            "numero_salida": 1,
+            "caballo": "Shutterwood",
+            "jinete": "V. Alonso V.",
+            "carrera": 12,
+            "retirado": false
+        },
+        {
+            "id_participante": 90,
+            "numero_salida": 2,
+            "caballo": "Annie's Song",
+            "jinete": "R. Sousa",
+            "carrera": 12,
+            "retirado": false
+        },
+        {
+            "id_participante": 91,
+            "numero_salida": 3,
+            "caballo": "Romeo",
+            "jinete": "J. Gelabert",
+            "carrera": 12,
+            "retirado": false
+        },
+        {
+            "id_participante": 92,
+            "numero_salida": 4,
+            "caballo": "Haussmannien",
+            "jinete": "I. Melgarejo",
+            "carrera": 12,
+            "retirado": false
+        },
+        {
+            "id_participante": 93,
+            "numero_salida": 5,
+            "caballo": "Dance Ahead",
+            "jinete": "N.M. Lopes",
+            "carrera": 12,
+            "retirado": false
+        },
+        {
+            "id_participante": 94,
+            "numero_salida": 6,
+            "caballo": "Katalina",
+            "jinete": "D. Sikorová",
+            "carrera": 12,
+            "retirado": false
+        },
+        {
+            "id_participante": 95,
+            "numero_salida": 7,
+            "caballo": "Villaires",
+            "jinete": "C. Pérez",
+            "carrera": 12,
+            "retirado": false
+        },
+        {
+            "id_participante": 96,
+            "numero_salida": 1,
+            "caballo": "San Sebastian",
+            "jinete": "V. Janacek",
+            "carrera": 13,
+            "retirado": false
+        },
+        {
+            "id_participante": 97,
+            "numero_salida": 2,
+            "caballo": "Miss Elorz",
+            "jinete": "J. Gelabert",
+            "carrera": 13,
+            "retirado": false
+        },
+        {
+            "id_participante": 98,
+            "numero_salida": 3,
+            "caballo": "Sanlak",
+            "jinete": "I. Melgarejo",
+            "carrera": 13,
+            "retirado": false
+        },
+        {
+            "id_participante": 99,
+            "numero_salida": 4,
+            "caballo": "Java Raja",
+            "jinete": "N. de Julián",
+            "carrera": 13,
+            "retirado": false
+        },
+        {
+            "id_participante": 100,
+            "numero_salida": 5,
+            "caballo": "Son Of Reality",
+            "jinete": "N.M. Lopes",
+            "carrera": 13,
+            "retirado": false
+        },
+        {
+            "id_participante": 101,
+            "numero_salida": 6,
+            "caballo": "Bluespur",
+            "jinete": "D. Rodríguez",
+            "carrera": 13,
+            "retirado": false
+        },
+        {
+            "id_participante": 102,
+            "numero_salida": 7,
+            "caballo": "Khandela",
+            "jinete": "J. Zambudio",
+            "carrera": 13,
+            "retirado": false
+        },
+        {
+            "id_participante": 103,
+            "numero_salida": 1,
+            "caballo": "Sanber",
+            "jinete": "A. Gutiérrez Val",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 104,
+            "numero_salida": 2,
+            "caballo": "Archie's Dream",
+            "jinete": "B. Fayos",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 105,
+            "numero_salida": 3,
+            "caballo": "Gaucin",
+            "jinete": "J. Gelabert",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 106,
+            "numero_salida": 4,
+            "caballo": "Lose Your Wad",
+            "jinete": "V. Alonso V.",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 107,
+            "numero_salida": 5,
+            "caballo": "Alwin Bram",
+            "jinete": "V.M. Valenzuela",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 108,
+            "numero_salida": 6,
+            "caballo": "Istanbul",
+            "jinete": "V. Janacek",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 109,
+            "numero_salida": 7,
+            "caballo": "Pinarellu",
+            "jinete": "D. Sikorová",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 110,
+            "numero_salida": 8,
+            "caballo": "Nordeste",
+            "jinete": "R. Dubord",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 111,
+            "numero_salida": 9,
+            "caballo": "Raiku",
+            "jinete": "M. Lauron",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 112,
+            "numero_salida": 10,
+            "caballo": "Gast a Gast",
+            "jinete": "M. Foulon",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 113,
+            "numero_salida": 11,
+            "caballo": "Party Zone",
+            "jinete": "C. Pérez",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 114,
+            "numero_salida": 12,
+            "caballo": "Placid'oo",
+            "jinete": "N. de Julián",
+            "carrera": 14,
+            "retirado": false
+        },
+        {
+            "id_participante": 115,
+            "numero_salida": 1,
+            "caballo": "Save Your Breath",
+            "jinete": "D. Sikorová",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 116,
+            "numero_salida": 2,
+            "caballo": "Smooth Transition",
+            "jinete": "B. Fayos",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 117,
+            "numero_salida": 3,
+            "caballo": "Nurture",
+            "jinete": "R. Dubord",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 118,
+            "numero_salida": 4,
+            "caballo": "One More Night",
+            "jinete": "A. Gutiérrez Val",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 119,
+            "numero_salida": 5,
+            "caballo": "Muguetajarra",
+            "jinete": "N.M. Lopes",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 120,
+            "numero_salida": 6,
+            "caballo": "Sofunny",
+            "jinete": "E.A. Rodríguez",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 121,
+            "numero_salida": 7,
+            "caballo": "Maimouna",
+            "jinete": "V. Alonso V.",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 122,
+            "numero_salida": 8,
+            "caballo": "Yira",
+            "jinete": "J. Gómez",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 123,
+            "numero_salida": 9,
+            "caballo": "Tony Montana",
+            "jinete": "M. Foulon",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 124,
+            "numero_salida": 10,
+            "caballo": "Shangar",
+            "jinete": "R. Sousa",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 125,
+            "numero_salida": 11,
+            "caballo": "Lehen",
+            "jinete": "J. Zambudio",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 126,
+            "numero_salida": 13,
+            "caballo": "Port Galland",
+            "jinete": "V. Janacek",
+            "carrera": 15,
+            "retirado": false
+        },
+        {
+            "id_participante": 127,
+            "numero_salida": 14,
+            "caballo": "Walkczak",
+            "jinete": "D. Rodríguez",
+            "carrera": 15,
+            "retirado": false
+        }
+    ],
+    "resultados": [
+        {
+            "participante": 1,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "2 3/4 C."
+        },
+        {
+            "participante": 2,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "2 1/2 C."
+        },
+        {
+            "participante": 3,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 4,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 5,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 6,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "Empate"
+        },
+        {
+            "participante": 7,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "1 3/4 C."
+        },
+        {
+            "participante": 8,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "Cab."
+        },
+        {
+            "participante": 9,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "3 3/4 C."
+        },
+        {
+            "participante": 10,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "4 1/4 C."
+        },
+        {
+            "participante": 11,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "1 C."
+        },
+        {
+            "participante": 12,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 13,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 14,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 15,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 16,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "1/4 C."
+        },
+        {
+            "participante": 17,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 18,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "1 C."
+        },
+        {
+            "participante": 19,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 21,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "4 1/4 C."
+        },
+        {
+            "participante": 22,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "2 1/4 C."
+        },
+        {
+            "participante": 23,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "6 3/4 C."
+        },
+        {
+            "participante": 24,
+            "posicion": 9,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 25,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "2 3/4 C."
+        },
+        {
+            "participante": 26,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 27,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 28,
+            "posicion": 11,
+            "duracion": "00:00:00",
+            "distancia": "1 1/4 C."
+        },
+        {
+            "participante": 29,
+            "posicion": 10,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 30,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "Cuello"
+        },
+        {
+            "participante": 31,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "1/4 C."
+        },
+        {
+            "participante": 32,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "3/4 C."
+        },
+        {
+            "participante": 33,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 34,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1/4 C."
+        },
+        {
+            "participante": 35,
+            "posicion": 9,
+            "duracion": "00:00:00",
+            "distancia": "3/4 C."
+        },
+        {
+            "participante": 36,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "1 3/4 C."
+        },
+        {
+            "participante": 37,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1/4 C."
+        },
+        {
+            "participante": 38,
+            "posicion": 11,
+            "duracion": "00:00:00",
+            "distancia": "1 3/4 C."
+        },
+        {
+            "participante": 39,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "4 C."
+        },
+        {
+            "participante": 40,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 41,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "1 1/4 C."
+        },
+        {
+            "participante": 42,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "5 3/4 C."
+        },
+        {
+            "participante": 43,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "Cuello"
+        },
+        {
+            "participante": 44,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "1/4 C."
+        },
+        {
+            "participante": 45,
+            "posicion": 10,
+            "duracion": "00:00:00",
+            "distancia": "7 C."
+        },
+        {
+            "participante": 46,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 47,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "3 C."
+        },
+        {
+            "participante": 48,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 49,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 50,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 51,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 52,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 53,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "6 3/4 C."
+        },
+        {
+            "participante": 54,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "2 1/4 C."
+        },
+        {
+            "participante": 55,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1 3/4 C."
+        },
+        {
+            "participante": 56,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "2 1/2 C."
+        },
+        {
+            "participante": 57,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 58,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "3 1/4 C."
+        },
+        {
+            "participante": 59,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 60,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "5 1/2 C."
+        },
+        {
+            "participante": 61,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1 C."
+        },
+        {
+            "participante": 62,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 63,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 64,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "2 1/4 C."
+        },
+        {
+            "participante": 65,
+            "posicion": 10,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 66,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 67,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "3 1/2 C."
+        },
+        {
+            "participante": 68,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 69,
+            "posicion": 9,
+            "duracion": "00:00:00",
+            "distancia": "6 C."
+        },
+        {
+            "participante": 70,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 71,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "1/4 C."
+        },
+        {
+            "participante": 72,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "1 1/4 C."
+        },
+        {
+            "participante": 73,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "2 3/4 C."
+        },
+        {
+            "participante": 74,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 75,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "3 C."
+        },
+        {
+            "participante": 76,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 77,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "Cuello"
+        },
+        {
+            "participante": 78,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "2 1/2 C."
+        },
+        {
+            "participante": 79,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "1 C."
+        },
+        {
+            "participante": 80,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "2 1/4 C."
+        },
+        {
+            "participante": 81,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "Cuello"
+        },
+        {
+            "participante": 82,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "3 1/4 C."
+        },
+        {
+            "participante": 83,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 84,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 85,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "8 3/4 C."
+        },
+        {
+            "participante": 86,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "2 C."
+        },
+        {
+            "participante": 87,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "Cab."
+        },
+        {
+            "participante": 88,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "2 1/2 C."
+        },
+        {
+            "participante": 89,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "Cab."
+        },
+        {
+            "participante": 90,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 91,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "2 1/2 C."
+        },
+        {
+            "participante": 92,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 93,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "3 1/2 C."
+        },
+        {
+            "participante": 94,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "2 C."
+        },
+        {
+            "participante": 95,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "1 C."
+        },
+        {
+            "participante": 96,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 97,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "Cab."
+        },
+        {
+            "participante": 98,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 99,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "2 3/4 C."
+        },
+        {
+            "participante": 100,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "2 3/4 C."
+        },
+        {
+            "participante": 101,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 102,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "4 C."
+        },
+        {
+            "participante": 103,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "4 C."
+        },
+        {
+            "participante": 104,
+            "posicion": 12,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 105,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "5 C."
+        },
+        {
+            "participante": 106,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 107,
+            "posicion": 11,
+            "duracion": "00:00:00",
+            "distancia": "1 1/4 C."
+        },
+        {
+            "participante": 108,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 109,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "Nariz"
+        },
+        {
+            "participante": 110,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "1/2 C."
+        },
+        {
+            "participante": 111,
+            "posicion": 10,
+            "duracion": "00:00:00",
+            "distancia": "2 1/4 C."
+        },
+        {
+            "participante": 112,
+            "posicion": 9,
+            "duracion": "00:00:00",
+            "distancia": "Nariz"
+        },
+        {
+            "participante": 113,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "Nariz"
+        },
+        {
+            "participante": 114,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "3 1/4 C."
+        },
+        {
+            "participante": 115,
+            "posicion": 4,
+            "duracion": "00:00:00",
+            "distancia": "2 C."
+        },
+        {
+            "participante": 116,
+            "posicion": 8,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 117,
+            "posicion": 5,
+            "duracion": "00:00:00",
+            "distancia": "2 1/2 C."
+        },
+        {
+            "participante": 118,
+            "posicion": 1,
+            "duracion": "00:00:00",
+            "distancia": ""
+        },
+        {
+            "participante": 119,
+            "posicion": 9,
+            "duracion": "00:00:00",
+            "distancia": "1 1/2 C."
+        },
+        {
+            "participante": 120,
+            "posicion": 7,
+            "duracion": "00:00:00",
+            "distancia": "1 C."
+        },
+        {
+            "participante": 121,
+            "posicion": 12,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 122,
+            "posicion": 10,
+            "duracion": "00:00:00",
+            "distancia": "Cab."
+        },
+        {
+            "participante": 123,
+            "posicion": 3,
+            "duracion": "00:00:00",
+            "distancia": "3 C."
+        },
+        {
+            "participante": 124,
+            "posicion": 6,
+            "duracion": "00:00:00",
+            "distancia": "Cab."
+        },
+        {
+            "participante": 125,
+            "posicion": 13,
+            "duracion": "00:00:00",
+            "distancia": "Lejos"
+        },
+        {
+            "participante": 126,
+            "posicion": 11,
+            "duracion": "00:00:00",
+            "distancia": "4 C."
+        },
+        {
+            "participante": 127,
+            "posicion": 2,
+            "duracion": "00:00:00",
+            "distancia": "2 C."
+        }
+    ]
+}

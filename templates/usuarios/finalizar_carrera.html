@@ -1,0 +1,85 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Finalizar Carrera</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/admin_carreras.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>{{ carrera.nombre }}</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Caballo</th>
+                    <th>Posición</th>
+                    <th>Distancia</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for participante in participantes %}
+
+                <tr>
+
+                    <td>{{ participante.caballo.nombre }}</td>
+
+                    <td>
+
+                        <input type="number"
+                               name="posicion_{{ participante.id_participante }}"
+                               required>
+
+                    </td>
+
+                    <td>
+
+                        <input type="text"
+                               name="distancia_{{ participante.id_participante }}"
+                               required>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        <button type="submit">
+            Guardar Resultados
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
+
