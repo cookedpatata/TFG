@@ -43,7 +43,7 @@ class Usuario(models.Model):
 
 class Entrenador(models.Model):
     id_entrenador = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True)
     nacionalidad = models.CharField(max_length=100)
 
     class Meta:
@@ -59,7 +59,7 @@ class Entrenador(models.Model):
 
 class Propietario(models.Model):
     id_propietario = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True)
     nacionalidad = models.CharField(max_length=100)
     equipamiento = models.CharField(max_length=150)
 
@@ -76,8 +76,20 @@ class Propietario(models.Model):
 
 class Jinete(models.Model):
     id_jinete = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+
+    nombre = models.CharField(
+        max_length=100,
+        unique=True
+    )
+
     nacionalidad = models.CharField(max_length=100)
+
+    peso = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        null=True,
+        blank=True
+    )
 
     class Meta:
         db_table = 'jinete'
@@ -92,7 +104,7 @@ class Jinete(models.Model):
 
 class Caballo(models.Model):
     id_caballo = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True)
     nacionalidad = models.CharField(max_length=100)
     sexo = models.CharField(max_length=20)
     edad = models.IntegerField()
@@ -169,8 +181,8 @@ class EstadoPista(models.Model):
 class Carrera(models.Model):
     id_carrera = models.AutoField(primary_key=True)
 
-    enlace = models.CharField(max_length=200)
-    nombre = models.CharField(max_length=100)
+    enlace = models.CharField(max_length=200, unique=True)
+    nombre = models.CharField(max_length=100, unique=True)
 
     fecha = models.DateField()
     hora = models.TimeField()
@@ -194,13 +206,17 @@ class Carrera(models.Model):
     id_pista = models.ForeignKey(
         'Pista',
         on_delete=models.RESTRICT,
-        db_column='id_pista'
+        db_column='id_pista',
+        blank=True,
+        null=True
     )
 
     id_estado_pista = models.ForeignKey(
         'EstadoPista',
         on_delete=models.RESTRICT,
-        db_column='id_estado_pista'
+        db_column='id_estado_pista',
+        blank=True,
+        null=True
     )
 
     tipo = models.CharField(
@@ -255,8 +271,6 @@ class Participante(models.Model):
     numero_salida = models.IntegerField()
 
     retirado = models.BooleanField(default=False)
-
-    peso = models.DecimalField(max_digits=5, decimal_places=2)
 
     def clean(self):
 
@@ -357,6 +371,23 @@ class Apuesta(models.Model):
     cantidad = models.DecimalField(
         max_digits=10,
         decimal_places=2
+    )
+
+    dividendo = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=True,
+        blank=True
+    )
+
+    estado = models.CharField(
+        max_length=20,
+        choices=[
+            ('pendiente', 'Pendiente'),
+            ('ganada', 'Ganada'),
+            ('perdida', 'Perdida')
+        ],
+        default='pendiente'
     )
 
     tipo_apuesta = models.ForeignKey(

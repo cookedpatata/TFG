@@ -6,6 +6,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 from django.db import models
 from django.db.models import Count, Sum
@@ -26,15 +27,60 @@ from .models import *
 
 def inicio(request):
 
-    carreras = Carrera.objects.filter(
-        estado__isnull=True
+    carreras = Carrera.objects.exclude(
+        estado__iexact='finalizada'
     ).annotate(
         num_participantes=Count('participantes')
-    ).order_by('fecha', 'hora')[:10]
+    )
 
-    # =========================================
-    # TOP USUARIOS
-    # =========================================
+    categoria = request.GET.get('categoria')
+    distancia = request.GET.get('distancia')
+    participantes = request.GET.get('participantes')
+    hipodromo = request.GET.get('hipodromo')
+
+    if categoria:
+
+        carreras = carreras.filter(
+            categoria=categoria
+        )
+
+    if distancia and '-' in distancia:
+
+        minimo, maximo = distancia.split('-')
+
+        carreras = carreras.filter(
+            distancia__gte=minimo,
+            distancia__lte=maximo
+        )
+
+    if participantes:
+
+        carreras = carreras.filter(
+            num_participantes__gte=participantes
+        )
+
+    if hipodromo:
+
+        carreras = carreras.filter(
+            id_hipodromo=hipodromo
+        )
+
+    carreras = carreras.order_by(
+        'fecha',
+        'hora'
+    )[:10]
+
+    categorias = Carrera.objects.values_list(
+        'categoria',
+        flat=True
+    ).distinct()
+
+    distancias = Carrera.objects.values_list(
+        'distancia',
+        flat=True
+    ).distinct()
+
+    hipodromos = Hipodromo.objects.all()
 
     top_usuarios_db = Usuario.objects.annotate(
 
@@ -49,7 +95,27 @@ def inicio(request):
 
     top_usuarios = []
 
-    for usuario in top_usuarios_db:
+    usuarios = Usuario.objects.all()
+
+    for usuario in usuarios:
+
+        apuestas_usuario = Apuesta.objects.filter(
+            usuario=usuario.user
+        )
+
+        total_ganado = Decimal('0.00')
+
+        for apuesta in apuestas_usuario:
+
+            if apuesta.estado == 'ganada':
+
+                total_ganado += (
+                    apuesta.cantidad * apuesta.dividendo
+                )
+
+            elif apuesta.estado == 'perdida':
+
+                total_ganado -= apuesta.cantidad
 
         iniciales = (
             usuario.user.username[:2]
@@ -59,16 +125,20 @@ def inicio(request):
 
             'nombre': usuario.user.username,
 
-            'ganancias': usuario.total_apostado,
+            'ganancias': total_ganado,
 
-            'victorias': usuario.total_apuestas,
+            'victorias': apuestas_usuario.filter(
+                estado='ganada'
+            ).count(),
 
             'iniciales': iniciales
         })
 
-    # =========================================
-    # TOP CABALLOS
-    # =========================================
+    top_usuarios = sorted(
+        top_usuarios,
+        key=lambda x: x['ganancias'],
+        reverse=True
+    )[:5]
 
     top_caballos_db = Caballo.objects.annotate(
 
@@ -105,11 +175,7 @@ def inicio(request):
 
             'porcentaje': porcentaje
         })
-
-    # =========================================
-    # TOP JINETES
-    # =========================================
-
+        
     top_jinetes_db = Jinete.objects.annotate(
 
         victorias=Count(
@@ -151,7 +217,10 @@ def inicio(request):
             'carreras': carreras,
             'top_usuarios': top_usuarios,
             'top_caballos': top_caballos,
-            'top_jinetes': top_jinetes
+            'top_jinetes': top_jinetes,
+            'categorias': categorias,
+            'distancias': distancias,
+            'hipodromos': hipodromos
         }
     )
 
@@ -319,12 +388,19 @@ def perfil(request):
         'participante__carrera'
     ).order_by('-id_apuesta')
 
-    total_apostado = apuestas.aggregate(
-        total=Coalesce(
-            Sum('cantidad'),
-            Decimal('0.00')
-        )
-    )['total']
+    total_ganado = Decimal('0.00')
+
+    for apuesta in apuestas:
+
+        if apuesta.estado == 'ganada':
+
+            total_ganado += (
+                apuesta.cantidad * apuesta.dividendo
+            )
+
+        elif apuesta.estado == 'perdida':
+
+            total_ganado -= apuesta.cantidad
 
     victorias = Resultado.objects.filter(
         posicion=1,
@@ -337,7 +413,7 @@ def perfil(request):
         {
             'perfil_usuario': perfil_usuario,
             'apuestas': apuestas,
-            'total_apostado': total_apostado,
+            'total_ganado': total_ganado,
             'victorias': victorias
         }
     )
@@ -570,6 +646,73 @@ def finalizar_carrera(request, carrera_id):
                 }
             )
 
+        # =========================================
+        # CALCULAR DIVIDENDOS
+        # =========================================
+
+        total_apostado = Apuesta.objects.filter(
+            participante__carrera=carrera
+        ).aggregate(
+            total=Coalesce(
+                Sum('cantidad'),
+                Decimal('0.00')
+            )
+        )['total']
+
+        for participante in participantes:
+
+            total_participante = Apuesta.objects.filter(
+                participante=participante
+            ).aggregate(
+                total=Coalesce(
+                    Sum('cantidad'),
+                    Decimal('0.00')
+                )
+            )['total']
+
+            if total_participante > 0:
+
+                dividendo = round(
+                    float(total_apostado / total_participante),
+                    2
+                )
+
+            else:
+
+                dividendo = 0
+
+            apuestas = Apuesta.objects.filter(
+                participante=participante
+            )
+
+            resultado = Resultado.objects.get(
+                participante=participante
+            )
+
+            for apuesta in apuestas:
+
+                apuesta.dividendo = dividendo
+
+                if resultado.posicion == 1:
+
+                    apuesta.estado = 'ganada'
+
+                    ganancia = (
+                        apuesta.cantidad * Decimal(dividendo)
+                    )
+
+                    perfil = apuesta.usuario.perfil
+
+                    perfil.saldo += ganancia
+
+                    perfil.save()
+
+                else:
+
+                    apuesta.estado = 'perdida'
+
+                apuesta.save()
+
         carrera.estado = 'Finalizada'
 
         carrera.save()
@@ -626,6 +769,73 @@ def resultado_aleatorio(request, carrera_id):
                 'duracion': '00:00:00'
             }
         )
+    
+    # =========================================
+    # CALCULAR DIVIDENDOS
+    # =========================================
+
+    total_apostado = Apuesta.objects.filter(
+        participante__carrera=carrera
+    ).aggregate(
+        total=Coalesce(
+            Sum('cantidad'),
+            Decimal('0.00')
+        )
+    )['total']
+
+    for participante in participantes:
+
+        total_participante = Apuesta.objects.filter(
+            participante=participante
+        ).aggregate(
+            total=Coalesce(
+                Sum('cantidad'),
+                Decimal('0.00')
+            )
+        )['total']
+
+        if total_participante > 0:
+
+            dividendo = round(
+                float(total_apostado / total_participante),
+                2
+            )
+
+        else:
+
+            dividendo = 0
+
+        apuestas = Apuesta.objects.filter(
+            participante=participante
+        )
+
+        resultado = Resultado.objects.get(
+            participante=participante
+        )
+
+        for apuesta in apuestas:
+
+            apuesta.dividendo = dividendo
+
+            if resultado.posicion == 1:
+
+                apuesta.estado = 'ganada'
+
+                ganancia = (
+                    apuesta.cantidad * Decimal(dividendo)
+                )
+
+                perfil = apuesta.usuario.perfil
+
+                perfil.saldo += ganancia
+
+                perfil.save()
+
+            else:
+
+                apuesta.estado = 'perdida'
+
+            apuesta.save()
 
     carrera.estado = 'Finalizada'
 
@@ -637,3 +847,46 @@ def resultado_aleatorio(request, carrera_id):
     )
 
     return redirect('panel_carreras')
+
+
+
+def caballos(request):
+
+    buscar = request.GET.get('buscar')
+
+    caballos = Caballo.objects.all()
+
+    if buscar:
+
+        caballos = caballos.filter(
+            Q(nombre__icontains=buscar)
+        )
+
+    return render(
+        request,
+        'caballos.html',
+        {
+            'caballos': caballos
+        }
+    )
+
+
+def jinetes(request):
+
+    buscar = request.GET.get('buscar')
+
+    jinetes = Jinete.objects.all()
+
+    if buscar:
+
+        jinetes = jinetes.filter(
+            Q(nombre__icontains=buscar)
+        )
+
+    return render(
+        request,
+        'jinetes.html',
+        {
+            'jinetes': jinetes
+        }
+    )

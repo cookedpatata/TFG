@@ -7,206 +7,381 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>HippoTrack</title>
 
-    <link rel="stylesheet"
-          href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <body>
 
-<nav class="navbar">
+    <nav class="navbar">
 
-    <div class="logo">
+        <div class="logo">
 
-        <i class="fa-solid fa-trophy"></i>
+            <i class="fa-solid fa-trophy"></i>
 
-        <span>HippoTrack</span>
+            <span>HippoTrack</span>
 
-    </div>
+        </div>
 
-    <ul class="nav-links">
+        <ul class="nav-links">
 
-        <li>
-            <a href="#">
-                Carreras
-            </a>
-        </li>
+            <li>
+                <a href="{% url 'index' %}">
+                    Carreras
+                </a>
+            </li>
 
-        <li>
-            <a href="#">
-                Caballos
-            </a>
-        </li>
+            <li>
+                <a href="{% url 'caballos' %}">
+                    Caballos
+                </a>
+            </li>
 
-        <li>
-            <a href="#">
-                Jinetes
-            </a>
-        </li>
+            <li>
+                <a href="{% url 'jinetes' %}">
+                    Jinetes
+                </a>
+            </li>
 
-        {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
 
-        <li>
+            <li>
 
-            <a href="{% url 'perfil' %}">
+                <a href="{% url 'perfil' %}">
 
-                <i class="fa-regular fa-user"></i>
+                    <i class="fa-regular fa-user"></i>
 
-                Perfil
+                    Perfil
 
-            </a>
+                </a>
 
-        </li>
+            </li>
 
-        <li>
+            <li>
 
-            <a href="{% url 'logout' %}">
+                <a href="{% url 'logout' %}">
 
-                <i class="fa-solid fa-right-from-bracket"></i>
+                    <i class="fa-solid fa-right-from-bracket"></i>
 
-                Salir
+                    Salir
 
-            </a>
+                </a>
 
-        </li>
+            </li>
 
-        {% else %}
+            {% else %}
 
-        <li>
+            <li>
 
-            <a href="{% url 'login' %}">
+                <a href="{% url 'login' %}">
 
-                <i class="fa-solid fa-right-to-bracket"></i>
+                    <i class="fa-solid fa-right-to-bracket"></i>
 
-                Login
+                    Login
 
-            </a>
+                </a>
 
-        </li>
+            </li>
 
-        {% endif %}
+            {% endif %}
 
-    </ul>
+        </ul>
 
-</nav>
+    </nav>
 
-<div class="contenedor">
+    <div class="contenedor">
 
-    <section class="izquierda">
+        <section class="izquierda">
 
-        <div class="panel">
+            <div class="panel">
 
-            <h1>
+                <h1>
 
-                <i class="fa-regular fa-calendar"></i>
+                    <i class="fa-regular fa-calendar"></i>
 
-                Próximas Carreras
+                    Próximas Carreras
 
-            </h1>
+                </h1>
 
-            <div class="lista-carreras">
+                <form method="GET" class="filtros">
 
-                {% for carrera in carreras %}
+                    <div class="filtro">
 
-                <div class="card-carrera">
+                        <label>Categoría</label>
 
-                    <div class="card-top">
+                        <select name="categoria">
 
-                        <div>
+                            <option value="">Todas</option>
 
-                            <h2>
+                            {% for categoria in categorias %}
 
-                                {{ carrera.nombre }}
+                            <option value="{{ categoria }}" {% if request.GET.categoria == categoria %} selected {% endif %}>
 
-                            </h2>
+                                {{ categoria }}
 
-                            <div class="info">
+                            </option>
 
-                                <span>
+                            {% endfor %}
 
-                                    <i class="fa-regular fa-calendar"></i>
+                        </select>
 
-                                    {{ carrera.fecha }}
+                    </div>
 
-                                </span>
+                    <div class="filtro">
 
-                                <span>
+                        <label>Distancia</label>
 
-                                    <i class="fa-regular fa-clock"></i>
+                        <select name="distancia">
 
-                                    {{ carrera.hora }}
+                            <option value="">Todas</option>
 
-                                </span>
+                            <option value="0-1000" {% if request.GET.distancia == "0-1000" %} selected {% endif %}>
 
-                            </div>
+                                0m - 1000m
 
-                            <div class="info">
+                            </option>
 
-                                <span>
+                            <option value="1001-2000" {% if request.GET.distancia == "1001-2000" %} selected {% endif %}>
 
-                                    <i class="fa-solid fa-location-dot"></i>
+                                1001m - 2000m
 
-                                    {{ carrera.id_hipodromo.nombre }}
+                            </option>
 
-                                </span>
+                            <option value="2001-3000" {% if request.GET.distancia == "2001-3000" %} selected {% endif %}>
 
-                            </div>
+                                2001m - 3000m
 
-                            <div class="info-secundaria">
+                            </option>
 
-                                <span>
+                            <option value="3001-5000" {% if request.GET.distancia == "3001-5000" %} selected {% endif %}>
 
-                                    {{ carrera.categoria }}
+                                3001m - 5000m
 
-                                </span>
+                            </option>
 
-                                <span>
+                        </select>
 
-                                    {{ carrera.tipo }}
+                    </div>
 
-                                </span>
+                    <div class="filtro">
 
-                                <span>
+                        <label>Participantes</label>
 
-                                    {{ carrera.distancia }}m
+                        <select name="participantes">
 
-                                </span>
+                            <option value="">Todos</option>
 
-                                <span>
+                            <option value="5" {% if request.GET.participantes == "5" %} selected {% endif %}>
+                                5+
+                            </option>
 
-                                    {{ carrera.num_participantes }}
-                                    participantes
+                            <option value="10" {% if request.GET.participantes == "10" %} selected {% endif %}>
+                                10+
+                            </option>
 
-                                </span>
+                            <option value="15" {% if request.GET.participantes == "15" %} selected {% endif %}>
+                                15+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="filtro">
+
+                        <label>Hipódromo</label>
+
+                        <select name="hipodromo">
+
+                            <option value="">Todos</option>
+
+                            {% for hipodromo in hipodromos %}
+
+                            <option value="{{ hipodromo.id_hipodromo }}" {% if request.GET.hipodromo == hipodromo.id_hipodromo|stringformat:"s" %} selected {% endif %}>
+
+                                {{ hipodromo.nombre }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <div class="filtro">
+
+                        <label>&nbsp;</label>
+
+                        <button type="submit" class="btn-apostar">
+
+                            Filtrar
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <div class="lista-carreras">
+
+                    {% for carrera in carreras %}
+
+                    <div class="card-carrera">
+
+                        <div class="card-top">
+
+                            <div>
+
+                                <h2>
+
+                                    {{ carrera.nombre }}
+
+                                </h2>
+
+                                <div class="info">
+
+                                    <span>
+
+                                        <i class="fa-regular fa-calendar"></i>
+
+                                        {{ carrera.fecha }}
+
+                                    </span>
+
+                                    <span>
+
+                                        <i class="fa-regular fa-clock"></i>
+
+                                        {{ carrera.hora }}
+
+                                    </span>
+
+                                </div>
+
+                                <div class="info">
+
+                                    <span>
+
+                                        <i class="fa-solid fa-location-dot"></i>
+
+                                        {{ carrera.id_hipodromo.nombre }}
+
+                                    </span>
+
+                                </div>
+
+                                <div class="info-secundaria">
+
+                                    <span>
+
+                                        {{ carrera.categoria }}
+
+                                    </span>
+
+                                    <span>
+
+                                        {{ carrera.tipo }}
+
+                                    </span>
+
+                                    <span>
+
+                                        {{ carrera.distancia }}m
+
+                                    </span>
+
+                                    <span>
+
+                                        {{ carrera.num_participantes }}
+                                        participantes
+
+                                    </span>
+
+                                </div>
 
                             </div>
 
                         </div>
 
+                        <a href="{% url 'detalle_carrera' carrera.id_carrera %}" class="btn-apostar">
+
+                            Apostar
+
+                        </a>
+
                     </div>
 
-                    <a href="{% url 'detalle_carrera' carrera.id_carrera %}"
-                       class="btn-apostar">
+                    {% empty %}
 
-                        Apostar
+                    <div class="card-carrera">
 
-                    </a>
+                        <h2>No hay carreras disponibles</h2>
+
+                    </div>
+
+                    {% endfor %}
 
                 </div>
 
-                {% empty %}
+            </div>
 
-                <div class="card-carrera">
+        </section>
 
-                    <h2>No hay carreras disponibles</h2>
+        <aside class="derecha">
+
+            <div class="ranking-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-crown"></i>
+
+                    Top Usuarios
+
+                </h2>
+
+                {% for usuario in top_usuarios %}
+
+                <div class="ranking-item">
+
+                    <div class="usuario-info">
+
+                        <div class="avatar">
+
+                            {{ usuario.iniciales }}
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+
+                                {{ usuario.nombre }}
+
+                            </h3>
+
+                            <p>
+
+                                {{ usuario.victorias }}
+                                apuestas
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="cantidad">
+
+                        {{ usuario.ganancias }} €
+
+                    </div>
 
                 </div>
 
@@ -214,158 +389,99 @@
 
             </div>
 
-        </div>
+            <div class="ranking-card">
 
-    </section>
+                <h2>
 
-    <aside class="derecha">
+                    <i class="fa-solid fa-horse"></i>
 
-        <div class="ranking-card">
+                    Top Caballos
 
-            <h2>
+                </h2>
 
-                <i class="fa-solid fa-crown"></i>
+                {% for caballo in top_caballos %}
 
-                Top Usuarios
-
-            </h2>
-
-            {% for usuario in top_usuarios %}
-
-            <div class="ranking-item">
-
-                <div class="usuario-info">
-
-                    <div class="avatar">
-
-                        {{ usuario.iniciales }}
-
-                    </div>
+                <div class="ranking-simple">
 
                     <div>
 
                         <h3>
 
-                            {{ usuario.nombre }}
+                            #{{ forloop.counter }}
+
+                            {{ caballo.nombre }}
 
                         </h3>
 
                         <p>
 
-                            {{ usuario.victorias }}
-                            apuestas
+                            {{ caballo.victorias }}/{{ caballo.carreras }}
+                            victorias
 
                         </p>
 
                     </div>
 
+                    <span>
+
+                        {{ caballo.porcentaje }}%
+
+                    </span>
+
                 </div>
 
-                <div class="cantidad">
-
-                    {{ usuario.ganancias }} €
-
-                </div>
+                {% endfor %}
 
             </div>
 
-            {% endfor %}
+            <div class="ranking-card">
 
-        </div>
+                <h2>
 
-        <div class="ranking-card">
+                    <i class="fa-solid fa-medal"></i>
 
-            <h2>
+                    Top Jinetes
 
-                <i class="fa-solid fa-horse"></i>
+                </h2>
 
-                Top Caballos
+                {% for jinete in top_jinetes %}
 
-            </h2>
+                <div class="ranking-simple">
 
-            {% for caballo in top_caballos %}
+                    <div>
 
-            <div class="ranking-simple">
+                        <h3>
 
-                <div>
+                            #{{ forloop.counter }}
 
-                    <h3>
+                            {{ jinete.nombre }}
 
-                        #{{ forloop.counter }}
+                        </h3>
 
-                        {{ caballo.nombre }}
+                        <p>
 
-                    </h3>
+                            {{ jinete.victorias }}
+                            victorias
 
-                    <p>
+                        </p>
 
-                        {{ caballo.victorias }}/{{ caballo.carreras }}
-                        victorias
+                    </div>
 
-                    </p>
+                    <span>
 
-                </div>
+                        {{ jinete.efectividad }}%
 
-                <span>
-
-                    {{ caballo.porcentaje }}%
-
-                </span>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-        <div class="ranking-card">
-
-            <h2>
-
-                <i class="fa-solid fa-medal"></i>
-
-                Top Jinetes
-
-            </h2>
-
-            {% for jinete in top_jinetes %}
-
-            <div class="ranking-simple">
-
-                <div>
-
-                    <h3>
-
-                        #{{ forloop.counter }}
-
-                        {{ jinete.nombre }}
-
-                    </h3>
-
-                    <p>
-
-                        {{ jinete.victorias }}
-                        victorias
-
-                    </p>
+                    </span>
 
                 </div>
 
-                <span>
-
-                    {{ jinete.efectividad }}%
-
-                </span>
+                {% endfor %}
 
             </div>
 
-            {% endfor %}
+        </aside>
 
-        </div>
-
-    </aside>
-
-</div>
+    </div>
 
 </body>
 

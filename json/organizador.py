@@ -1,18 +1,49 @@
 import json
-from datetime import datetime
+import os
+import re
 
 # =====================================================
-# CARGAR JSONS
+# CARGAR JSONS SI EXISTEN
 # =====================================================
 
-with open("datos_carreras_sansebastian.json", "r", encoding="utf-8") as f:
-    san_sebastian = json.load(f)
+san_sebastian = []
+zarzuela = []
 
-with open("datos_carreras_zarzuela.json", "r", encoding="utf-8") as f:
-    zarzuela = json.load(f)
+if os.path.exists("datos_carreras_sansebastian.json"):
+
+    with open(
+        "datos_carreras_sansebastian.json",
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        san_sebastian = json.load(f)
+
+    print("JSON San Sebastián cargado")
+
+else:
+
+    print("No existe datos_carreras_sansebastian.json")
+
+
+if os.path.exists("datos_carreras_zarzuela.json"):
+
+    with open(
+        "datos_carreras_zarzuela.json",
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        zarzuela = json.load(f)
+
+    print("JSON Zarzuela cargado")
+
+else:
+
+    print("No existe datos_carreras_zarzuela.json")
 
 # =====================================================
-# ESTRUCTURA FINAL SEGÚN LA BD
+# ESTRUCTURA FINAL
 # =====================================================
 
 bd = {
@@ -29,118 +60,240 @@ bd = {
 }
 
 # =====================================================
-# SETS PARA EVITAR DUPLICADOS
+# SETS DUPLICADOS
 # =====================================================
 
 hipodromos_set = set()
 pistas_set = set()
-estados_set = set()
+estado_set = set()
+
 entrenadores_set = set()
 jinetes_set = set()
 propietarios_set = set()
 caballos_set = set()
 
-# =====================================================
-# IDS TEMPORALES
-# =====================================================
-
-id_carrera = 1
-id_participante = 1
+carreras_set = set()
+participantes_set = set()
 
 # =====================================================
-# FUNCIONES AUXILIARES
+# VALORES DESCONOCIDOS
 # =====================================================
 
-def agregar_unico(tabla, conjunto, valor, datos):
+bd["pistas"].append({
+    "tipo": "Desconocido"
+})
 
-    if valor and valor not in conjunto:
-        conjunto.add(valor)
-        tabla.append(datos)
+bd["estado_pista"].append({
+    "tipo": "Desconocido"
+})
+
+pistas_set.add("Desconocido")
+estado_set.add("Desconocido")
 
 # =====================================================
-# SAN SEBASTIÁN
+# UNIR CARRERAS
 # =====================================================
 
-for carrera in san_sebastian:
+todas_carreras = san_sebastian + zarzuela
 
-    datos_carrera = carrera.get("datos_carrera", {})
+# =====================================================
+# COMPROBAR DATOS
+# =====================================================
 
-    hipodromo_nombre = "Hipódromo de San Sebastián"
-    pista = datos_carrera.get("Pista", "")
-    estado = datos_carrera.get("Estado", "")
+if len(todas_carreras) == 0:
 
-    # =================================================
-    # HIPODROMO
-    # =================================================
+    print("No hay carreras disponibles")
 
-    agregar_unico(
-        bd["hipodromos"],
-        hipodromos_set,
-        hipodromo_nombre,
-        {
-            "nombre": hipodromo_nombre,
-            "direccion": "San Sebastián"
-        }
+    exit()
+
+# =====================================================
+# RECORRER CARRERAS
+# =====================================================
+
+for carrera in todas_carreras:
+
+    url_carrera = carrera.get(
+        "url",
+        ""
+    ).strip()
+
+    # ================================================
+    # EVITAR CARRERAS DUPLICADAS
+    # ================================================
+
+    if not url_carrera:
+
+        continue
+
+    if url_carrera in carreras_set:
+
+        continue
+
+    carreras_set.add(url_carrera)
+
+    # ================================================
+    # DATOS GENERALES
+    # ================================================
+
+    hipodromo = (
+        carrera.get(
+            "hipodromo",
+            "Desconocido"
+        ) or "Desconocido"
+    ).strip()
+
+    pista = (
+        carrera.get(
+            "pista",
+            "Desconocido"
+        ) or "Desconocido"
+    ).strip()
+
+    estado_pista = (
+        carrera.get(
+            "estado_pista",
+            "Desconocido"
+        ) or "Desconocido"
+    ).strip()
+
+    participantes = carrera.get(
+        "participantes",
+        []
+    )
+
+    resultados = carrera.get(
+        "resultados",
+        []
     )
 
     # =================================================
-    # PISTA
+    # LIMPIAR DISTANCIA
     # =================================================
 
-    agregar_unico(
-        bd["pistas"],
-        pistas_set,
-        pista,
-        {
+    distancia_raw = str(
+        carrera.get("distancia", "0")
+    )
+
+    distancia_numeros = "".join(
+        c for c in distancia_raw
+        if c.isdigit()
+    )
+
+    distancia = (
+        int(distancia_numeros)
+        if distancia_numeros
+        else 0
+    )
+
+    # =================================================
+    # LIMPIAR ORDEN
+    # =================================================
+
+    orden_raw = str(
+        carrera.get("orden", "0")
+    ).strip()
+
+    match_orden = re.search(
+        r"\d+",
+        orden_raw
+    )
+
+    orden = (
+        int(match_orden.group())
+        if match_orden
+        else 0
+    )
+
+    # =================================================
+    # HIPODROMOS
+    # =================================================
+
+    if hipodromo not in hipodromos_set:
+
+        hipodromos_set.add(hipodromo)
+
+        bd["hipodromos"].append({
+            "nombre": hipodromo,
+
+            "direccion": (
+                "Madrid"
+                if "Zarzuela" in hipodromo
+                else "San Sebastián"
+            )
+        })
+
+    # =================================================
+    # PISTAS
+    # =================================================
+
+    if pista not in pistas_set:
+
+        pistas_set.add(pista)
+
+        bd["pistas"].append({
             "tipo": pista
-        }
-    )
+        })
 
     # =================================================
     # ESTADO PISTA
     # =================================================
 
-    agregar_unico(
-        bd["estado_pista"],
-        estados_set,
-        estado,
-        {
-            "tipo": estado
-        }
-    )
+    if estado_pista not in estado_set:
 
-    # =================================================
-    # FORMATEAR FECHA
-    # =================================================
+        estado_set.add(estado_pista)
 
-    fecha = carrera.get("fecha", "")
-
-    try:
-        fecha = datetime.strptime(fecha, "%Y%m%d").strftime("%Y-%m-%d")
-    except:
-        pass
-
-    participantes = carrera.get("tabla_participantes", [])
-    resultados = carrera.get("tabla_resultados", [])
+        bd["estado_pista"].append({
+            "tipo": estado_pista
+        })
 
     # =================================================
     # CARRERA
     # =================================================
 
     bd["carreras"].append({
-        "id_carrera": id_carrera,
-        "enlace": carrera.get("url", ""),
-        "nombre": carrera.get("nombre", ""),
-        "fecha": fecha,
-        "hora": datos_carrera.get("Hora", ""),
-        "distancia": datos_carrera.get("Distancia", ""),
-        "tipo": datos_carrera.get("Tipo", ""),
-        "categoria": datos_carrera.get("Categoría", ""),
-        "orden": id_carrera,
-        "estado": "Finalizada" if len(resultados) > 0 else "Pendiente",
-        "hipodromo": hipodromo_nombre,
+
+        "enlace": url_carrera,
+
+        "nombre": carrera.get(
+            "nombre",
+            ""
+        ),
+
+        "fecha": carrera.get(
+            "fecha",
+            ""
+        ),
+
+        "hora": carrera.get(
+            "hora",
+            "00:00:00"
+        ),
+
+        "distancia": distancia,
+
+        "orden": orden,
+
+        "estado": (
+            "Finalizada"
+            if len(resultados) > 0
+            else "Pendiente"
+        ),
+
+        "hipodromo": hipodromo,
+
         "pista": pista,
-        "estado_pista": estado
+
+        "estado_pista": estado_pista,
+
+        "tipo": carrera.get(
+            "tipo",
+            ""
+        ),
+
+        "categoria": carrera.get(
+            "categoria",
+            ""
+        )
     })
 
     # =================================================
@@ -151,9 +304,16 @@ for carrera in san_sebastian:
 
     for resultado in resultados:
 
-        nombre_caballo = resultado.get("caballo", "")
+        caballo_resultado = resultado.get(
+            "caballo",
+            ""
+        ).strip()
 
-        mapa_resultados[nombre_caballo] = resultado
+        if caballo_resultado:
+
+            mapa_resultados[
+                caballo_resultado
+            ] = resultado
 
     # =================================================
     # PARTICIPANTES
@@ -161,273 +321,219 @@ for carrera in san_sebastian:
 
     for participante in participantes:
 
-        caballo = participante.get("caballo", "")
-        nacionalidad = participante.get("nacionalidad", "")
-        entrenador = participante.get("Entrenador", "")
-        jinete = participante.get("jockey", "")
-        propietario = participante.get("Propietario", "")
+        caballo = participante.get(
+            "caballo",
+            ""
+        ).strip()
+
+        if not caballo:
+
+            continue
+
+        nacionalidad = participante.get(
+            "nacionalidad",
+            ""
+        ).strip()
+
+        entrenador = participante.get(
+            "entrenador",
+            ""
+        ).strip()
+
+        jinete = participante.get(
+            "jinete",
+            ""
+        ).strip()
+
+        propietario = participante.get(
+            "propietario",
+            ""
+        ).strip()
 
         # =============================================
-        # ENTRENADOR
+        # ENTRENADORES
         # =============================================
 
-        agregar_unico(
-            bd["entrenadores"],
-            entrenadores_set,
-            entrenador,
-            {
+        if (
+            entrenador and
+            entrenador not in entrenadores_set
+        ):
+
+            entrenadores_set.add(
+                entrenador
+            )
+
+            bd["entrenadores"].append({
                 "nombre": entrenador,
                 "nacionalidad": ""
-            }
-        )
+            })
 
         # =============================================
-        # JINETE
+        # JINETES
         # =============================================
 
-        agregar_unico(
-            bd["jinetes"],
-            jinetes_set,
-            jinete,
-            {
+        if (
+            jinete and
+            jinete not in jinetes_set
+        ):
+
+            jinetes_set.add(
+                jinete
+            )
+
+            bd["jinetes"].append({
                 "nombre": jinete,
-                "peso": None,
+
+                "peso": participante.get(
+                    "peso"
+                ),
+
                 "nacionalidad": ""
-            }
-        )
+            })
 
         # =============================================
-        # PROPIETARIO
+        # PROPIETARIOS
         # =============================================
 
-        agregar_unico(
-            bd["propietarios"],
-            propietarios_set,
-            propietario,
-            {
+        if (
+            propietario and
+            propietario not in propietarios_set
+        ):
+
+            propietarios_set.add(
+                propietario
+            )
+
+            bd["propietarios"].append({
+
                 "nombre": propietario,
+
                 "nacionalidad": "",
+
                 "equipamiento": ""
-            }
-        )
+            })
 
         # =============================================
-        # CABALLO
+        # CABALLOS
         # =============================================
 
-        agregar_unico(
-            bd["caballos"],
-            caballos_set,
-            caballo,
-            {
+        if caballo not in caballos_set:
+
+            caballos_set.add(
+                caballo
+            )
+
+            bd["caballos"].append({
+
                 "nombre": caballo,
+
                 "nacionalidad": nacionalidad,
-                "sexo": participante.get("sexo", ""),
-                "edad": participante.get("edad", ""),
-                "propietario": propietario,
-                "entrenador": entrenador
-            }
-        )
+
+                "sexo": participante.get(
+                    "sexo",
+                    ""
+                ),
+
+                "edad": participante.get(
+                    "edad"
+                ),
+
+                "entrenador": entrenador,
+
+                "propietario": propietario
+            })
 
         # =============================================
         # PARTICIPANTE
         # =============================================
 
-        bd["participantes"].append({
-            "id_participante": id_participante,
-            "numero_salida": participante.get("numero", ""),
+        clave_participante = (
+            caballo,
+            url_carrera,
+            jinete
+        )
+
+        if (
+            clave_participante
+            in participantes_set
+        ):
+
+            continue
+
+        participantes_set.add(
+            clave_participante
+        )
+
+        participante_final = {
+
             "caballo": caballo,
+
+            "carrera": url_carrera,
+
             "jinete": jinete,
-            "carrera": id_carrera,
-            "retirado": False
-        })
+
+            "numero_salida": participante.get(
+                "numero",
+                0
+            ),
+
+            "retirado": participante.get(
+                "retirado",
+                False
+            )
+        }
+
+        bd["participantes"].append(
+            participante_final
+        )
 
         # =============================================
-        # RESULTADO
+        # RESULTADOS
         # =============================================
 
-        resultado = mapa_resultados.get(caballo)
+        resultado = mapa_resultados.get(
+            caballo
+        )
 
         if resultado:
 
             bd["resultados"].append({
-                "participante": id_participante,
-                "posicion": resultado.get("posicion", ""),
-                "duracion": "00:00:00",
-                "distancia": resultado.get("Distancia", "")
-            })
 
-        id_participante += 1
+                "carrera": url_carrera,
 
-    id_carrera += 1
-
-# =====================================================
-# ZARZUELA
-# =====================================================
-
-for fecha in zarzuela:
-
-    carreras = fecha.get("carreras", [])
-
-    for carrera in carreras:
-
-        hipodromo_nombre = "Hipódromo de la Zarzuela"
-
-        agregar_unico(
-            bd["hipodromos"],
-            hipodromos_set,
-            hipodromo_nombre,
-            {
-                "nombre": hipodromo_nombre,
-                "direccion": "Madrid"
-            }
-        )
-
-        resultados = carrera.get("resultados", [])
-        participantes = carrera.get("participantes", [])
-
-        # =================================================
-        # CARRERA
-        # =================================================
-
-        bd["carreras"].append({
-            "id_carrera": id_carrera,
-            "enlace": carrera.get("url", ""),
-            "nombre": carrera.get("nombre", ""),
-            "fecha": carrera.get("fecha", ""),
-            "hora": carrera.get("hora", ""),
-            "distancia": carrera.get("distancia", ""),
-            "tipo": carrera.get("tipo", ""),
-            "categoria": carrera.get("categoria", ""),
-            "orden": id_carrera,
-            "estado": "Finalizada" if len(resultados) > 0 else "Pendiente",
-            "hipodromo": hipodromo_nombre,
-            "pista": "",
-            "estado_pista": ""
-        })
-
-        # =================================================
-        # MAPA RESULTADOS
-        # =================================================
-
-        mapa_resultados = {}
-
-        for resultado in resultados:
-
-            caballo_resultado = resultado.get("caballo", "")
-            mapa_resultados[caballo_resultado] = resultado
-
-        # =================================================
-        # PARTICIPANTES
-        # =================================================
-
-        for participante in participantes:
-
-            caballo = participante.get("caballo", "")
-            nacionalidad = participante.get("nacionalidad", "")
-            entrenador = participante.get("entrenador", "")
-            jinete = participante.get("jockey", "")
-            propietario = participante.get("propietario", "")
-
-            # =============================================
-            # ENTRENADOR
-            # =============================================
-
-            agregar_unico(
-                bd["entrenadores"],
-                entrenadores_set,
-                entrenador,
-                {
-                    "nombre": entrenador,
-                    "nacionalidad": ""
-                }
-            )
-
-            # =============================================
-            # JINETE
-            # =============================================
-
-            agregar_unico(
-                bd["jinetes"],
-                jinetes_set,
-                jinete,
-                {
-                    "nombre": jinete,
-                    "peso": None,
-                    "nacionalidad": ""
-                }
-            )
-
-            # =============================================
-            # PROPIETARIO
-            # =============================================
-
-            agregar_unico(
-                bd["propietarios"],
-                propietarios_set,
-                propietario,
-                {
-                    "nombre": propietario,
-                    "nacionalidad": "",
-                    "equipamiento": ""
-                }
-            )
-
-            # =============================================
-            # CABALLO
-            # =============================================
-
-            agregar_unico(
-                bd["caballos"],
-                caballos_set,
-                caballo,
-                {
-                    "nombre": caballo,
-                    "nacionalidad": nacionalidad,
-                    "sexo": "",
-                    "edad": participante.get("edad", ""),
-                    "propietario": propietario,
-                    "entrenador": entrenador
-                }
-            )
-
-            # =============================================
-            # PARTICIPANTE
-            # =============================================
-
-            bd["participantes"].append({
-                "id_participante": id_participante,
-                "numero_salida": participante.get("numero", ""),
                 "caballo": caballo,
-                "jinete": jinete,
-                "carrera": id_carrera,
-                "retirado": False
+
+                "posicion": resultado.get(
+                    "posicion",
+                    0
+                ),
+
+                "duracion": resultado.get(
+                    "duracion",
+                    "00:00:00"
+                ),
+
+                "distancia": resultado.get(
+                    "distancia",
+                    ""
+                )
             })
 
-            # =============================================
-            # RESULTADO
-            # =============================================
-
-            resultado = mapa_resultados.get(caballo)
-
-            if resultado:
-
-                bd["resultados"].append({
-                    "participante": id_participante,
-                    "posicion": resultado.get("posicion", ""),
-                    "duracion": "00:00:00",
-                    "distancia": resultado.get("distancia", "")
-                })
-
-            id_participante += 1
-
-        id_carrera += 1
-
 # =====================================================
-# GUARDAR JSON FINAL
+# GUARDAR JSON
 # =====================================================
 
-with open("bd_reorganizada.json", "w", encoding="utf-8") as f:
-    json.dump(bd, f, ensure_ascii=False, indent=4)
+with open(
+    "bd_reorganizada.json",
+    "w",
+    encoding="utf-8"
+) as f:
+
+    json.dump(
+        bd,
+        f,
+        ensure_ascii=False,
+        indent=4
+    )
 
 print("JSON reorganizado correctamente")

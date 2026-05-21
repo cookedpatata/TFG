@@ -5,35 +5,78 @@ from selenium.webdriver.support import expected_conditions as EC
 import json
 import re
 
-#AEMET 20069
+# =========================================================
+# CONFIG
+# =========================================================
 
-# ==============================================
-# LIMPIAR NOMBRE CARRERA
-# ==============================================
-def limpiar_jockey(nombre):
+URL = "https://www.hipodromoa.com/temporada/grandes_premios/_IqQzNPbID9if9RF9lTMfY7AMnt-i5dKO"
 
-    # Eliminar todo lo que esté entre paréntesis
+# =========================================================
+# LIMPIEZA
+# =========================================================
+
+def limpiar_jinete(nombre):
+
     nombre = re.sub(r"\s*\([^)]*\)", "", nombre)
 
     return nombre.strip()
 
+
 def limpiar_nombre_carrera(texto):
 
-    # Quitar número inicial
     texto = re.sub(r'^\d+\s+', '', texto)
-
-    # Quitar hora final (11:05)
     texto = re.sub(r'\s*\(\d{1,2}:\d{2}\)\s*$', '', texto)
 
     return texto.strip()
 
+
+def limpiar_distancia(valor):
+
+    numeros = re.findall(r"\d+", str(valor))
+
+    return int(numeros[0]) if numeros else 0
+
+
+def limpiar_hora(hora):
+
+    hora = hora.replace("h", "").replace(".", ":").strip()
+
+    if len(hora) == 5:
+        hora += ":00"
+
+    return hora
+
+
+def limpiar_peso(valor):
+
+    valor = valor.replace(",", ".").strip()
+
+    try:
+        return float(valor)
+    except:
+        return None
+
+
+def limpiar_edad(valor):
+
+    try:
+        return int(re.findall(r"\d+", str(valor))[0])
+    except:
+        return None
+
+# =========================================================
+# TABLAS
+# =========================================================
+
 def extraer_tabla_objetos(tabla, claves):
+
     datos = []
 
     tbody = tabla.find_element(By.TAG_NAME, "tbody")
     filas = tbody.find_elements(By.TAG_NAME, "tr")
 
     for fila in filas:
+
         tds = fila.find_elements(By.TAG_NAME, "td")
 
         if not tds:
@@ -41,16 +84,16 @@ def extraer_tabla_objetos(tabla, claves):
 
         valores = [td.text.strip() for td in tds]
 
-        # Evitar errores si faltan columnas
         if len(valores) < len(claves):
             valores.extend([""] * (len(claves) - len(valores)))
 
-        objeto = dict(zip(claves, valores))
-
-        datos.append(objeto)
+        datos.append(dict(zip(claves, valores)))
 
     return datos
 
+# =========================================================
+# CABALLOS
+# =========================================================
 
 def parsear_ncaballo(texto):
 
@@ -60,13 +103,9 @@ def parsear_ncaballo(texto):
 
     if match:
 
-        contenido_parentesis = match.group(3).strip()
+        contenido = match.group(3).strip()
 
-        # Si el contenido del primer paréntesis es texto -> nacionalidad
-        if contenido_parentesis.isalpha():
-            nacionalidad = contenido_parentesis
-        else:
-            nacionalidad = "ESP"
+        nacionalidad = contenido if contenido.isalpha() else "ESP"
 
         return {
             "numero": int(match.group(1)),
@@ -74,7 +113,6 @@ def parsear_ncaballo(texto):
             "nacionalidad": nacionalidad
         }
 
-    # Fallback por si no hay paréntesis
     patron_simple = r"^\s*(\d+)\s+(.*)$"
 
     match_simple = re.search(patron_simple, texto)
@@ -107,7 +145,6 @@ def parsear_pcaballo(texto):
             "caballo": match.group(2).strip()
         }
 
-    # Fallback
     patron_simple = r"^\s*(\d+)\s+(.*)$"
 
     match_simple = re.search(patron_simple, texto)
@@ -124,14 +161,13 @@ def parsear_pcaballo(texto):
         "caballo": texto
     }
 
-
-
-#url = "https://www.hipodromoa.com/temporada/grandes_premios/_IqQzNPbID9if9RF9lTMfY7AMnt-i5dKO"
-
-url = "https://www.hipodromoa.com/temporadas_anteriores/_IqQzNPbID9hmdCrEM50YFelRT0DKLYB1"
+# =========================================================
+# DRIVER
+# =========================================================
 
 driver = webdriver.Chrome()
-driver.get(url)
+
+driver.get(URL)
 
 wait = WebDriverWait(driver, 10)
 
@@ -141,10 +177,14 @@ elemento = wait.until(
 
 jornadas = elemento.find_elements(By.CLASS_NAME, "JornadaHolder")
 
-# Guardar links
+# =========================================================
+# LINKS
+# =========================================================
+
 links = []
 
 for jornada in jornadas:
+
     carreras = jornada.find_element(By.CLASS_NAME, "carreras")
     carrera = carreras.find_elements(By.CLASS_NAME, "carrera")
 
@@ -152,92 +192,103 @@ for jornada in jornadas:
 
         link = enlace.find_element(By.TAG_NAME, "p").find_element(By.TAG_NAME, "a")
 
-        href = link.get_attribute("href")
-
-        nombre_raw = link.get_attribute("textContent").strip()
-        nombre = limpiar_nombre_carrera(nombre_raw)
-
         links.append({
-            "url": href,
-            "nombre": nombre
+            "url": link.get_attribute("href"),
+            "nombre": limpiar_nombre_carrera(
+                link.get_attribute("textContent").strip()
+            )
         })
 
-# Recorrer links
-tablas_datos = []
+# =========================================================
+# SCRAPING
+# =========================================================
+
+carreras_final = []
 
 for carrera_info in links:
 
     href = carrera_info["url"]
-    nombre = carrera_info["nombre"]
 
     driver.get(href)
 
     fecha = href.split("/reunion/")[1].split("/")[0]
 
-    datos_participantes = {'Ncaballo':'','sexo':'','edad':'','cajon':'','jockey':'','Entrenador':'','Propietario':'',}
-    datos_resultados = {'Pcaballo':'','sexo':'','edad':'','numero':'','peso':'','jockey':'','Entrenador':'','Propietario':'','Distancia':'',}
-
     try:
+
         wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "table.table.table-striped"))
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, "table.table.table-striped")
+            )
         )
 
-        # ==============================================
-        # CARRERA
-        # ==============================================
+        # =====================================================
+        # DATOS CARRERA
+        # =====================================================
+
+        datos_carrera = {}
+
         try:
-            info = driver.find_element(By.CSS_SELECTOR, "div.informacion.col-sm-10")
+
+            info = driver.find_element(
+                By.CSS_SELECTOR,
+                "div.informacion.col-sm-10"
+            )
+
             strongs = info.find_elements(By.TAG_NAME, "strong")
-            datos_carrera = {}
 
             for strong in strongs:
+
                 clave = strong.text.replace(":", "").strip()
-                # Saltar Dotación
+
                 if clave == "Dotación":
                     continue
 
                 valor = driver.execute_script("""
                     let node = arguments[0].nextSibling;
                     let text = '';
-                    let clave = arguments[1];
+
                     while(node){
-                        // parar al siguiente campo
+
                         if(node.tagName === 'STRONG'){
                             break;
                         }
+
                         if(node.nodeType === Node.TEXT_NODE){
                             text += node.textContent;
                         }
-                        else if(node.tagName === 'BR' && clave !== 'Condiciones'){
+
+                        else if(node.tagName === 'BR'){
                             break;
                         }
+
                         node = node.nextSibling;
                     }
+
                     return text.trim();
-                """, strong, clave)
+                """, strong)
 
                 datos_carrera[clave] = valor
 
-                # ==========================================
-                # OBTENER HORA
-                # ==========================================
+            top_resultado = driver.find_element(By.CLASS_NAME, "topResultado")
 
-                top_resultado = driver.find_element(By.CLASS_NAME, "topResultado")
+            hora = top_resultado.find_element(
+                By.XPATH,
+                ".//div[contains(@style,'float:right')]"
+            ).text.strip()
 
-                hora = top_resultado.find_element(
-                    By.XPATH,
-                    ".//div[contains(@style,'float:right')]"
-                ).text.strip()
-
-                datos_carrera["Hora"] = hora
+            datos_carrera["Hora"] = limpiar_hora(hora)
 
         except Exception as e:
-            print("Error en carreras:", e)
+            print("Error carrera:", e)
 
-        # ==============================================
+        # =====================================================
         # PARTICIPANTES
-        # ==============================================
+        # =====================================================
+
+        participantes = []
+
         try:
+
             a_participantes = wait.until(
                 EC.element_to_be_clickable(
                     (By.XPATH, "//li[.//a[contains(., 'Participantes')]]//a")
@@ -246,60 +297,69 @@ for carrera_info in links:
 
             driver.execute_script("arguments[0].click();", a_participantes)
 
-            # Esperar a que cargue contenido (HTML)
-            WebDriverWait(driver, 1).until(
+            WebDriverWait(driver, 2).until(
                 lambda d: d.find_element(
-                    By.CSS_SELECTOR, "table.table.table-striped"
+                    By.CSS_SELECTOR,
+                    "table.table.table-striped"
                 ).get_attribute("innerHTML") != ""
             )
 
-            claves_participantes = [
-                'Ncaballo',
-                'sexo',
-                'edad',
-                'cajon',
-                'peso',
-                'jockey',
-                'Entrenador',
-                'Propietario'
+            claves = [
+                "Ncaballo",
+                "sexo",
+                "edad",
+                "cajon",
+                "peso",
+                "jinete",
+                "entrenador",
+                "propietario"
             ]
-            tabla = driver.find_element(By.CSS_SELECTOR, "table.table.table-striped")
-            datos_participantes = extraer_tabla_objetos(tabla,claves_participantes)
 
-            # ==========================================
-            # NORMALIZAR NCABALLO
-            # ==========================================
-            participantes_limpios = []
+            tabla = driver.find_element(
+                By.CSS_SELECTOR,
+                "table.table.table-striped"
+            )
 
-            for fila in datos_participantes:
+            datos = extraer_tabla_objetos(tabla, claves)
+
+            retirados = False
+
+            for fila in datos:
 
                 info_caballo = parsear_ncaballo(fila["Ncaballo"])
 
                 if info_caballo["caballo"].strip() == "Retirados":
-                    break
+                    retirados = True
+                    continue
 
-                fila["jockey"] = limpiar_jockey(fila["jockey"])
-
-                fila["numero"] = info_caballo["numero"]
-                fila["caballo"] = info_caballo["caballo"]
-                fila["nacionalidad"] = info_caballo["nacionalidad"]
-
-                del fila["Ncaballo"]
-
-                participantes_limpios.append(fila)
-
-            datos_participantes = participantes_limpios
+                participantes.append({
+                    "numero": info_caballo["numero"],
+                    "caballo": info_caballo["caballo"],
+                    "nacionalidad": info_caballo["nacionalidad"],
+                    "sexo": fila["sexo"],
+                    "edad": limpiar_edad(fila["edad"]),
+                    "cajon": fila["cajon"],
+                    "peso": limpiar_peso(fila["peso"]),
+                    "jinete": limpiar_jinete(fila["jinete"]),
+                    "entrenador": fila["entrenador"],
+                    "propietario": fila["propietario"],
+                    "retirado": retirados
+                })
 
         except Exception as e:
-            print("Error en participantes:", e)
+            print("Error participantes:", e)
 
-        # ==============================================
+        # =====================================================
         # RESULTADOS
-        # ==============================================
+        # =====================================================
+
+        resultados = []
+
         try:
 
             tabla_antes = driver.find_element(
-                By.CSS_SELECTOR, "table.table.table-striped"
+                By.CSS_SELECTOR,
+                "table.table.table-striped"
             ).get_attribute("innerHTML")
 
             a_resultados = wait.until(
@@ -310,18 +370,22 @@ for carrera_info in links:
 
             driver.execute_script("arguments[0].click();", a_resultados)
 
-            WebDriverWait(driver, 1).until(
+            WebDriverWait(driver, 2).until(
                 lambda d: d.find_element(
-                    By.CSS_SELECTOR, "table.table.table-striped"
+                    By.CSS_SELECTOR,
+                    "table.table.table-striped"
                 ).get_attribute("innerHTML") != tabla_antes
             )
 
-            tabla = driver.find_element(By.CSS_SELECTOR, "table.table.table-striped")
+            tabla = driver.find_element(
+                By.CSS_SELECTOR,
+                "table.table.table-striped"
+            )
 
-            tbody = tabla.find_element(By.TAG_NAME, "tbody")
-            filas = tbody.find_elements(By.TAG_NAME, "tr")
-
-            datos_resultados = []
+            filas = tabla.find_element(
+                By.TAG_NAME,
+                "tbody"
+            ).find_elements(By.TAG_NAME, "tr")
 
             for fila in filas:
 
@@ -330,65 +394,52 @@ for carrera_info in links:
                 if not tds:
                     continue
 
-                info_resultado = parsear_pcaballo(tds[0].text.strip())
+                info = parsear_pcaballo(tds[0].text.strip())
 
-                resultado = {
-                    "posicion": info_resultado["posicion"],
-                    "caballo": info_resultado["caballo"],
-                    "Distancia": tds[8].text.strip()
-                }
+                resultados.append({
+                    "posicion": info["posicion"],
+                    "caballo": info["caballo"],
+                    "distancia": tds[8].text.strip()
+                })
 
-                datos_resultados.append(resultado)
-
-        except Exception as e:
+        except:
             print("Sin resultados")
 
-        tablas_datos.append({
+        carreras_final.append({
             "url": href,
-            "nombre": nombre,
-            "fecha" : fecha,
-            "datos_carrera": datos_carrera,
-            "tabla_participantes": datos_participantes,
-            "tabla_resultados": datos_resultados
+            "nombre": carrera_info["nombre"],
+            "fecha": fecha,
+            "hora": datos_carrera.get("Hora", "00:00:00"),
+            "distancia": limpiar_distancia(
+                datos_carrera.get("Distancia", "")
+            ),
+            "tipo": datos_carrera.get("Tipo", ""),
+            "categoria": datos_carrera.get("Categoría", ""),
+            "hipodromo": "Hipódromo de San Sebastián",
+            "pista": datos_carrera.get("Pista", "Desconocido"),
+            "estado_pista": datos_carrera.get("Estado", "Desconocido"),
+            "participantes": participantes,
+            "resultados": resultados
         })
 
     except Exception as e:
         print(f"Error en {href}: {e}")
 
-# Mostrar resultados
-for tabla in tablas_datos:
-    print(f"\nURL: {tabla['url']}")
-
-    print("\nFECHA:")
-    print(tabla["fecha"])
-
-    # ==========================================
-    # DATOS CARRERA
-    # ==========================================
-    print("\nDATOS CARRERA:")
-
-    for clave, valor in tabla["datos_carrera"].items():
-        print(f"{clave}: {valor}")
-
-    # ==========================================
-    # PARTICIPANTES
-    # ==========================================
-    print("\nPARTICIPANTES:")
-
-    for fila in tabla["tabla_participantes"]:
-        print(fila)
-
-    # ==========================================
-    # RESULTADOS
-    # ==========================================
-    print("\nRESULTADOS:")
-
-    for fila in tabla["tabla_resultados"]:
-        print(fila)
-
-    print("========================================================================================================================================================================")
-
 driver.quit()
 
-with open("../json/datos_carreras_sansebastian.json", "w", encoding="utf-8") as archivo:
-    json.dump(tablas_datos, archivo, ensure_ascii=False, indent=4)
+# =========================================================
+# GUARDAR JSON
+# =========================================================
+
+with open(
+    "../json/datos_carreras_sansebastian.json",
+    "w",
+    encoding="utf-8"
+) as archivo:
+
+    json.dump(
+        carreras_final,
+        archivo,
+        ensure_ascii=False,
+        indent=4
+    )

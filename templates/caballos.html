@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Caballos</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/listados.css' %}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-trophy"></i>
+
+        <span>HippoTrack</span>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="{% url 'index' %}">Carreras</a></li>
+        <li><a href="{% url 'caballos' %}">Caballos</a></li>
+        <li><a href="{% url 'jinetes' %}">Jinetes</a></li>
+
+    </ul>
+
+</nav>
+
+<div class="contenedor-listado">
+
+    <div class="panel">
+
+        <div class="titulo-busqueda">
+
+            <h1>
+
+                <i class="fa-solid fa-horse"></i>
+
+                Todos los Caballos
+
+            </h1>
+
+            <form method="GET"
+                  class="busqueda">
+
+                <input type="text"
+                       name="buscar"
+                       placeholder="Buscar caballo..."
+                       value="{{ request.GET.buscar }}">
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="grid-cards">
+
+            {% for caballo in caballos %}
+
+            <div class="card-item">
+
+                <h2>
+
+                    {{ caballo.nombre }}
+
+                </h2>
+
+                <div class="info-item">
+
+                    <span>
+
+                        <i class="fa-solid fa-flag"></i>
+
+                        {{ caballo.nacionalidad }}
+
+                    </span>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span>
+
+                        <i class="fa-solid fa-user"></i>
+
+                        {{ caballo.id_entrenador.nombre }}
+
+                    </span>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span>
+
+                        Edad: {{ caballo.edad }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="card-item">
+
+                <h2>No hay caballos disponibles</h2>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

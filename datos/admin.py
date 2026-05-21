@@ -30,16 +30,17 @@ class CarreraAdmin(admin.ModelAdmin):
 class ParticipanteAdmin(admin.ModelAdmin):
 
     list_display = (
+        'id_participante',
         'caballo',
-        'carrera',
         'jinete',
-        'numero_salida',
-        'peso'
+        'peso_jinete',
+        'carrera'
     )
 
-    list_filter = (
-        'carrera',
-    )
+    def peso_jinete(self, obj):
+        return obj.jinete.peso
+
+    peso_jinete.short_description = 'Peso jinete'
 
 
 @admin.register(Resultado)

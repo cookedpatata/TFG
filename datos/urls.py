@@ -42,4 +42,16 @@ urlpatterns = [
         views.resultado_aleatorio,
         name='resultado_aleatorio'
     ),
+
+    path(
+        'caballos/',
+        views.caballos,
+        name='caballos'
+    ),
+
+    path(
+        'jinetes/',
+        views.jinetes
+        , name='jinetes'
+    ),
 ]
