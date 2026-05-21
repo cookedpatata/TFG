@@ -172,6 +172,12 @@ Durante la creación del superusuario se solicitarán:
 
 Finalmente, la aplicación puede iniciarse utilizando el servidor de desarrollo integrado de Django.
 
+```bash
+python manage.py runserver
+```
+
+Una vez iniciado el servidor, la aplicación estará disponible desde navegador web y lista para su utilización.
+
 ---
 
 # 9. Acceder al panel de administración
@@ -197,8 +203,4 @@ La interfaz administrativa de Django incorpora automáticamente:
 - sesiones,
 - y administración de modelos.
 
-```bash
-python manage.py runserver
-```
 
-Una vez iniciado el servidor, la aplicación estará disponible desde navegador web y lista para su utilización.
