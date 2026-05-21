@@ -168,7 +168,13 @@ Durante la creación del superusuario se solicitarán:
 
 ---
 
-# 8. Acceder al panel de administración
+# 8. Ejecutar la aplicación
+
+Finalmente, la aplicación puede iniciarse utilizando el servidor de desarrollo integrado de Django.
+
+---
+
+# 9. Acceder al panel de administración
 
 Una vez iniciado el proyecto, el panel administrativo estará disponible mediante la ruta:
 
@@ -190,12 +196,6 @@ La interfaz administrativa de Django incorpora automáticamente:
 - gestión de permisos,
 - sesiones,
 - y administración de modelos.
-
----
-
-# 9. Ejecutar la aplicación
-
-Finalmente, la aplicación puede iniciarse utilizando el servidor de desarrollo integrado de Django.
 
 ```bash
 python manage.py runserver
