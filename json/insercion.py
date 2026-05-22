@@ -9,8 +9,8 @@ DB_CONFIG = {
     "host": "localhost",
     "database": "TFG",
     "user": "postgres",
-    "password": "1234",
-    "port": 5432
+    "password": "openpgpwd",
+    "port": 5436
 }
 
 JSON_FILE = "bd_reorganizada.json"

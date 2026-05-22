@@ -209,5 +209,8 @@ CREATE TABLE apuesta (
 
     FOREIGN KEY (id_participante)
         REFERENCES participante(id_participante)
-        ON DELETE RESTRICT
+        ON DELETE RESTRICT,
+
+    CONSTRAINT unique_apuesta_usuario_participante
+    UNIQUE (id_participante, id_usuario)
 );
