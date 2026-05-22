@@ -9,138 +9,141 @@
 
     <title>{{ carrera.nombre }}</title>
 
-    <link rel="stylesheet"
-          href="{% static 'css/detalle_carrera.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detalle_carrera.css' %}">
+    <script src="{% static 'js/apuestas.js' %}"></script>
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="header">
+        <div class="header">
 
-        <h1>{{ carrera.nombre }}</h1>
+            <h1>{{ carrera.nombre }}</h1>
 
-        <div class="datos">
+            <div class="datos">
 
-            <p><strong>Hipódromo:</strong> {{ carrera.id_hipodromo.nombre }}</p>
+                <p><strong>Hipódromo:</strong> {{ carrera.id_hipodromo.nombre }}</p>
 
-            <p><strong>Fecha:</strong> {{ carrera.fecha }}</p>
+                <p><strong>Fecha:</strong> {{ carrera.fecha }}</p>
 
-            <p><strong>Hora:</strong> {{ carrera.hora }}</p>
+                <p><strong>Hora:</strong> {{ carrera.hora }}</p>
 
-            <p><strong>Distancia:</strong> {{ carrera.distancia }}m</p>
+                <p><strong>Distancia:</strong> {{ carrera.distancia }}m</p>
 
-            <p><strong>Tipo:</strong> {{ carrera.tipo }}</p>
+                <p><strong>Tipo:</strong> {{ carrera.tipo }}</p>
 
-            <p><strong>Categoría:</strong> {{ carrera.categoria }}</p>
+                <p><strong>Categoría:</strong> {{ carrera.categoria }}</p>
 
-            <p><strong>Tipo pista:</strong> {{ carrera.id_pista.tipo }}</p>
+                <p><strong>Tipo pista:</strong> {{ carrera.id_pista.tipo }}</p>
 
-            <p><strong>Estado pista:</strong> {{ carrera.id_estado_pista.tipo }}</p>
+                <p><strong>Estado pista:</strong> {{ carrera.id_estado_pista.tipo }}</p>
 
-            <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+                <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-box">
+
+                <h3>Total Apostado</h3>
+
+                <span>{{ total_apostado }} €</span>
+
+            </div>
+
+        </div>
+
+        <div class="participantes">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>#</th>
+                        <th>Caballo</th>
+                        <th>Jinete</th>
+                        <th>Peso</th>
+                        <th>Dividendo</th>
+                        <th>Apostar</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for participante in participantes %}
+
+                    <tr>
+
+                        <td>{{ participante.numero_salida }}</td>
+
+                        <td>{{ participante.caballo.nombre }}</td>
+
+                        <td>{{ participante.jinete.nombre }}</td>
+
+                        <td>{{ participante.jinete.peso }} kg</td>
+
+                        <td>x{{ participante.dividendo }}</td>
+
+                        <td>
+
+                            {% if participante.apuesta_usuario %}
+
+                            <strong>
+                                Apostado:
+                                {{ participante.apuesta_usuario.cantidad }} €
+                            </strong>
+
+                            {% else %}
+
+                            <form method="POST" action="{% url 'apostar' participante.id_participante %}"
+                                class="form-apuesta">
+
+                                {% csrf_token %}
+
+                                <input type="number" name="cantidad" step="0.01" min="1" required>
+
+                                <select name="tipo_apuesta" required>
+
+                                    {% for tipo in tipos_apuesta %}
+
+                                    <option value="{{ tipo.id_tipo_apuesta }}">
+                                        {{ tipo.nombre }}
+                                    </option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                                <button type="submit">
+                                    Apostar
+                                </button>
+
+                            </form>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
 
         </div>
 
     </div>
-
-    <div class="stats">
-
-        <div class="stat-box">
-
-            <h3>Total Apostado</h3>
-
-            <span>{{ total_apostado }} €</span>
-
-        </div>
-
-    </div>
-
-    <div class="participantes">
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>#</th>
-                    <th>Caballo</th>
-                    <th>Jinete</th>
-                    <th>Peso</th>
-                    <th>Dividendo</th>
-                    <th>Apostar</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                {% for participante in participantes %}
-
-                <tr>
-
-                    <td>{{ participante.numero_salida }}</td>
-
-                    <td>{{ participante.caballo.nombre }}</td>
-
-                    <td>{{ participante.jinete.nombre }}</td>
-
-                    <td>{{ participante.peso }}</td>
-
-                    <td>x{{ participante.dividendo }}</td>
-
-                    <td>
-
-                        <form method="POST"
-                              action="{% url 'apostar' participante.id_participante %}">
-
-                            {% csrf_token %}
-
-                            <input type="number"
-                                   name="cantidad"
-                                   step="0.01"
-                                   min="1"
-                                   required>
-
-                            <select name="tipo_apuesta">
-
-                                {% for tipo in tipos_apuesta %}
-
-                                <option value="{{ tipo.id_tipo_apuesta }}">
-
-                                    {{ tipo.nombre }}
-
-                                </option>
-
-                                {% endfor %}
-
-                            </select>
-
-                            <button type="submit">
-
-                                Apostar
-
-                            </button>
-
-                        </form>
-
-                    </td>
-
-                </tr>
-
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</div>
 
 </body>
 

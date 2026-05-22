@@ -392,6 +392,16 @@ def perfil(request):
 
     for apuesta in apuestas:
 
+        if apuesta.dividendo:
+
+            apuesta.ganancia = (
+                apuesta.cantidad * apuesta.dividendo
+            )
+
+        else:
+
+            apuesta.ganancia = apuesta.cantidad
+
         if apuesta.estado == 'ganada':
 
             total_ganado += (
@@ -470,6 +480,11 @@ def detalle_carrera(request, carrera_id):
         else:
 
             participante.dividendo = 0
+
+        participante.apuesta_usuario = Apuesta.objects.filter(
+            participante=participante,
+            usuario=request.user
+        ).first()
 
     return render(
         request,
@@ -564,7 +579,9 @@ def apostar(request, participante_id):
 @staff_member_required
 def panel_carreras(request):
 
-    carreras = Carrera.objects.all().order_by(
+    carreras = Carrera.objects.exclude(
+        estado__iexact='finalizada'
+    ).order_by(
         'fecha',
         'hora'
     )
@@ -659,6 +676,45 @@ def finalizar_carrera(request, carrera_id):
             )
         )['total']
 
+        usuarios_distintos = Apuesta.objects.filter(
+            participante__carrera=carrera
+        ).values(
+            'usuario'
+        ).distinct().count()
+
+        if usuarios_distintos <= 1:
+
+            apuestas = Apuesta.objects.filter(
+                participante__carrera=carrera
+            )
+
+            for apuesta in apuestas:
+
+                perfil = apuesta.usuario.perfil
+
+                perfil.saldo += apuesta.cantidad
+
+                perfil.save()
+
+                apuesta.estado = (
+                    'insuficiente'
+                )
+
+                apuesta.dividendo = 1
+
+                apuesta.save()
+
+            carrera.estado = 'Finalizada'
+
+            carrera.save()
+
+            messages.warning(
+                request,
+                'No hubo suficientes apostantes'
+            )
+
+            return redirect('panel_carreras')
+
         for participante in participantes:
 
             total_participante = Apuesta.objects.filter(
@@ -693,7 +749,31 @@ def finalizar_carrera(request, carrera_id):
 
                 apuesta.dividendo = dividendo
 
-                if resultado.posicion == 1:
+                tipo = apuesta.tipo_apuesta.nombre.lower()
+
+                ganada = False
+
+                if tipo == 'ganador':
+
+                    ganada = resultado.posicion == 1
+
+                elif tipo == 'colocado':
+
+                    ganada = resultado.posicion <= 3
+
+                elif tipo == 'exacta':
+
+                    ganada = resultado.posicion <= 2
+
+                elif tipo == 'trifecta':
+
+                    ganada = resultado.posicion <= 3
+
+                elif tipo == 'quiniela':
+
+                    ganada = resultado.posicion <= 2
+
+                if ganada:
 
                     apuesta.estado = 'ganada'
 
@@ -783,6 +863,45 @@ def resultado_aleatorio(request, carrera_id):
         )
     )['total']
 
+    usuarios_distintos = Apuesta.objects.filter(
+        participante__carrera=carrera
+    ).values(
+        'usuario'
+    ).distinct().count()
+
+    if usuarios_distintos <= 1:
+
+        apuestas = Apuesta.objects.filter(
+            participante__carrera=carrera
+        )
+
+        for apuesta in apuestas:
+
+            perfil = apuesta.usuario.perfil
+
+            perfil.saldo += apuesta.cantidad
+
+            perfil.save()
+
+            apuesta.estado = (
+                'insuficiente'
+            )
+
+            apuesta.dividendo = 1
+
+            apuesta.save()
+
+        carrera.estado = 'Finalizada'
+
+        carrera.save()
+
+        messages.warning(
+            request,
+            'No hubo suficientes apostantes'
+        )
+
+        return redirect('panel_carreras')
+
     for participante in participantes:
 
         total_participante = Apuesta.objects.filter(
@@ -817,7 +936,31 @@ def resultado_aleatorio(request, carrera_id):
 
             apuesta.dividendo = dividendo
 
-            if resultado.posicion == 1:
+            tipo = apuesta.tipo_apuesta.nombre.lower()
+
+            ganada = False
+
+            if tipo == 'ganador':
+
+                ganada = resultado.posicion == 1
+
+            elif tipo == 'colocado':
+
+                ganada = resultado.posicion <= 3
+
+            elif tipo == 'exacta':
+
+                ganada = resultado.posicion <= 2
+
+            elif tipo == 'trifecta':
+
+                ganada = resultado.posicion <= 3
+
+            elif tipo == 'quiniela':
+
+                ganada = resultado.posicion <= 2
+
+            if ganada:
 
                 apuesta.estado = 'ganada'
 
@@ -847,8 +990,6 @@ def resultado_aleatorio(request, carrera_id):
     )
 
     return redirect('panel_carreras')
-
-
 
 def caballos(request):
 
