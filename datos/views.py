@@ -1,5 +1,6 @@
 from decimal import Decimal
 import random
+import re
 
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
@@ -7,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
-import re
+from django.db import connection
 
 from django.db import models
 from django.db.models import Count, Sum
@@ -231,6 +232,34 @@ def inicio(request):
 # =========================================
 
 def registro(request):
+
+    # =========================================
+    # REINICIAR SECUENCIAS
+    # =========================================
+
+    with connection.cursor() as cursor:
+
+        # Tabla auth_user
+        cursor.execute("""
+            SELECT setval(
+                'auth_user_id_seq',
+                COALESCE(
+                    (SELECT MAX(id) FROM auth_user),
+                    1
+                )
+            );
+        """)
+
+        # Tabla participante
+        cursor.execute("""
+            SELECT setval(
+                'participante_id_participante_seq',
+                COALESCE(
+                    (SELECT MAX(id_participante) FROM participante),
+                    1
+                )
+            );
+        """)
 
     if request.method == 'POST':
 
