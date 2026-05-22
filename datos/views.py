@@ -682,7 +682,16 @@ def finalizar_carrera(request, carrera_id):
             'usuario'
         ).distinct().count()
 
-        if usuarios_distintos <= 1:
+        participantes_apostados = Apuesta.objects.filter(
+            participante__carrera=carrera
+        ).values(
+            'participante'
+        ).distinct().count()
+
+        if (
+            usuarios_distintos <= 1
+            or participantes_apostados <= 1
+        ):
 
             apuestas = Apuesta.objects.filter(
                 participante__carrera=carrera
@@ -696,9 +705,7 @@ def finalizar_carrera(request, carrera_id):
 
                 perfil.save()
 
-                apuesta.estado = (
-                    'insuficiente'
-                )
+                apuesta.estado = 'insuficiente'
 
                 apuesta.dividendo = 1
 
@@ -710,7 +717,7 @@ def finalizar_carrera(request, carrera_id):
 
             messages.warning(
                 request,
-                'No hubo suficientes apostantes'
+                'No hubo suficientes apuestas válidas'
             )
 
             return redirect('panel_carreras')
@@ -778,7 +785,8 @@ def finalizar_carrera(request, carrera_id):
                     apuesta.estado = 'ganada'
 
                     ganancia = (
-                        apuesta.cantidad * Decimal(dividendo)
+                        (apuesta.cantidad * Decimal(dividendo))
+                        - apuesta.cantidad
                     )
 
                     perfil = apuesta.usuario.perfil
@@ -965,7 +973,8 @@ def resultado_aleatorio(request, carrera_id):
                 apuesta.estado = 'ganada'
 
                 ganancia = (
-                    apuesta.cantidad * Decimal(dividendo)
+                    (apuesta.cantidad * Decimal(dividendo))
+                    - apuesta.cantidad
                 )
 
                 perfil = apuesta.usuario.perfil

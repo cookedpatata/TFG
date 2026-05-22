@@ -1,157 +1,225 @@
-*{
+* {
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+body {
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
-    background:#f3f4f6;
+    background: #f3f4f6;
 
-    color:#111827;
+    color: #111827;
+}
+
+/* ===================================== */
+/* NAVBAR */
+/* ===================================== */
+
+.navbar {
+
+    width: 100%;
+
+    height: 80px;
+
+    background: #047857;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 40px;
+
+    color: white;
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+.logo i {
+
+    font-size: 30px;
+}
+
+.nav-links {
+
+    display: flex;
+
+    gap: 40px;
+
+    list-style: none;
+}
+
+.nav-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+
+    opacity: 0.7;
 }
 
 .admin-container,
-.container{
+.container {
 
-    width:95%;
+    width: 95%;
 
-    margin:40px auto;
+    margin: 40px auto;
 }
 
 .admin-container h1,
-.container h1{
+.container h1 {
 
-    font-size:50px;
+    font-size: 50px;
 
-    margin-bottom:40px;
+    margin-bottom: 40px;
 
-    color:#047857;
+    color: #047857;
 }
 
-.grid{
+.grid {
 
-    display:grid;
+    display: grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 
-    gap:30px;
+    gap: 30px;
 }
 
-.card{
+.card {
 
-    background:white;
+    background: white;
 
-    border-radius:20px;
+    border-radius: 20px;
 
-    padding:30px;
+    padding: 30px;
 
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 
-    border:2px solid #10b981;
+    border: 2px solid #10b981;
 }
 
-.card h2{
+.card h2 {
 
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
-.card p{
+.card p {
 
-    margin-bottom:10px;
+    margin-bottom: 10px;
 
-    color:#4b5563;
+    color: #4b5563;
 }
 
 .card a,
-button{
+button {
 
-    display:inline-block;
+    display: inline-block;
 
-    margin-top:15px;
+    margin-top: 15px;
 
-    margin-right:10px;
+    margin-right: 10px;
 
-    background:#047857;
+    background: #047857;
 
-    color:white;
+    color: white;
 
-    padding:12px 20px;
+    padding: 12px 20px;
 
-    border-radius:12px;
+    border-radius: 12px;
 
-    text-decoration:none;
+    text-decoration: none;
 
-    border:none;
+    border: none;
 
-    font-weight:bold;
+    font-weight: bold;
 
-    transition:0.3s;
+    transition: 0.3s;
 
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .card a:hover,
-button:hover{
+button:hover {
 
-    background:#065f46;
+    background: #065f46;
 }
 
-table{
+table {
 
-    width:100%;
+    width: 100%;
 
-    border-collapse:collapse;
+    border-collapse: collapse;
 
-    background:white;
+    background: white;
 
-    border-radius:20px;
+    border-radius: 20px;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-th{
+th {
 
-    background:#047857;
+    background: #047857;
 
-    color:white;
+    color: white;
 
-    padding:18px;
+    padding: 18px;
 
-    text-align:left;
+    text-align: left;
 }
 
-td{
+td {
 
-    padding:18px;
+    padding: 18px;
 
-    border-bottom:1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-input{
+input {
 
-    width:100%;
+    width: 100%;
 
-    height:45px;
+    height: 45px;
 
-    border-radius:10px;
+    border-radius: 10px;
 
-    border:1px solid #d1d5db;
+    border: 1px solid #d1d5db;
 
-    padding:0 15px;
+    padding: 0 15px;
 }
 
-@media(max-width:900px){
+@media(max-width:900px) {
 
-    table{
+    table {
 
-        display:block;
+        display: block;
 
-        overflow-x:auto;
+        overflow-x: auto;
     }
 }

@@ -24,23 +24,61 @@
 
 <nav class="navbar">
 
-    <div class="logo">
+        <div class="logo">
 
-        <i class="fa-solid fa-trophy"></i>
+            <i class="fa-solid fa-trophy"></i>
 
-        <span>HippoTrack</span>
+            <span>HippoTrack</span>
 
-    </div>
+        </div>
 
-    <ul class="nav-links">
+        <ul class="nav-links">
 
-        <li><a href="{% url 'index' %}">Carreras</a></li>
-        <li><a href="{% url 'caballos' %}">Caballos</a></li>
-        <li><a href="{% url 'jinetes' %}">Jinetes</a></li>
+            <li>
+                <a href="{% url 'index' %}">
+                    Carreras
+                </a>
+            </li>
 
-    </ul>
+            <li>
+                <a href="{% url 'caballos' %}">
+                    Caballos
+                </a>
+            </li>
 
-</nav>
+            <li>
+                <a href="{% url 'jinetes' %}">
+                    Jinetes
+                </a>
+            </li>
+
+            <li>
+
+                <a href="{% url 'perfil' %}">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Perfil
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'logout' %}">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Salir
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
 
 <div class="contenedor-listado">
 

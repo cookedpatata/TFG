@@ -42,13 +42,13 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="{% url 'caballos' %}">
                     Caballos
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="{% url 'jinetes' %}">
                     Jinetes
                 </a>
             </li>
@@ -365,10 +365,10 @@
                                     Perdida
                                 </span>
 
-                                {% elif apuesta.estado == 'No hubo suficientes participantes' %}
+                                {% elif apuesta.estado == 'insuficiente' %}
 
                                 <span style="color: orange;">
-                                    No hubo suficientes participantes
+                                    Apuestas insuficientes
                                 </span>
 
                                 {% else %}

@@ -11,10 +11,70 @@
 
     <link rel="stylesheet" href="{% static 'css/detalle_carrera.css' %}">
     <script src="{% static 'js/apuestas.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 </head>
 
 <body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-trophy"></i>
+
+            <span>HippoTrack</span>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="{% url 'index' %}">
+                    Carreras
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'caballos' %}">
+                    Caballos
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'jinetes' %}">
+                    Jinetes
+                </a>
+            </li>
+
+            <li>
+
+                <a href="{% url 'perfil' %}">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Perfil
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'logout' %}">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Salir
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
 
     <div class="container">
 

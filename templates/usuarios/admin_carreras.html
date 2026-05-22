@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -10,46 +9,104 @@
 
     <title>Panel Carreras</title>
 
-    <link rel="stylesheet"
-          href="{% static 'css/admin_carreras.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_carreras.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 </head>
 
 <body>
 
-<div class="admin-container">
+    <nav class="navbar">
 
-    <h1>Panel de Carreras</h1>
+        <div class="logo">
 
-    <div class="grid">
+            <i class="fa-solid fa-trophy"></i>
 
-        {% for carrera in carreras %}
-
-        <div class="card">
-
-            <h2>{{ carrera.nombre }}</h2>
-
-            <p>{{ carrera.fecha }} - {{ carrera.hora }}</p>
-
-            <p><strong>Estado:</strong> {{ carrera.estado }}</p>
-
-            <a href="{% url 'finalizar_carrera' carrera.id_carrera %}">
-                Finalizar Carrera
-            </a>
-
-            <a href="{% url 'resultado_aleatorio' carrera.id_carrera %}">
-                Resultado Aleatorio
-            </a>
+            <span>HippoTrack</span>
 
         </div>
 
-        {% endfor %}
+        <ul class="nav-links">
+
+            <li>
+                <a href="{% url 'index' %}">
+                    Carreras
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'caballos' %}">
+                    Caballos
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'jinetes' %}">
+                    Jinetes
+                </a>
+            </li>
+
+            <li>
+
+                <a href="{% url 'perfil' %}">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Perfil
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'logout' %}">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Salir
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="admin-container">
+
+        <h1>Panel de Carreras</h1>
+
+        <div class="grid">
+
+            {% for carrera in carreras %}
+
+            <div class="card">
+
+                <h2>{{ carrera.nombre }}</h2>
+
+                <p>{{ carrera.fecha }} - {{ carrera.hora }}</p>
+
+                <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+
+                <a href="{% url 'finalizar_carrera' carrera.id_carrera %}">
+                    Finalizar Carrera
+                </a>
+
+                <a href="{% url 'resultado_aleatorio' carrera.id_carrera %}">
+                    Resultado Aleatorio
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
 
     </div>
-
-</div>
 
 </body>
 
 </html>
-
