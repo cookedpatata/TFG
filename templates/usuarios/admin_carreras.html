@@ -114,6 +114,13 @@
     </nav>
 
     <div class="admin-container">
+        <a href="{% url 'perfil' %}" class="btn-volver">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Volver al perfil
+
+        </a>
 
         <h1>Panel de Carreras</h1>
 
@@ -129,12 +136,8 @@
 
                 <p><strong>Estado:</strong> {{ carrera.estado }}</p>
 
-                <a href="{% url 'finalizar_carrera' carrera.id_carrera %}">
-                    Finalizar Carrera
-                </a>
-
-                <a href="{% url 'resultado_aleatorio' carrera.id_carrera %}">
-                    Resultado Aleatorio
+                <a href="{% url 'admin_detalle_carrera' carrera.id_carrera %}">
+                    Opciones
                 </a>
 
             </div>

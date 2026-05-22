@@ -146,7 +146,7 @@
 
                 {% for jinete in jinetes %}
 
-                <div class="card-item">
+                <a href="{% url 'detalle_jinete' jinete.id_jinete %}" class="card-item">
 
                     <h2>
 
@@ -166,7 +166,7 @@
 
                     </div>
 
-                </div>
+                </a>
 
                 {% empty %}
 

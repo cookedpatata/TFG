@@ -316,6 +316,26 @@
 
         </div>
 
+        {% if request.user.is_superuser %}
+
+        <div class="panel admin-panel">
+
+            <h2>
+                Administración
+            </h2>
+
+            <a href="{% url 'panel_carreras' %}" class="btn-admin">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Administrar Carreras
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
         <!-- ================================= -->
         <!-- HISTORIAL -->
         <!-- ================================= -->
@@ -338,7 +358,7 @@
 
                 {% for apuesta in apuestas %}
 
-                <div class="card-apuesta">
+                <div class="card-apuesta {{ apuesta.estado }}">
 
                     <!-- IZQUIERDA -->
 
@@ -398,29 +418,47 @@
 
                                 {% if apuesta.estado == 'ganada' %}
 
-                                <span style="color: limegreen;">
+                                <span class="estado ganada-texto">
                                     Ganada
                                 </span>
 
                                 {% elif apuesta.estado == 'perdida' %}
 
-                                <span style="color: red;">
+                                <span class="estado perdida-texto">
                                     Perdida
                                 </span>
 
                                 {% elif apuesta.estado == 'insuficiente' %}
 
-                                <span style="color: orange;">
+                                <span class="estado insuficiente-texto">
                                     Apuestas insuficientes
                                 </span>
 
                                 {% else %}
 
-                                <span style="color: gray;">
+                                <span class="estado pendiente-texto">
                                     Pendiente
                                 </span>
 
                                 {% endif %}
+
+                                {% if apuesta.estado == 'pendiente' %}
+
+                            <form method="POST" action="{% url 'cancelar_apuesta' apuesta.id_apuesta %}">
+
+                                {% csrf_token %}
+
+                                <button type="submit" class="btn-cancelar">
+
+                                    <i class="fa-solid fa-xmark"></i>
+
+                                    Retirarse
+
+                                </button>
+
+                            </form>
+
+                            {% endif %}
 
                             </p>
 

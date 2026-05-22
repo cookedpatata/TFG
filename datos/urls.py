@@ -26,6 +26,12 @@ urlpatterns = [
     ),
 
     path(
+        'cancelar-apuesta/<int:apuesta_id>/',
+        views.cancelar_apuesta,
+        name='cancelar_apuesta'
+    ),
+
+    path(
         'panel-carreras/',
         views.panel_carreras,
         name='panel_carreras'
@@ -44,6 +50,18 @@ urlpatterns = [
     ),
 
     path(
+        'panel/carrera/<int:carrera_id>/',
+        views.admin_detalle_carrera,
+        name='admin_detalle_carrera'
+    ),
+
+    path(
+        'panel/carrera/<int:carrera_id>/generar-apuestas/',
+        views.generar_apuestas,
+        name='generar_apuestas'
+    ),
+
+    path(
         'caballos/',
         views.caballos,
         name='caballos'
@@ -53,5 +71,17 @@ urlpatterns = [
         'jinetes/',
         views.jinetes
         , name='jinetes'
+    ),
+
+    path(
+        'caballo/<int:caballo_id>/',
+        views.detalle_caballo,
+        name='detalle_caballo'
+    ),
+
+    path(
+        'jinete/<int:jinete_id>/',
+        views.detalle_jinete,
+        name='detalle_jinete'
     ),
 ]

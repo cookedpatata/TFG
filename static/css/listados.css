@@ -138,6 +138,25 @@ body{
     color:#4b5563;
 }
 
+.card-item{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    cursor:pointer;
+}
+
+.card-item,
+.card-item:visited,
+.card-item:hover,
+.card-item:active{
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
 /* RESPONSIVE */
 
 @media(max-width:700px){

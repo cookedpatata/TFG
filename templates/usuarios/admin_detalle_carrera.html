@@ -1,0 +1,230 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>{{ carrera.nombre }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/admin_detalle_carrera.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar full">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-trophy"></i>
+
+            <span>HippoTrack</span>
+
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="{% url 'index' %}">
+                    Carreras
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'caballos' %}">
+                    Caballos
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'jinetes' %}">
+                    Jinetes
+                </a>
+            </li>
+
+            <li>
+
+                <a href="{% url 'perfil' %}">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Perfil
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'logout' %}">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Salir
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="container">
+
+        <a href="{% url 'panel_carreras' %}" class="btn-volver">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Volver al panel
+
+        </a>
+
+        <div class="header">
+
+            <h1>{{ carrera.nombre }}</h1>
+
+            <div class="datos">
+
+                <p><strong>Hipódromo:</strong> {{ carrera.id_hipodromo.nombre }}</p>
+
+                <p><strong>Fecha:</strong> {{ carrera.fecha }}</p>
+
+                <p><strong>Hora:</strong> {{ carrera.hora }}</p>
+
+                <p><strong>Distancia:</strong> {{ carrera.distancia }}m</p>
+
+                <p><strong>Categoría:</strong> {{ carrera.categoria }}</p>
+
+                <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+
+            </div>
+
+        </div>
+
+        <div class="acciones">
+
+            <a href="{% url 'finalizar_carrera' carrera.id_carrera %}" class="btn finalizar">
+                Finalizar Carrera
+            </a>
+
+            <a href="{% url 'resultado_aleatorio' carrera.id_carrera %}" class="btn aleatorio">
+                Resultado Aleatorio
+            </a>
+
+            <form method="POST" action="{% url 'generar_apuestas' carrera.id_carrera %}" class="form-apuestas">
+
+                {% csrf_token %}
+
+                <input type="number" name="cantidad_apostantes" min="1" placeholder="Nº apostantes" required>
+
+                <button type="submit">
+                    Añadir apuestas
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-box">
+
+                <h3>Total Apostado</h3>
+
+                <span>{{ total_apostado }} €</span>
+
+            </div>
+
+        </div>
+
+        <div class="participantes">
+
+            {% for participante in participantes %}
+
+            <div class="participante-card">
+
+                <div class="top">
+
+                    <h2>
+                        #{{ participante.numero_salida }}
+                        {{ participante.caballo.nombre }}
+                    </h2>
+
+                    <span class="dividendo">
+                        x{{ participante.dividendo }}
+                    </span>
+
+                </div>
+
+                <div class="info">
+
+                    <p>
+                        <strong>Jinete:</strong>
+                        {{ participante.jinete.nombre }}
+                    </p>
+
+                    <p>
+                        <strong>Peso:</strong>
+                        {{ participante.jinete.peso }} kg
+                    </p>
+
+                </div>
+
+                <div class="apuestas">
+
+                    <h3>Apuestas</h3>
+
+                    {% for apuesta in participante.apuestas %}
+
+                    <div class="apuesta-item">
+
+                        <span>
+                            {{ apuesta.usuario.username }}
+                        </span>
+
+                        <span>
+                            {{ apuesta.cantidad }} €
+                        </span>
+
+                        <span>
+                            {{ apuesta.tipo_apuesta.nombre }}
+                        </span>
+
+                    </div>
+
+                    {% empty %}
+
+                    <p class="sin-apuestas">
+                        No hay apuestas
+                    </p>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/navbar.js' %}"></script>
+
+</body>
+
+</html>

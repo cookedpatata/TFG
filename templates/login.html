@@ -10,7 +10,7 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -39,6 +39,26 @@
     <div class="login-box">
 
         <h1>Iniciar Sesión</h1>
+
+
+        {% if messages %}
+
+        {% for message in messages %}
+
+        {% if message.tags == 'error' %}
+
+        <div class="mensaje error">
+
+            {{ message }}
+
+        </div>
+
+        {% endif %}
+
+        {% endfor %}
+
+        {% endif %}
+
 
         <form method="POST">
 

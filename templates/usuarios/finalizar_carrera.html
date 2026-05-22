@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="{% static 'css/admin_carreras.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    
+
 </head>
 
 <body>
@@ -110,6 +110,14 @@
     </nav>
 
     <div class="container">
+
+        <a href="{% url 'admin_detalle_carrera' carrera.id_carrera %}" class="btn-volver">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Volver a opciones
+
+        </a>
 
         <h1>{{ carrera.nombre }}</h1>
 

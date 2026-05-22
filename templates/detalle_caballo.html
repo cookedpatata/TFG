@@ -1,0 +1,222 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>{{ caballo.nombre }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/detalle_entidad.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar full">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-trophy"></i>
+
+            <span>HippoTrack</span>
+
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+        <a href="{% url 'caballos' %}" class="btn-volver">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Volver
+
+        </a>
+
+        <div class="header">
+
+            <div class="caballo-header">
+
+                <img src="{% static 'img/caballos/'|add:caballo.nombre|add:'.jpg' %}" alt="{{ caballo.nombre }}"
+                    class="img-caballo" onerror="this.onerror=null;this.src='{% static 'img/caballos/default.jpg' %}';">
+
+                <h2>
+                    {{ caballo.nombre }}
+                </h2>
+
+            </div>
+
+            <div class="datos">
+
+                <p><strong>Nacionalidad:</strong> {{ caballo.nacionalidad }}</p>
+
+                <p><strong>Edad:</strong> {{ caballo.edad }}</p>
+
+                <p>
+
+                    <strong>Sexo:</strong>
+
+                    {% if caballo.sexo %}
+
+                    {{ caballo.sexo }}
+
+                    {% else %}
+
+                    -
+
+                    {% endif %}
+
+                </p>
+
+                <p>
+
+                    <strong>Entrenador:</strong>
+
+                    {% if caballo.entrenador %}
+
+                    {{ caballo.entrenador.nombre }}
+
+                    {% else %}
+
+                    -
+
+                    {% endif %}
+
+                </p>
+
+                <p>
+
+                    <strong>Propietario:</strong>
+
+                    {% if caballo.propietario %}
+
+                    {{ caballo.propietario.nombre }}
+
+                    {% else %}
+
+                    -
+
+                    {% endif %}
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card verde">
+
+                <h2>{{ victorias }}</h2>
+
+                <p>Victorias</p>
+
+            </div>
+
+            <div class="stat-card rojo">
+
+                <h2>{{ derrotas }}</h2>
+
+                <p>Derrotas</p>
+
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <h2>Carreras</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Carrera</th>
+                        <th>Fecha</th>
+                        <th>Jinete</th>
+                        <th>Posición</th>
+                        <th>Resultado</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for participante in participantes %}
+
+                    <tr>
+
+                        <td>{{ participante.carrera.nombre }}</td>
+
+                        <td>{{ participante.carrera.fecha }}</td>
+
+                        <td>{{ participante.jinete.nombre }}</td>
+
+                        <td>
+
+                            {% if participante.resultado %}
+
+                            {{ participante.resultado.posicion }}
+
+                            {% else %}
+
+                            -
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            {% if participante.resultado %}
+
+                            {% if participante.resultado.posicion == 1 %}
+
+                            <span class="ganada">
+                                Ganada
+                            </span>
+
+                            {% else %}
+
+                            <span class="perdida">
+                                Perdida
+                            </span>
+
+                            {% endif %}
+
+                            {% else %}
+
+                            <span class="pendiente">
+                                Pendiente
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

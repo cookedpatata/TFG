@@ -46,6 +46,27 @@ body {
     font-size: 42px;
 }
 
+.mensaje {
+
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.error {
+
+    background: #fecaca;
+    color: #991b1b;
+}
+
+.success {
+
+    background: #bbf7d0;
+    color: #166534;
+}
+
+
 .login-box form {
 
     display: flex;

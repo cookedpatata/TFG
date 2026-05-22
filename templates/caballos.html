@@ -146,7 +146,7 @@
 
                 {% for caballo in caballos %}
 
-                <div class="card-item">
+                <a href="{% url 'detalle_caballo' caballo.id_caballo %}" class="card-item">
 
                     <h2>
 
@@ -188,7 +188,7 @@
 
                     </div>
 
-                </div>
+                </a>
 
                 {% empty %}
 
@@ -203,6 +203,8 @@
             </div>
 
         </div>
+
+    </div>
 
     </div>
     <script src="{% static 'js/navbar.js' %}"></script>

@@ -10,10 +10,10 @@
        <title>Registro</title>
 
        <link rel="stylesheet" href="{% static 'css/registro.css' %}">
+       <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
        <script src="{% static 'js/registro.js' %}"></script>
-
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -48,11 +48,15 @@
 
                      {% for message in messages %}
 
+                     {% if message.tags == 'error' %}
+
                      <div class="mensaje-error">
 
                             {{ message }}
 
                      </div>
+
+                     {% endif %}
 
                      {% endfor %}
 

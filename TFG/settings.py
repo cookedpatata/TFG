@@ -83,11 +83,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'TFG',
         'USER': 'postgres',
-        'PASSWORD': 'openpgpwd',
-        #CASA 1234
+        'PASSWORD': '1234',
         'HOST': 'localhost',
-        'PORT': '5436',
-        #CASA 5432
+        'PORT': '5432',
     }
 }
 

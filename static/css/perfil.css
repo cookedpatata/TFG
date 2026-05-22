@@ -1,6 +1,7 @@
 *{
 
     margin:0;
+
     padding:0;
     box-sizing:border-box;
 }
@@ -12,6 +13,12 @@ body{
     background:#f3f4f6;
 
     color:#111827;
+}
+
+.contenedor{
+    width:95%;
+    margin:40px auto;
+    gap:30px;
 }
 
 /* ================================= */
@@ -181,6 +188,42 @@ body{
     font-size:28px;
 
     color:#111827;
+}
+
+.admin-panel{
+
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.btn-admin{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:20px;
+
+    background:#047857;
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.btn-admin:hover{
+
+    background:#065f46;
 }
 
 /* ================================= */
@@ -356,6 +399,40 @@ body{
 .apuesta-dinero h3{
 
     font-size:45px;
+}
+
+/* ================================= */
+/* BOTON CANCELAR */
+/* ================================= */
+
+.btn-cancelar{
+
+    margin-top:15px;
+
+    border:none;
+
+    background:#dc2626;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.btn-cancelar:hover{
+
+    background:#b91c1c;
+
+    transform:translateY(-2px);
 }
 
 /* ================================= */

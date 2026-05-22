@@ -348,14 +348,24 @@ def iniciar_sesion(request):
 
     if request.method == 'POST':
 
-        username = request.POST['username']
+        correo = request.POST['correo']
         password = request.POST['password']
 
-        user = authenticate(
-            request,
-            username=username,
-            password=password
-        )
+        try:
+
+            user_db = User.objects.get(
+                email=correo
+            )
+
+            user = authenticate(
+                request,
+                username=user_db.username,
+                password=password
+            )
+
+        except User.DoesNotExist:
+
+            user = None
 
         if user is not None:
 
@@ -364,11 +374,11 @@ def iniciar_sesion(request):
             if user.is_superuser:
                 return redirect('panel_carreras')
 
-            return redirect('index')
+            return redirect('perfil')
 
         messages.error(
             request,
-            'Usuario o contraseña incorrectos'
+            'Correo o contraseña incorrectos'
         )
 
         return redirect('login')
@@ -377,6 +387,8 @@ def iniciar_sesion(request):
         request,
         'login.html'
     )
+
+
 
 
 # =========================================
@@ -603,6 +615,42 @@ def apostar(request, participante_id):
         participante.carrera.id_carrera
     )
 
+# =========================================
+# CANCELAR APUESTA
+# =========================================
+
+@login_required
+def cancelar_apuesta(request, apuesta_id):
+
+    apuesta = get_object_or_404(
+        Apuesta,
+        pk=apuesta_id,
+        usuario=request.user
+    )
+
+    if apuesta.estado != 'pendiente':
+
+        messages.error(
+            request,
+            'Solo se pueden cancelar apuestas pendientes'
+        )
+
+        return redirect('perfil')
+
+    perfil_usuario = request.user.perfil
+
+    perfil_usuario.saldo += apuesta.cantidad
+
+    perfil_usuario.save()
+
+    apuesta.delete()
+
+    messages.success(
+        request,
+        'Apuesta cancelada correctamente'
+    )
+
+    return redirect('perfil')
 
 # =========================================
 # PANEL ADMIN
@@ -1032,6 +1080,221 @@ def resultado_aleatorio(request, carrera_id):
 
     return redirect('panel_carreras')
 
+# =========================================
+# PANEL OPCIONES CARRERA
+# =========================================
+
+@staff_member_required
+def admin_detalle_carrera(request, carrera_id):
+
+    carrera = get_object_or_404(
+        Carrera,
+        pk=carrera_id
+    )
+
+    participantes = Participante.objects.filter(
+        carrera=carrera
+    ).select_related(
+        'caballo',
+        'jinete'
+    )
+
+    total_apostado = Apuesta.objects.filter(
+        participante__carrera=carrera
+    ).aggregate(
+        total=Coalesce(
+            Sum('cantidad'),
+            Decimal('0.00')
+        )
+    )['total']
+
+    for participante in participantes:
+
+        total_participante = Apuesta.objects.filter(
+            participante=participante
+        ).aggregate(
+            total=Coalesce(
+                Sum('cantidad'),
+                Decimal('0.00')
+            )
+        )['total']
+
+        if total_participante > 0:
+
+            participante.dividendo = round(
+                float(total_apostado / total_participante),
+                2
+            )
+
+        else:
+
+            participante.dividendo = 0
+
+        participante.apuestas = Apuesta.objects.filter(
+            participante=participante
+        ).select_related(
+            'usuario',
+            'tipo_apuesta'
+        )
+
+    return render(
+        request,
+        'usuarios/admin_detalle_carrera.html',
+        {
+            'carrera': carrera,
+            'participantes': participantes,
+            'total_apostado': total_apostado
+        }
+    )
+
+# =========================================
+# GENERAR APUESTAS ALEATORIAS
+# =========================================
+
+@staff_member_required
+def generar_apuestas(request, carrera_id):
+
+    carrera = get_object_or_404(
+        Carrera,
+        pk=carrera_id
+    )
+
+    if request.method == 'POST':
+
+        cantidad_apuestas = int(
+            request.POST.get(
+                'cantidad_apostantes',
+                1
+            )
+        )
+
+        participantes = list(
+            Participante.objects.filter(
+                carrera=carrera
+            )
+        )
+
+        usuarios = list(
+            User.objects.filter(
+                is_superuser=False
+            )
+        )
+
+        tipos_apuesta = list(
+            TipoApuesta.objects.all()
+        )
+
+        if not participantes or not usuarios:
+
+            messages.error(
+                request,
+                'No hay participantes o usuarios'
+            )
+
+            return redirect(
+                'admin_detalle_carrera',
+                carrera.id_carrera
+            )
+
+        apuestas_creadas = 0
+        intentos = 0
+        max_intentos = cantidad_apuestas * 20
+
+        while (
+            apuestas_creadas < cantidad_apuestas
+            and intentos < max_intentos
+        ):
+
+            intentos += 1
+
+            usuario = random.choice(
+                usuarios
+            )
+
+            perfil = usuario.perfil
+
+            # =====================================
+            # PARTICIPANTES DISPONIBLES
+            # =====================================
+
+            participantes_disponibles = []
+
+            for participante in participantes:
+
+                existe = Apuesta.objects.filter(
+                    usuario=usuario,
+                    participante=participante,
+                    estado='pendiente'
+                ).exists()
+
+                if not existe:
+
+                    participantes_disponibles.append(
+                        participante
+                    )
+
+            # Si ya apostó a todos
+            if not participantes_disponibles:
+                continue
+
+            # =====================================
+            # CANTIDAD ALEATORIA
+            # =====================================
+
+            max_apuesta = min(
+                int(perfil.saldo),
+                100
+            )
+
+            if max_apuesta < 5:
+                continue
+
+            cantidad = Decimal(
+                random.randint(
+                    5,
+                    max_apuesta
+                )
+            )
+
+            participante = random.choice(
+                participantes_disponibles
+            )
+
+            tipo_apuesta = random.choice(
+                tipos_apuesta
+            )
+
+            # =====================================
+            # CREAR APUESTA
+            # =====================================
+
+            Apuesta.objects.create(
+
+                cantidad=cantidad,
+
+                tipo_apuesta=tipo_apuesta,
+
+                usuario=usuario,
+
+                participante=participante
+            )
+
+            perfil.saldo -= cantidad
+
+            perfil.save()
+
+            apuestas_creadas += 1
+
+        messages.success(
+            request,
+            f'Se añadieron {apuestas_creadas} apuestas'
+        )
+
+    return redirect(
+        'admin_detalle_carrera',
+        carrera.id_carrera
+    )
+
 def caballos(request):
 
     buscar = request.GET.get('buscar')
@@ -1070,5 +1333,106 @@ def jinetes(request):
         'jinetes.html',
         {
             'jinetes': jinetes
+        }
+    )
+
+# =========================================
+# DETALLE CABALLO
+# =========================================
+
+def detalle_caballo(request, caballo_id):
+
+    caballo = get_object_or_404(
+        Caballo,
+        pk=caballo_id
+    )
+
+    participantes = Participante.objects.filter(
+        caballo=caballo
+    ).select_related(
+        'carrera',
+        'jinete'
+    )
+
+    victorias = 0
+    derrotas = 0
+
+    for participante in participantes:
+
+        resultado = Resultado.objects.filter(
+            participante=participante
+        ).first()
+
+        participante.resultado = resultado
+
+        if resultado:
+
+            if resultado.posicion == 1:
+
+                victorias += 1
+
+            else:
+
+                derrotas += 1
+
+    return render(
+        request,
+        'detalle_caballo.html',
+        {
+            'caballo': caballo,
+            'participantes': participantes,
+            'victorias': victorias,
+            'derrotas': derrotas
+        }
+    )
+
+
+# =========================================
+# DETALLE JINETE
+# =========================================
+
+def detalle_jinete(request, jinete_id):
+
+    jinete = get_object_or_404(
+        Jinete,
+        pk=jinete_id
+    )
+
+    participantes = Participante.objects.filter(
+        jinete=jinete
+    ).select_related(
+        'carrera',
+        'caballo'
+    )
+
+    victorias = 0
+    derrotas = 0
+
+    for participante in participantes:
+
+        resultado = Resultado.objects.filter(
+            participante=participante
+        ).first()
+
+        participante.resultado = resultado
+
+        if resultado:
+
+            if resultado.posicion == 1:
+
+                victorias += 1
+
+            else:
+
+                derrotas += 1
+
+    return render(
+        request,
+        'detalle_jinete.html',
+        {
+            'jinete': jinete,
+            'participantes': participantes,
+            'victorias': victorias,
+            'derrotas': derrotas
         }
     )
