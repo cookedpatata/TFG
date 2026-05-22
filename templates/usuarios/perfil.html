@@ -44,7 +44,7 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Races
+                            Races
                 </a>
             </li>
 
@@ -56,7 +56,7 @@
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jockeys
+                    Riders
                 </a>
             </li>
 
@@ -138,7 +138,7 @@
 
             <i class="fa-solid fa-user"></i>
 
-            <h1>
+                <h1>
 
                 Profile of {{ request.user.username }}
 
@@ -256,7 +256,7 @@
 
         <div class="panel perfil-panel">
 
-            <h2>
+                <h2>
 
                 Personal Information
 
@@ -348,11 +348,11 @@
 
                 <h2>
 
-                    Bet History
+                    Betting History
 
-                    <h2>
-                        Bet History
-                    </h2>
+                </h2>
+
+            </div>
 
             <div class="lista-apuestas">
 
@@ -380,23 +380,23 @@
 
                             <p>
 
-                                <strong>Caballo:</strong>
-
-                                {{ apuesta.participante.caballo.nombre }}
-
-                            <p>
                                 <strong>Horse:</strong>
 
                                 {{ apuesta.participante.caballo.nombre }}
+
                             </p>
 
-                                {{ apuesta.tipo_apuesta.nombre }}
-
                             <p>
+
                                 <strong>Type:</strong>
 
                                 {{ apuesta.tipo_apuesta.nombre }}
+
                             </p>
+
+                        </div>
+
+                    </div>
 
                     <!-- DERECHA -->
 
@@ -404,7 +404,7 @@
 
                         <div>
 
-                            <p>Amount Bet</p>
+                            <p>Bet Amount</p>
 
                             <h3>
 
@@ -419,13 +419,13 @@
                                 {% if apuesta.estado == 'ganada' %}
 
                                 <span class="estado ganada-texto">
-                                    Won
+                                    Ganada
                                 </span>
 
                                 {% elif apuesta.estado == 'perdida' %}
 
                                 <span class="estado perdida-texto">
-                                    Lost
+                                    Perdida
                                 </span>
 
                                 {% elif apuesta.estado == 'insuficiente' %}
@@ -448,7 +448,7 @@
 
                                 {% csrf_token %}
 
-                                    <button type="submit" class="btn-cancelar">
+                                <button type="submit" class="btn-cancelar">
 
                                     <i class="fa-solid fa-xmark"></i>
 

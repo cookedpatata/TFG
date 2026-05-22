@@ -30,7 +30,7 @@ function validarEmail() {
         mostrarError(
             input,
             !regex.test(input.value),
-            'Correo inválido',
+            'Invalid email',
             'email-error'
         );
 
@@ -56,7 +56,7 @@ function validarPassword() {
         mostrarError(
             input,
             !valido,
-            '8 caracteres, una mayúscula y un número',
+            '8 characters, one uppercase letter and one number',
             'password-error'
         );
 
@@ -77,7 +77,7 @@ function validarNombre() {
         mostrarError(
             input,
             input.value.trim().length < 3,
-            'Mínimo 3 caracteres',
+            'Minimum 3 characters',
             'username-error'
         );
 
@@ -98,7 +98,7 @@ function validarApellidos() {
         mostrarError(
             input,
             input.value.trim().length < 2,
-            'Mínimo 2 caracteres',
+            'Minimum 2 characters',
             'apellidos-error'
         );
 
@@ -143,7 +143,7 @@ function validarFecha() {
         mostrarError(
             input,
             edad < 18,
-            'Debes ser mayor de edad',
+            'You must be of legal age',
             'fecha-error'
         );
 
@@ -167,7 +167,7 @@ function validarDni() {
         mostrarError(
             input,
             !regex.test(input.value),
-            'Formato válido: 12345678A',
+            'Valid format: 12345678A',
             'dni-error'
         );
 

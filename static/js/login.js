@@ -22,7 +22,7 @@ function validarEmail() {
         mostrarError(
             input,
             !regex.test(input.value),
-            'Correo inválido',
+            'Invalid email',
             'email-error'
         );
 
@@ -48,7 +48,7 @@ function validarPassword() {
         mostrarError(
             input,
             !valido,
-            '8 caracteres, una mayúscula y un número',
+            '8 characters, one uppercase letter and one number',
             'password-error'
         );
 

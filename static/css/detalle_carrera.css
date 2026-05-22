@@ -194,6 +194,117 @@ button:hover {
     background: #065f46;
 }
 
+/* =========================================
+   POPUP CONFIRMACION
+========================================= */
+
+.popup-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 9999;
+}
+
+.popup-overlay.activo {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.popup-confirmacion {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    width: 90%;
+
+    max-width: 420px;
+
+    text-align: center;
+
+    animation: popupAnim 0.25s ease;
+}
+
+.popup-confirmacion h2 {
+
+    margin-bottom: 15px;
+
+    color: #047857;
+}
+
+.popup-confirmacion p {
+
+    margin-bottom: 25px;
+
+    font-size: 18px;
+}
+
+.popup-botones {
+
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+}
+
+.btn-cancelar {
+
+    background: #dc2626;
+}
+
+.btn-cancelar:hover {
+
+    background: #b91c1c;
+}
+
+.btn-confirmar {
+
+    background: #047857;
+}
+
+.btn-confirmar:hover {
+
+    background: #065f46;
+}
+
+@keyframes popupAnim {
+
+    from {
+
+        transform: scale(0.8);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
 @media(max-width:900px) {
 
     .datos {
