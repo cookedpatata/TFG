@@ -36,7 +36,7 @@
 
             <i class="fa-solid fa-arrow-left"></i>
 
-            Volver
+            Back
 
         </a>
 
@@ -55,13 +55,13 @@
 
             <div class="datos">
 
-                <p><strong>Nacionalidad:</strong> {{ caballo.nacionalidad }}</p>
+                <p><strong>Nationality:</strong> {{ caballo.nacionalidad }}</p>
 
-                <p><strong>Edad:</strong> {{ caballo.edad }}</p>
+                <p><strong>Age:</strong> {{ caballo.edad }}</p>
 
                 <p>
 
-                    <strong>Sexo:</strong>
+                    <strong>Sex:</strong>
 
                     {% if caballo.sexo %}
 
@@ -77,7 +77,7 @@
 
                 <p>
 
-                    <strong>Entrenador:</strong>
+                    <strong>Trainer:</strong>
 
                     {% if caballo.entrenador %}
 
@@ -93,7 +93,7 @@
 
                 <p>
 
-                    <strong>Propietario:</strong>
+                    <strong>Owner:</strong>
 
                     {% if caballo.propietario %}
 
@@ -117,7 +117,7 @@
 
                 <h2>{{ victorias }}</h2>
 
-                <p>Victorias</p>
+                <p>Wins</p>
 
             </div>
 
@@ -125,7 +125,7 @@
 
                 <h2>{{ derrotas }}</h2>
 
-                <p>Derrotas</p>
+                <p>Losses</p>
 
             </div>
 
@@ -133,7 +133,7 @@
 
         <div class="panel">
 
-            <h2>Carreras</h2>
+            <h2>Races</h2>
 
             <table>
 
@@ -141,11 +141,11 @@
 
                     <tr>
 
-                        <th>Carrera</th>
-                        <th>Fecha</th>
-                        <th>Jinete</th>
-                        <th>Posición</th>
-                        <th>Resultado</th>
+                        <th>Race</th>
+                        <th>Date</th>
+                        <th>Jockey</th>
+                        <th>Position</th>
+                        <th>Result</th>
 
                     </tr>
 
@@ -184,13 +184,13 @@
                             {% if participante.resultado.posicion == 1 %}
 
                             <span class="ganada">
-                                Ganada
+                                Won
                             </span>
 
                             {% else %}
 
                             <span class="perdida">
-                                Perdida
+                                Lost
                             </span>
 
                             {% endif %}
@@ -198,7 +198,7 @@
                             {% else %}
 
                             <span class="pendiente">
-                                Pendiente
+                                Pending
                             </span>
 
                             {% endif %}

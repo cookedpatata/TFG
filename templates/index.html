@@ -42,19 +42,19 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Carreras
+                    Races
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'caballos' %}">
-                    Caballos
+                    Horses
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jinetes
+                    Jockeys
                 </a>
             </li>
 
@@ -66,7 +66,7 @@
 
                     <i class="fa-regular fa-user"></i>
 
-                    Perfil
+                    Profile
 
                 </a>
 
@@ -78,7 +78,7 @@
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Salir
+                    Logout
 
                 </a>
 
@@ -104,7 +104,7 @@
 
                     <i class="fa-solid fa-user-plus"></i>
 
-                    Registro
+                    Register
 
                 </a>
 
@@ -126,7 +126,7 @@
 
                     <i class="fa-regular fa-calendar"></i>
 
-                    Próximas Carreras
+                    Upcoming Races
 
                 </h1>
 
@@ -134,7 +134,7 @@
 
                     <div class="filtro">
 
-                        <label>Categoría</label>
+                        <label>Category</label>
 
                         <select name="categoria">
 
@@ -156,7 +156,7 @@
 
                     <div class="filtro">
 
-                        <label>Distancia</label>
+                        <label>Distance</label>
 
                         <select name="distancia">
 
@@ -192,7 +192,7 @@
 
                     <div class="filtro">
 
-                        <label>Participantes</label>
+                        <label>Participants</label>
 
                         <select name="participantes">
 
@@ -216,7 +216,7 @@
 
                     <div class="filtro">
 
-                        <label>Hipódromo</label>
+                        <label>Racetrack</label>
 
                         <select name="hipodromo">
 
@@ -242,7 +242,7 @@
 
                         <button type="submit" class="btn-apostar">
 
-                            Filtrar
+                            Filter
 
                         </button>
 
@@ -272,7 +272,7 @@
 
                                         <i class="fa-regular fa-calendar"></i>
 
-                                        {{ carrera.fecha }}
+                                            {{ carrera.fecha }}
 
                                     </span>
 
@@ -333,7 +333,7 @@
 
                         <a href="{% url 'detalle_carrera' carrera.id_carrera %}" class="btn-apostar">
 
-                            Apostar
+                            Bet
 
                         </a>
 
@@ -343,7 +343,7 @@
 
                     <div class="card-carrera">
 
-                        <h2>No hay carreras disponibles</h2>
+                        <h2>No races available</h2>
 
                     </div>
 
@@ -363,7 +363,7 @@
 
                     <i class="fa-solid fa-crown"></i>
 
-                    Top Usuarios
+                    Top Users
 
                 </h2>
 
@@ -390,7 +390,7 @@
                             <p>
 
                                 {{ usuario.victorias }}
-                                apuestas
+                                wins
 
                             </p>
 
@@ -416,7 +416,7 @@
 
                     <i class="fa-solid fa-horse"></i>
 
-                    Top Caballos
+                    Top Horses
 
                 </h2>
 
@@ -437,7 +437,7 @@
                         <p>
 
                             {{ caballo.victorias }}/{{ caballo.carreras }}
-                            victorias
+                            wins
 
                         </p>
 
@@ -461,7 +461,7 @@
 
                     <i class="fa-solid fa-medal"></i>
 
-                    Top Jinetes
+                    Top Jockeys
 
                 </h2>
 
@@ -482,7 +482,7 @@
                         <p>
 
                             {{ jinete.victorias }}
-                            victorias
+                            wins
 
                         </p>
 

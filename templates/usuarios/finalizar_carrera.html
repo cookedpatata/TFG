@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
 
-    <title>Finalizar Carrera</title>
+    <title>Finish Race</title>
 
     <link rel="stylesheet" href="{% static 'css/admin_carreras.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -35,19 +35,19 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Carreras
+                    Races
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'caballos' %}">
-                    Caballos
+                    Horses
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jinetes
+                    Jockeys
                 </a>
             </li>
 
@@ -59,7 +59,7 @@
 
                     <i class="fa-regular fa-user"></i>
 
-                    Perfil
+                    Profile
 
                 </a>
 
@@ -71,7 +71,7 @@
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Salir
+                    Logout
 
                 </a>
 
@@ -97,7 +97,7 @@
 
                     <i class="fa-solid fa-user-plus"></i>
 
-                    Registro
+                    Register
 
                 </a>
 
@@ -115,11 +115,13 @@
 
             <i class="fa-solid fa-arrow-left"></i>
 
-            Volver a opciones
+            Back to options
 
         </a>
 
         <h1>{{ carrera.nombre }}</h1>
+
+        <div id="error-validacion" class="error-validacion"></div>
 
         <form method="POST">
 
@@ -131,9 +133,9 @@
 
                     <tr>
 
-                        <th>Caballo</th>
-                        <th>Posición</th>
-                        <th>Distancia</th>
+                            <th>Horse</th>
+                            <th>Position</th>
+                            <th>Distance</th>
 
                     </tr>
 
@@ -149,7 +151,8 @@
 
                         <td>
 
-                            <input type="number" name="posicion_{{ participante.id_participante }}" required>
+                            <input type="number" name="posicion_{{ participante.id_participante }}"
+                                class="input-posicion" min="1" max="{{ participantes|length }}" required>
 
                         </td>
 
@@ -168,13 +171,77 @@
             </table>
 
             <button type="submit">
-                Guardar Resultados
+                Save Results
             </button>
 
         </form>
 
     </div>
     <script src="{% static 'js/navbar.js' %}"></script>
+    <script>
+
+        const form = document.querySelector('form');
+
+        const errorDiv = document.getElementById(
+            'error-validacion'
+        );
+
+        form.addEventListener('submit', function (e) {
+
+            const inputs = document.querySelectorAll(
+                '.input-posicion'
+            );
+
+            const posiciones = [];
+
+            const maxParticipantes = inputs.length;
+
+            errorDiv.innerHTML = '';
+
+            for (const input of inputs) {
+
+                const valor = parseInt(input.value);
+
+                // ==============================
+                // VALIDAR RANGO
+                // ==============================
+
+                if (
+                    valor < 1 ||
+                    valor > maxParticipantes
+                ) {
+
+                    e.preventDefault();
+
+                    errorDiv.innerHTML =
+                        `Positions must be between 1 and ${maxParticipantes}`;
+
+                    input.focus();
+
+                    return;
+                }
+
+                // ==============================
+                // VALIDAR REPETIDAS
+                // ==============================
+
+                if (posiciones.includes(valor)) {
+
+                    e.preventDefault();
+
+                    errorDiv.innerHTML =
+                        `Positions cannot be duplicated`;
+
+                    input.focus();
+
+                    return;
+                }
+
+                posiciones.push(valor);
+            }
+        });
+
+    </script>
 </body>
 
 </html>

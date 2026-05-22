@@ -15,10 +15,42 @@ body{
     color:#111827;
 }
 
+/* ================================= */
+/* CONTENEDOR */
+/* ================================= */
+
 .contenedor{
+
     width:95%;
+
     margin:40px auto;
-    gap:30px;
+}
+
+/* ================================= */
+/* TITULO */
+/* ================================= */
+
+.titulo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:40px;
+}
+
+.titulo i{
+
+    font-size:45px;
+
+    color:#059669;
+}
+
+.titulo h1{
+
+    font-size:55px;
 }
 
 /* ================================= */

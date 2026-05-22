@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 
@@ -36,7 +36,7 @@
 
             <i class="fa-solid fa-arrow-left"></i>
 
-            Volver
+            Back
 
         </a>
 
@@ -46,9 +46,9 @@
 
             <div class="datos">
 
-                <p><strong>Nacionalidad:</strong> {{ jinete.nacionalidad }}</p>
+                <p><strong>Nationality:</strong> {{ jinete.nacionalidad }}</p>
 
-                <p><strong>Peso:</strong> {{ jinete.peso }} kg</p>
+                <p><strong>Weight:</strong> {{ jinete.peso }} kg</p>
 
             </div>
 
@@ -60,7 +60,7 @@
 
                 <h2>{{ victorias }}</h2>
 
-                <p>Victorias</p>
+                <p>Wins</p>
 
             </div>
 
@@ -68,7 +68,7 @@
 
                 <h2>{{ derrotas }}</h2>
 
-                <p>Derrotas</p>
+                <p>Losses</p>
 
             </div>
 
@@ -76,7 +76,7 @@
 
         <div class="panel">
 
-            <h2>Carreras</h2>
+            <h2>Races</h2>
 
             <table>
 
@@ -84,11 +84,11 @@
 
                     <tr>
 
-                        <th>Carrera</th>
-                        <th>Fecha</th>
-                        <th>Caballo</th>
-                        <th>Posición</th>
-                        <th>Resultado</th>
+                        <th>Race</th>
+                        <th>Date</th>
+                        <th>Horse</th>
+                        <th>Position</th>
+                        <th>Result</th>
 
                     </tr>
 
@@ -127,13 +127,13 @@
                             {% if participante.resultado.posicion == 1 %}
 
                             <span class="ganada">
-                                Ganada
+                                Won
                             </span>
 
                             {% else %}
 
                             <span class="perdida">
-                                Perdida
+                                Lost
                             </span>
 
                             {% endif %}
@@ -141,7 +141,7 @@
                             {% else %}
 
                             <span class="pendiente">
-                                Pendiente
+                                Pending
                             </span>
 
                             {% endif %}

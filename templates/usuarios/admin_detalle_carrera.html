@@ -38,19 +38,19 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Carreras
+                    Races
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'caballos' %}">
-                    Caballos
+                    Horses
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jinetes
+                    Jockeys
                 </a>
             </li>
 
@@ -60,7 +60,7 @@
 
                     <i class="fa-regular fa-user"></i>
 
-                    Perfil
+                    Profile
 
                 </a>
 
@@ -72,7 +72,7 @@
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Salir
+                    Logout
 
                 </a>
 
@@ -88,7 +88,7 @@
 
             <i class="fa-solid fa-arrow-left"></i>
 
-            Volver al panel
+            Back to panel
 
         </a>
 
@@ -98,17 +98,17 @@
 
             <div class="datos">
 
-                <p><strong>Hipódromo:</strong> {{ carrera.id_hipodromo.nombre }}</p>
+                <p><strong>Racecourse:</strong> {{ carrera.id_hipodromo.nombre }}</p>
 
-                <p><strong>Fecha:</strong> {{ carrera.fecha }}</p>
+                <p><strong>Date:</strong> {{ carrera.fecha }}</p>
 
-                <p><strong>Hora:</strong> {{ carrera.hora }}</p>
+                <p><strong>Time:</strong> {{ carrera.hora }}</p>
 
-                <p><strong>Distancia:</strong> {{ carrera.distancia }}m</p>
+                <p><strong>Distance:</strong> {{ carrera.distancia }}m</p>
 
-                <p><strong>Categoría:</strong> {{ carrera.categoria }}</p>
+                <p><strong>Category:</strong> {{ carrera.categoria }}</p>
 
-                <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+                <p><strong>Status:</strong> {{ carrera.estado }}</p>
 
             </div>
 
@@ -117,21 +117,21 @@
         <div class="acciones">
 
             <a href="{% url 'finalizar_carrera' carrera.id_carrera %}" class="btn finalizar">
-                Finalizar Carrera
+                Finish Race
             </a>
 
             <a href="{% url 'resultado_aleatorio' carrera.id_carrera %}" class="btn aleatorio">
-                Resultado Aleatorio
+                Random Result
             </a>
 
             <form method="POST" action="{% url 'generar_apuestas' carrera.id_carrera %}" class="form-apuestas">
 
                 {% csrf_token %}
 
-                <input type="number" name="cantidad_apostantes" min="1" placeholder="Nº apostantes" required>
+                <input type="number" name="cantidad_apostantes" min="1" placeholder="Number of bettors" required>
 
                 <button type="submit">
-                    Añadir apuestas
+                    Add bets
                 </button>
 
             </form>
@@ -142,7 +142,7 @@
 
             <div class="stat-box">
 
-                <h3>Total Apostado</h3>
+                <h3>Total Wagered</h3>
 
                 <span>{{ total_apostado }} €</span>
 
@@ -172,12 +172,12 @@
                 <div class="info">
 
                     <p>
-                        <strong>Jinete:</strong>
+                        <strong>Jockey:</strong>
                         {{ participante.jinete.nombre }}
                     </p>
 
                     <p>
-                        <strong>Peso:</strong>
+                        <strong>Weight:</strong>
                         {{ participante.jinete.peso }} kg
                     </p>
 
@@ -185,7 +185,7 @@
 
                 <div class="apuestas">
 
-                    <h3>Apuestas</h3>
+                    <h3>Bets</h3>
 
                     {% for apuesta in participante.apuestas %}
 
@@ -208,7 +208,7 @@
                     {% empty %}
 
                     <p class="sin-apuestas">
-                        No hay apuestas
+                        No bets
                     </p>
 
                     {% endfor %}

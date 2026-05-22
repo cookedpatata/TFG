@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
 
-    <title>Panel Carreras</title>
+    <title>Panel of Races</title>
 
     <link rel="stylesheet" href="{% static 'css/admin_carreras.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -39,19 +39,19 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Carreras
+                    Races
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'caballos' %}">
-                    Caballos
+                    Horses
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jinetes
+                    Jockeys
                 </a>
             </li>
 
@@ -63,7 +63,7 @@
 
                     <i class="fa-regular fa-user"></i>
 
-                    Perfil
+                    Profile
 
                 </a>
 
@@ -75,7 +75,7 @@
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Salir
+                    Logout
 
                 </a>
 
@@ -101,7 +101,7 @@
 
                     <i class="fa-solid fa-user-plus"></i>
 
-                    Registro
+                    Sign Up
 
                 </a>
 
@@ -118,11 +118,11 @@
 
             <i class="fa-solid fa-arrow-left"></i>
 
-            Volver al perfil
+            Go Back to Profile
 
         </a>
 
-        <h1>Panel de Carreras</h1>
+        <h1>Panel of Races</h1>
 
         <div class="grid">
 
@@ -134,10 +134,10 @@
 
                 <p>{{ carrera.fecha }} - {{ carrera.hora }}</p>
 
-                <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+                <p><strong>Status:</strong> {{ carrera.estado }}</p>
 
                 <a href="{% url 'admin_detalle_carrera' carrera.id_carrera %}">
-                    Opciones
+                    Options
                 </a>
 
             </div>

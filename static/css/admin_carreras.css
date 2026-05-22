@@ -176,6 +176,30 @@ input {
     padding: 0 15px;
 }
 
+.error-validacion {
+
+    background: #ffebeb;
+
+    color: #c62828;
+
+    border: 1px solid #ef9a9a;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-weight: bold;
+
+    display: none;
+}
+
+.error-validacion:not(:empty) {
+
+    display: block;
+}
+
 @media(max-width:900px) {
 
     table {

@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Perfil</title>
+    <title>Profile</title>
 
     <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -44,19 +44,19 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Carreras
+                    Races
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'caballos' %}">
-                    Caballos
+                    Horses
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jinetes
+                    Jockeys
                 </a>
             </li>
 
@@ -68,7 +68,7 @@
 
                     <i class="fa-regular fa-user"></i>
 
-                    Perfil
+                    Profile
 
                 </a>
 
@@ -80,7 +80,7 @@
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Salir
+                    Logout
 
                 </a>
 
@@ -106,7 +106,7 @@
 
                     <i class="fa-solid fa-user-plus"></i>
 
-                    Registro
+                    Register
 
                 </a>
 
@@ -140,7 +140,7 @@
 
             <h1>
 
-                Perfil de {{ request.user.username }}
+                Profile of {{ request.user.username }}
 
             </h1>
 
@@ -164,7 +164,7 @@
 
                 <div>
 
-                    <p>Saldo Actual</p>
+                    <p>Current Balance</p>
 
                     <h2>
 
@@ -188,7 +188,7 @@
 
                 <div>
 
-                    <p>Total Ganado</p>
+                    <p>Total Won</p>
 
                     <h2 class="azul-texto">
 
@@ -212,7 +212,7 @@
 
                 <div>
 
-                    <p>Total Apuestas</p>
+                    <p>Total Bets</p>
 
                     <h2 class="verde-texto">
 
@@ -236,7 +236,7 @@
 
                 <div>
 
-                    <p>Apuestas Ganadas</p>
+                    <p>Bets Won</p>
 
                     <h2 class="rojo-texto">
 
@@ -258,7 +258,7 @@
 
             <h2>
 
-                Información Personal
+                Personal Information
 
             </h2>
 
@@ -266,7 +266,7 @@
 
                 <div class="dato">
 
-                    <span>Usuario</span>
+                    <span>Username</span>
 
                     <strong>
 
@@ -278,7 +278,7 @@
 
                 <div class="dato">
 
-                    <span>Correo</span>
+                    <span>Email</span>
 
                     <strong>
 
@@ -290,7 +290,7 @@
 
                 <div class="dato">
 
-                    <span>Apellidos</span>
+                    <span>Last Name</span>
 
                     <strong>
 
@@ -302,7 +302,7 @@
 
                 <div class="dato">
 
-                    <span>DNI</span>
+                    <span>ID</span>
 
                     <strong>
 
@@ -321,14 +321,14 @@
         <div class="panel admin-panel">
 
             <h2>
-                Administración
+                Administration
             </h2>
 
             <a href="{% url 'panel_carreras' %}" class="btn-admin">
 
                 <i class="fa-solid fa-gear"></i>
 
-                Administrar Carreras
+                Manage Races
 
             </a>
 
@@ -348,11 +348,11 @@
 
                 <h2>
 
-                    Historial de Apuestas
+                    Bet History
 
-                </h2>
-
-            </div>
+                    <h2>
+                        Bet History
+                    </h2>
 
             <div class="lista-apuestas">
 
@@ -384,19 +384,19 @@
 
                                 {{ apuesta.participante.caballo.nombre }}
 
-                            </p>
-
                             <p>
+                                <strong>Horse:</strong>
 
-                                <strong>Tipo:</strong>
+                                {{ apuesta.participante.caballo.nombre }}
+                            </p>
 
                                 {{ apuesta.tipo_apuesta.nombre }}
 
+                            <p>
+                                <strong>Type:</strong>
+
+                                {{ apuesta.tipo_apuesta.nombre }}
                             </p>
-
-                        </div>
-
-                    </div>
 
                     <!-- DERECHA -->
 
@@ -404,7 +404,7 @@
 
                         <div>
 
-                            <p>Cantidad Apostada</p>
+                            <p>Amount Bet</p>
 
                             <h3>
 
@@ -414,30 +414,30 @@
 
                             <p>
 
-                                <strong>Estado:</strong>
+                                <strong>Status:</strong>
 
                                 {% if apuesta.estado == 'ganada' %}
 
                                 <span class="estado ganada-texto">
-                                    Ganada
+                                    Won
                                 </span>
 
                                 {% elif apuesta.estado == 'perdida' %}
 
                                 <span class="estado perdida-texto">
-                                    Perdida
+                                    Lost
                                 </span>
 
                                 {% elif apuesta.estado == 'insuficiente' %}
 
                                 <span class="estado insuficiente-texto">
-                                    Apuestas insuficientes
+                                    Insufficient bets
                                 </span>
 
                                 {% else %}
 
                                 <span class="estado pendiente-texto">
-                                    Pendiente
+                                    Pending
                                 </span>
 
                                 {% endif %}
@@ -448,11 +448,11 @@
 
                                 {% csrf_token %}
 
-                                <button type="submit" class="btn-cancelar">
+                                    <button type="submit" class="btn-cancelar">
 
                                     <i class="fa-solid fa-xmark"></i>
 
-                                    Retirarse
+                                    Withdraw
 
                                 </button>
 
@@ -466,7 +466,7 @@
 
                             <p>
 
-                                <strong>Ganancia:</strong>
+                                <strong>Winnings:</strong>
 
                                 +{{ apuesta.ganancia|floatformat:2 }} €
 
@@ -486,7 +486,7 @@
 
                     <h2>
 
-                        No hay apuestas registradas
+                        No bets recorded
 
                     </h2>
 

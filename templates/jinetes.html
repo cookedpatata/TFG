@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jinetes</title>
+    <title>Jockeys</title>
 
     <link rel="stylesheet" href="{% static 'css/listados.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -40,19 +40,19 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Carreras
+                    Races
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'caballos' %}">
-                    Caballos
+                    Horses
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jinetes
+                    Jockeys
                 </a>
             </li>
 
@@ -64,7 +64,7 @@
 
                     <i class="fa-regular fa-user"></i>
 
-                    Perfil
+                    Profile
 
                 </a>
 
@@ -76,7 +76,7 @@
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Salir
+                    Logout
 
                 </a>
 
@@ -102,7 +102,7 @@
 
                     <i class="fa-solid fa-user-plus"></i>
 
-                    Registro
+                    Register
 
                 </a>
 
@@ -124,13 +124,13 @@
 
                     <i class="fa-solid fa-medal"></i>
 
-                    Todos los Jinetes
+                    All Jockeys
 
                 </h1>
 
                 <form method="GET" class="busqueda">
 
-                    <input type="text" name="buscar" placeholder="Buscar jinete..." value="{{ request.GET.buscar }}">
+                    <input type="text" name="buscar" placeholder="Search jockey..." value="{{ request.GET.buscar }}">
 
                     <button type="submit">
 
@@ -172,7 +172,7 @@
 
                 <div class="card-item">
 
-                    <h2>No hay jinetes disponibles</h2>
+                    <h2>No jockeys available</h2>
 
                 </div>
 

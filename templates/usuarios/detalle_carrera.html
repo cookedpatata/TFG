@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 
@@ -39,19 +39,19 @@
 
             <li>
                 <a href="{% url 'index' %}">
-                    Carreras
+                    Races
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'caballos' %}">
-                    Caballos
+                    Horses
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'jinetes' %}">
-                    Jinetes
+                    Jockeys
                 </a>
             </li>
 
@@ -63,7 +63,7 @@
 
                     <i class="fa-regular fa-user"></i>
 
-                    Perfil
+                    Profile
 
                 </a>
 
@@ -75,7 +75,7 @@
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Salir
+                    Logout
 
                 </a>
 
@@ -101,7 +101,7 @@
 
                     <i class="fa-solid fa-user-plus"></i>
 
-                    Registro
+                    Register
 
                 </a>
 
@@ -121,23 +121,23 @@
 
             <div class="datos">
 
-                <p><strong>Hipódromo:</strong> {{ carrera.id_hipodromo.nombre }}</p>
+                <p><strong>Racetrack:</strong> {{ carrera.id_hipodromo.nombre }}</p>
 
-                <p><strong>Fecha:</strong> {{ carrera.fecha }}</p>
+                <p><strong>Date:</strong> {{ carrera.fecha }}</p>
 
-                <p><strong>Hora:</strong> {{ carrera.hora }}</p>
+                <p><strong>Time:</strong> {{ carrera.hora }}</p>
 
-                <p><strong>Distancia:</strong> {{ carrera.distancia }}m</p>
+                <p><strong>Distance:</strong> {{ carrera.distancia }}m</p>
 
-                <p><strong>Tipo:</strong> {{ carrera.tipo }}</p>
+                <p><strong>Type:</strong> {{ carrera.tipo }}</p>
 
-                <p><strong>Categoría:</strong> {{ carrera.categoria }}</p>
+                <p><strong>Category:</strong> {{ carrera.categoria }}</p>
 
-                <p><strong>Tipo pista:</strong> {{ carrera.id_pista.tipo }}</p>
+                <p><strong>Track type:</strong> {{ carrera.id_pista.tipo }}</p>
 
-                <p><strong>Estado pista:</strong> {{ carrera.id_estado_pista.tipo }}</p>
+                <p><strong>Track condition:</strong> {{ carrera.id_estado_pista.tipo }}</p>
 
-                <p><strong>Estado:</strong> {{ carrera.estado }}</p>
+                <p><strong>Status:</strong> {{ carrera.estado }}</p>
 
             </div>
 
@@ -147,7 +147,7 @@
 
             <div class="stat-box">
 
-                <h3>Total Apostado</h3>
+                <h3>Total Bet</h3>
 
                 <span>{{ total_apostado }} €</span>
 
@@ -164,11 +164,11 @@
                     <tr>
 
                         <th>#</th>
-                        <th>Caballo</th>
-                        <th>Jinete</th>
-                        <th>Peso</th>
-                        <th>Dividendo</th>
-                        <th>Apostar</th>
+                        <th>Horse</th>
+                        <th>Jockey</th>
+                        <th>Weight</th>
+                        <th>Odds</th>
+                        <th>Bet</th>
 
                     </tr>
 
@@ -195,7 +195,7 @@
                             {% if participante.apuesta_usuario %}
 
                             <strong>
-                                Apostado:
+                                Bet placed:
                                 {{ participante.apuesta_usuario.cantidad }} €
                             </strong>
 
@@ -221,7 +221,7 @@
                                 </select>
 
                                 <button type="submit">
-                                    Apostar
+                                    Bet
                                 </button>
 
                             </form>

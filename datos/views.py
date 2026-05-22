@@ -23,7 +23,7 @@ from .models import *
 
 
 # =========================================
-# INICIO
+# HOME
 # =========================================
 
 def inicio(request):
@@ -227,7 +227,7 @@ def inicio(request):
 
 
 # =========================================
-# REGISTRO
+# REGISTER
 # =========================================
 
 def registro(request):
@@ -241,6 +241,8 @@ def registro(request):
         fecha_nac = request.POST['fecha_nac']
         dni = request.POST['dni'].strip().upper()
 
+        errores = False
+
         if (
             len(password) < 8
             or not any(c.isupper() for c in password)
@@ -249,8 +251,10 @@ def registro(request):
 
             messages.error(
                 request,
-                'La contraseña debe tener al menos 8 caracteres, una mayúscula y un número'
+                'Password must have at least 8 characters, one uppercase letter and one number'
             )
+
+            errores = True
 
         if not re.match(
             r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$',
@@ -259,50 +263,24 @@ def registro(request):
 
             messages.error(
                 request,
-                'Correo inválido'
-            )           
+                'Invalid email'
+            )
+
+            errores = True
 
         if not re.match(
             r'^[0-9]{8}[A-Za-z]$',
             dni
-        ):  
+        ):
 
             messages.error(
                 request,
-                'DNI inválido'
-            )          
-
-        if User.objects.filter(
-            username=username
-        ).exists():
-
-            messages.error(
-                request,
-                'El usuario ya existe'
+                'Invalid DNI'
             )
 
-            return redirect('registro')
+            errores = True
 
-        if User.objects.filter(
-            email=email
-        ).exists():
-
-            messages.error(
-                request,
-                'El correo ya existe'
-            )
-
-            return redirect('registro')
-
-        if Usuario.objects.filter(
-            dni=dni
-        ).exists():
-
-            messages.error(
-                request,
-                'El DNI ya existe'
-            )
-
+        if errores:
             return redirect('registro')
 
         user = User.objects.create_user(
@@ -329,7 +307,7 @@ def registro(request):
 
         messages.success(
             request,
-            'Usuario creado correctamente'
+            'User created successfully'
         )
 
         return redirect('login')
@@ -378,7 +356,7 @@ def iniciar_sesion(request):
 
         messages.error(
             request,
-            'Correo o contraseña incorrectos'
+            'Incorrect email or password'
         )
 
         return redirect('login')
@@ -403,7 +381,7 @@ def cerrar_sesion(request):
 
 
 # =========================================
-# PERFIL
+# PROFILE
 # =========================================
 
 @login_required
@@ -474,7 +452,7 @@ def perfil(request):
 
 
 # =========================================
-# DETALLE CARRERA
+# RACE DETAIL
 # =========================================
 
 @login_required
@@ -543,7 +521,7 @@ def detalle_carrera(request, carrera_id):
 
 
 # =========================================
-# APOSTAR
+# BET
 # =========================================
 
 @login_required
@@ -563,9 +541,9 @@ def apostar(request, participante_id):
         if cantidad <= 0:
 
             messages.error(
-                request,
-                'Cantidad inválida'
-            )
+                    request,
+                    'Invalid amount'
+                )
 
             return redirect(
                 'detalle_carrera',
@@ -578,7 +556,7 @@ def apostar(request, participante_id):
 
             messages.error(
                 request,
-                'Saldo insuficiente'
+                'Insufficient balance'
             )
 
             return redirect(
@@ -607,7 +585,7 @@ def apostar(request, participante_id):
 
         messages.success(
             request,
-            'Apuesta realizada correctamente'
+            'Bet placed successfully'
         )
 
     return redirect(
@@ -616,7 +594,7 @@ def apostar(request, participante_id):
     )
 
 # =========================================
-# CANCELAR APUESTA
+# CANCEL BET
 # =========================================
 
 @login_required
@@ -632,7 +610,7 @@ def cancelar_apuesta(request, apuesta_id):
 
         messages.error(
             request,
-            'Solo se pueden cancelar apuestas pendientes'
+            'Only pending bets can be cancelled'
         )
 
         return redirect('perfil')
@@ -647,13 +625,13 @@ def cancelar_apuesta(request, apuesta_id):
 
     messages.success(
         request,
-        'Apuesta cancelada correctamente'
+        'Bet cancelled successfully'
     )
 
     return redirect('perfil')
 
 # =========================================
-# PANEL ADMIN
+# ADMIN PANEL
 # =========================================
 
 @staff_member_required
@@ -676,7 +654,7 @@ def panel_carreras(request):
 
 
 # =========================================
-# FINALIZAR CARRERA
+# FINISH RACE
 # =========================================
 
 @staff_member_required
@@ -705,11 +683,31 @@ def finalizar_carrera(request, carrera_id):
                 )
             )
 
+            # =========================================
+            # VALIDAR RANGO
+            # =========================================
+
+            if posicion < 1 or posicion > participantes.count():
+
+                messages.error(
+                    request,
+                    f'Positions must be between 1 and {participantes.count()}'
+                )
+
+                return redirect(
+                    'finalizar_carrera',
+                    carrera.id_carrera
+                )
+
+            # =========================================
+            # VALIDAR REPETIDAS
+            # =========================================
+
             if posicion in posiciones:
 
                 messages.error(
                     request,
-                    'No puede haber posiciones repetidas'
+                    'There cannot be duplicate positions'
                 )
 
                 return redirect(
@@ -797,7 +795,7 @@ def finalizar_carrera(request, carrera_id):
 
             messages.warning(
                 request,
-                'No hubo suficientes apuestas válidas'
+                'Not enough valid bets'
             )
 
             return redirect('panel_carreras')
@@ -887,7 +885,7 @@ def finalizar_carrera(request, carrera_id):
 
         messages.success(
             request,
-            'Carrera finalizada correctamente'
+            'Race finished successfully'
         )
 
         return redirect('panel_carreras')
@@ -903,7 +901,7 @@ def finalizar_carrera(request, carrera_id):
 
 
 # =========================================
-# RESULTADO ALEATORIO
+# RANDOM RESULT
 # =========================================
 
 @staff_member_required
@@ -985,7 +983,7 @@ def resultado_aleatorio(request, carrera_id):
 
         messages.warning(
             request,
-            'No hubo suficientes apostantes'
+            'Not enough bettors'
         )
 
         return redirect('panel_carreras')
@@ -1075,13 +1073,13 @@ def resultado_aleatorio(request, carrera_id):
 
     messages.success(
         request,
-        'Resultado aleatorio generado'
+        'Random result generated'
     )
 
     return redirect('panel_carreras')
 
 # =========================================
-# PANEL OPCIONES CARRERA
+# RACE OPTIONS PANEL
 # =========================================
 
 @staff_member_required
@@ -1148,7 +1146,7 @@ def admin_detalle_carrera(request, carrera_id):
     )
 
 # =========================================
-# GENERAR APUESTAS ALEATORIAS
+# GENERATE RANDOM BETS
 # =========================================
 
 @staff_member_required
@@ -1188,7 +1186,7 @@ def generar_apuestas(request, carrera_id):
 
             messages.error(
                 request,
-                'No hay participantes o usuarios'
+                'No participants or users'
             )
 
             return redirect(
@@ -1287,7 +1285,7 @@ def generar_apuestas(request, carrera_id):
 
         messages.success(
             request,
-            f'Se añadieron {apuestas_creadas} apuestas'
+            f'Added {apuestas_creadas} bets'
         )
 
     return redirect(
@@ -1337,7 +1335,7 @@ def jinetes(request):
     )
 
 # =========================================
-# DETALLE CABALLO
+# HORSE DETAIL
 # =========================================
 
 def detalle_caballo(request, caballo_id):
@@ -1388,7 +1386,7 @@ def detalle_caballo(request, caballo_id):
 
 
 # =========================================
-# DETALLE JINETE
+# JOCKEY DETAIL
 # =========================================
 
 def detalle_jinete(request, jinete_id):

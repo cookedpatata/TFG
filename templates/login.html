@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 
@@ -27,18 +27,30 @@
         </div>
 
         <ul class="nav-links">
+            <li>
+
+                <a href="{% url 'registro' %}">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Register
+
+                </a>
+
+            </li>
 
             <li>
                 <a href="{% url 'index' %}">
-                    Volver
+                    Back
                 </a>
             </li>
+            
         </ul>
     </nav>
 
     <div class="login-box">
 
-        <h1>Iniciar Sesión</h1>
+        <h1>Sign In</h1>
 
 
         {% if messages %}
@@ -47,7 +59,7 @@
 
         {% if message.tags == 'error' %}
 
-        <div class="mensaje error">
+        <div class="mensaje-error">
 
             {{ message }}
 
@@ -64,12 +76,12 @@
 
             {% csrf_token %}
 
-            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <input type="email" name="correo" placeholder="Email address" required>
 
-            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="password" name="password" placeholder="Password" required>
 
             <button type="submit">
-                Entrar
+                Sign In
             </button>
 
         </form>

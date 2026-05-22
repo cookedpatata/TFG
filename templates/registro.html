@@ -1,13 +1,13 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 
        <meta charset="UTF-8">
 
-       <title>Registro</title>
+       <title>Register</title>
 
        <link rel="stylesheet" href="{% static 'css/registro.css' %}">
        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -21,26 +21,34 @@
        <nav class="navbar">
 
               <div class="logo">
-
                      <i class="fa-solid fa-trophy"></i>
-
                      <span>HippoTrack</span>
-
               </div>
 
               <ul class="nav-links">
 
                      <li>
+
+                            <a href="{% url 'login' %}">
+                                   <i class="fa-solid fa-right-to-bracket"></i>
+                                   Login
+                            </a>
+
+                     </li>
+
+                     <li>
                             <a href="{% url 'index' %}">
-                                   Volver
+                                   Back
                             </a>
                      </li>
+
+
               </ul>
        </nav>
 
        <div class="registro-box">
 
-              <h1>Registro</h1>
+              <h1>Register</h1>
 
               {% if messages %}
 
@@ -68,20 +76,20 @@
 
                      {% csrf_token %}
 
-                     <input type="email" id="email" name="email" placeholder="Correo" required>
+                     <input type="email" id="email" name="email" placeholder="Email" required>
 
                      <small id="email-error" class="error"></small>
 
-                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                     <input type="password" id="password" name="password" placeholder="Password" required>
 
                      <small id="password-error" class="error"></small>
 
-                     <input type="text" id="username" name="username" placeholder="Nombre" minlength="3" maxlength="20"
+                        <input type="text" id="username" name="username" placeholder="First Name" minlength="3" maxlength="20"
                             required>
 
                      <small id="username-error" class="error"></small>
 
-                     <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="2"
+                     <input type="text" id="apellidos" name="apellidos" placeholder="Last Name" minlength="2"
                             maxlength="40" required>
 
                      <small id="apellidos-error" class="error"></small>
@@ -90,12 +98,12 @@
 
                      <small id="fecha-error" class="error"></small>
 
-                     <input type="text" id="dni" name="dni" placeholder="DNI" maxlength="9" required>
+                     <input type="text" id="dni" name="dni" placeholder="ID" maxlength="9" required>
 
                      <small id="dni-error" class="error"></small>
 
                      <button type="submit">
-                            Registrarse
+                            Register
                      </button>
 
               </form>
