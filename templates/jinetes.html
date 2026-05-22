@@ -7,22 +7,20 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Jinetes</title>
 
-    <link rel="stylesheet"
-          href="{% static 'css/listados.css' %}">
+    <link rel="stylesheet" href="{% static 'css/listados.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <body>
 
-<nav class="navbar">
+    <nav class="navbar full">
 
         <div class="logo">
 
@@ -31,6 +29,12 @@
             <span>HippoTrack</span>
 
         </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
 
         <ul class="nav-links">
 
@@ -51,6 +55,8 @@
                     Jinetes
                 </a>
             </li>
+
+            {% if request.user.is_authenticated %}
 
             <li>
 
@@ -76,84 +82,108 @@
 
             </li>
 
+            {% else %}
+
+            <li>
+
+                <a href="{% url 'login' %}">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'registro' %}">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Registro
+
+                </a>
+
+            </li>
+
+            {% endif %}
+
         </ul>
 
     </nav>
 
-<div class="contenedor-listado">
+    <div class="contenedor-listado">
 
-    <div class="panel">
+        <div class="panel">
 
-        <div class="titulo-busqueda">
+            <div class="titulo-busqueda">
 
-            <h1>
+                <h1>
 
-                <i class="fa-solid fa-medal"></i>
+                    <i class="fa-solid fa-medal"></i>
 
-                Todos los Jinetes
+                    Todos los Jinetes
 
-            </h1>
+                </h1>
 
-            <form method="GET"
-                  class="busqueda">
+                <form method="GET" class="busqueda">
 
-                <input type="text"
-                       name="buscar"
-                       placeholder="Buscar jinete..."
-                       value="{{ request.GET.buscar }}">
+                    <input type="text" name="buscar" placeholder="Buscar jinete..." value="{{ request.GET.buscar }}">
 
-                <button type="submit">
+                    <button type="submit">
 
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
 
-                </button>
+                    </button>
 
-            </form>
+                </form>
 
-        </div>
+            </div>
 
-        <div class="grid-cards">
+            <div class="grid-cards">
 
-            {% for jinete in jinetes %}
+                {% for jinete in jinetes %}
 
-            <div class="card-item">
+                <div class="card-item">
 
-                <h2>
+                    <h2>
 
-                    {{ jinete.nombre }}
+                        {{ jinete.nombre }}
 
-                </h2>
+                    </h2>
 
-                <div class="info-item">
+                    <div class="info-item">
 
-                    <span>
+                        <span>
 
-                        <i class="fa-solid fa-flag"></i>
+                            <i class="fa-solid fa-flag"></i>
 
-                        {{ jinete.nacionalidad }}
+                            {{ jinete.nacionalidad }}
 
-                    </span>
+                        </span>
+
+                    </div>
 
                 </div>
 
+                {% empty %}
+
+                <div class="card-item">
+
+                    <h2>No hay jinetes disponibles</h2>
+
+                </div>
+
+                {% endfor %}
+
             </div>
-
-            {% empty %}
-
-            <div class="card-item">
-
-                <h2>No hay jinetes disponibles</h2>
-
-            </div>
-
-            {% endfor %}
 
         </div>
 
     </div>
-
-</div>
-
+    <script src="{% static 'js/navbar.js' %}"></script>
 </body>
 
 </html>

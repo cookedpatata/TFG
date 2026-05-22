@@ -11,9 +11,30 @@
 
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-trophy"></i>
+
+            <span>HippoTrack</span>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="{% url 'index' %}">
+                    Volver
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <div class="login-box">
 

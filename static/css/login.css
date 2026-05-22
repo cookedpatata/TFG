@@ -1,102 +1,104 @@
-*{
+* {
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+body {
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
-    background:#f3f4f6;
+    background: #f3f4f6;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    flex-direction: column;
 
-    align-items:center;
+    align-items: center;
 
-    min-height:100vh;
+    min-height: 100vh;
 }
 
-.login-box{
+.login-box {
 
-    width:420px;
+    width: 420px;
 
-    background:white;
+    margin: 40px;
 
-    border-radius:25px;
+    background: white;
 
-    padding:50px;
+    border-radius: 25px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    padding: 50px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.login-box h1{
+.login-box h1 {
 
-    text-align:center;
+    text-align: center;
 
-    margin-bottom:35px;
+    margin-bottom: 35px;
 
-    color:#047857;
+    color: #047857;
 
-    font-size:42px;
+    font-size: 42px;
 }
 
-.login-box form{
+.login-box form {
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    gap:20px;
+    gap: 20px;
 }
 
-.login-box input{
+.login-box input {
 
-    height:60px;
+    height: 60px;
 
-    border:2px solid #d1d5db;
+    border: 2px solid #d1d5db;
 
-    border-radius:15px;
+    border-radius: 15px;
 
-    padding:0 20px;
+    padding: 0 20px;
 
-    font-size:18px;
+    font-size: 18px;
 
-    transition:0.3s;
+    transition: 0.3s;
 }
 
-.login-box input:focus{
+.login-box input:focus {
 
-    outline:none;
+    outline: none;
 
-    border-color:#10b981;
+    border-color: #10b981;
 }
 
-.login-box button{
+.login-box button {
 
-    height:60px;
+    height: 60px;
 
-    border:none;
+    border: none;
 
-    border-radius:15px;
+    border-radius: 15px;
 
-    background:#047857;
+    background: #047857;
 
-    color:white;
+    color: white;
 
-    font-size:18px;
+    font-size: 18px;
 
-    font-weight:bold;
+    font-weight: bold;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:0.3s;
+    transition: 0.3s;
 }
 
-.login-box button:hover{
+.login-box button:hover {
 
-    background:#065f46;
+    background: #065f46;
 }

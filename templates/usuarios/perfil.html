@@ -12,6 +12,7 @@
     <title>Perfil</title>
 
     <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -23,7 +24,7 @@
     <!-- NAVBAR -->
     <!-- ===================================== -->
 
-    <nav class="navbar">
+    <nav class="navbar full">
 
         <div class="logo">
 
@@ -32,6 +33,12 @@
             <span>HippoTrack</span>
 
         </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
 
         <ul class="nav-links">
 
@@ -52,6 +59,8 @@
                     Jinetes
                 </a>
             </li>
+
+            {% if request.user.is_authenticated %}
 
             <li>
 
@@ -76,6 +85,40 @@
                 </a>
 
             </li>
+
+            {% else %}
+
+            <li>
+
+                <a href="{% url 'login' %}">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'registro' %}">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Registro
+
+                </a>
+
+            </li>
+
+            {% endif %}
+
+            <button class="menu-toggle" id="menu-toggle">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
 
         </ul>
 
@@ -418,7 +461,7 @@
         </div>
 
     </div>
-
+    <script src="{% static 'js/navbar.js' %}"></script>
 </body>
 
 </html>

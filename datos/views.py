@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
+import re
 
 from django.db import models
 from django.db.models import Count, Sum
@@ -233,12 +234,43 @@ def registro(request):
 
     if request.method == 'POST':
 
-        username = request.POST['username']
-        email = request.POST['email']
+        username = request.POST['username'].strip()
+        email = request.POST['email'].strip().lower()
         password = request.POST['password']
-        apellidos = request.POST['apellidos']
+        apellidos = request.POST['apellidos'].strip()
         fecha_nac = request.POST['fecha_nac']
-        dni = request.POST['dni']
+        dni = request.POST['dni'].strip().upper()
+
+        if (
+            len(password) < 8
+            or not any(c.isupper() for c in password)
+            or not any(c.isdigit() for c in password)
+        ):
+
+            messages.error(
+                request,
+                'La contraseña debe tener al menos 8 caracteres, una mayúscula y un número'
+            )
+
+        if not re.match(
+            r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$',
+            email
+        ):
+
+            messages.error(
+                request,
+                'Correo inválido'
+            )           
+
+        if not re.match(
+            r'^[0-9]{8}[A-Za-z]$',
+            dni
+        ):  
+
+            messages.error(
+                request,
+                'DNI inválido'
+            )          
 
         if User.objects.filter(
             username=username
